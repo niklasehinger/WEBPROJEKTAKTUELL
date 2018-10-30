@@ -1,0 +1,114 @@
+body {
+    font-family: arial, sans-serif;
+    max-width: 200em;
+    background: linear-gradient(#cba, darkslategrey);
+    margin: 0%,auto;
+
+}
+p {
+    color: mediumaquamarine;
+    font-weight: bold;
+}
+
+h1 {
+    color: #fff;
+    text-decoration: underline;
+    background-color: cornflowerblue;
+}
+
+a {
+    color: #cba;
+}
+
+span {
+    color: blue;
+}
+
+h2 {
+    color: salmon;
+    background-color: darkslategrey;
+}
+#Einleitung {
+    color:green;
+    background-color: darkslategrey;
+}
+#Ausleitung {
+    color:rebeccapurple; }
+#Vorwort {
+    color:cornflowerblue; }
+#Einleitung, #Ausleitung {
+    background-color: darkslategrey;
+    text-decoration: underline;
+    color:salmon; }
+
+
+body {
+    font: 12px sans-serif;
+    line-height: 1;
+}
+
+ol li {
+    color: darkslategrey;
+}
+
+li:focus {
+    background-color: red;
+    color: black;
+}
+
+li:hover {
+    background-color: darkslategrey;
+    color: white;
+}
+
+li:active {
+    background-color: cornflowerblue;
+    color: mediumaquamarine;
+}
+a:link {
+    background-color: ghostwhite;
+}
+
+#eins,#zwei,#drei,#vier {
+    width: 150px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top:40px;
+    background:url(https://www.esslinger-zeitung.de/cms_media/module_img/158/79194_1_fullwide_1511201415sd33b.jpg);
+    border: 4px;
+    border-color: mediumaquamarine;
+    border-style: dotted;
+    border-radius: 40px;
+    border-top-right-radius: 2px;
+    border-top-color: #ccbbaa;
+}
+
+
+#eins {
+    position: static;
+    box-shadow: peachpuff;
+}
+
+
+#zwei {
+    position: relative;
+    left: 100px;
+    top: 20px;
+    background-color: salmon;
+    border-color: darkslategrey;
+    border-top-color: salmon;
+}
+
+
+#drei {
+    position: static;
+    box-shadow:10px 10px 10px #333333,
+}
+
+#vier {
+    position: relative;
+    left: 100px;
+    top: 20px;
+    border-color: darkslategrey;
+    border-top-color: salmon;
+    box-shadow: 10px 10px ;}
