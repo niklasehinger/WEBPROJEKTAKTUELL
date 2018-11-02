@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="mars.iuk.hdm-stuttgart.de" uploadOnCheckin="ccb03fd6-4447-4cc2-b121-8d54825ea5be">
-    <option name="myUploadOnCheckinName" value="mars.iuk.hdm-stuttgart.de" />
-  </component>
+  <component name="PublishConfigData" serverName="mars.iuk.hdm-stuttgart.de" persistUploadOnCheckin="false" />
 </project>
