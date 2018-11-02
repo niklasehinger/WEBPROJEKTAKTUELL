@@ -18,7 +18,7 @@ h1 {
     padding: 20px 10px;
 }
 
-<style>
+
  .parallax {
      /* The image used */
      background-image: url("img_parallax.jpg");
@@ -32,7 +32,6 @@ h1 {
      background-repeat: no-repeat;
      background-size: cover;
  }
-</style>
 
 /* Style the header links */
 .header a {
