@@ -1,6 +1,6 @@
 
 <?php
-include 'p'
+include '../passwords/phpmyadmin.php'
 ?>
 
 <!DOCTYPE html>
