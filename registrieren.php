@@ -1,7 +1,8 @@
+
 <?php
-session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=PigeonUser', 'ne025', '');
+include 'p'
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
