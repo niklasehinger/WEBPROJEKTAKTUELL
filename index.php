@@ -1,6 +1,6 @@
 
 <?php
-require '../passwords/db.php';
+require 'db.php';
 session_start();
 ?>
 
@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 ?>
 
 <body>
+
 
     <div class="form">
 
