@@ -5,10 +5,10 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <title>Pigeon1</title>
+    <title>Pigeon</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,25 +17,25 @@ session_start();
 
 </head>
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    if (isset($_POST['login'])) {
-        require 'login.php';
-    }
-
-    elseif (isset($_POST['register'])) {
-        require 'register.php';
-    }
-}
-?>
-
 <body>
 
-
-    <div class="form">
-
+<div class="loginform">
+    <div id="login">
+        <form action="login.php" method="post">
+            <button class="buttonlogin" name="login" /> Log In </button>
+        </form>
     </div>
+</div>
+
+<div class="lregisterform">
+    <div id="login">
+        <form action="register.php" method="post">
+            <button class="buttonregister" name="register" /> Register </button>
+        </form>
+    </div>
+</div>
+
+
 
 
 
