@@ -1,6 +1,6 @@
 
 <?php
-include '../passwords/phpmyadmin.php'
+include 'phpmyadmin.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,11 @@ if(isset($_GET['register'])) {
     $error = false;
     $email = $_POST['email'];
     $passwort = $_POST['passwort'];
-    $passwort2 = $_POST['passwort2'];
+    $passwort2 = $_POST ['passwort2'];
+    $vorname = $_POST ['vorname'];
+    $nachname = $_POST ['nachname'];
+    $geburtsdatum = $_POST['geburtsdatum'];
+    $geschlecht = $_POST['geschlecht'];
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo 'Bitte eine gültige E-Mail-Adresse eingeben<br>';
@@ -34,7 +38,7 @@ if(isset($_GET['register'])) {
 
     //Überprüfe, dass die E-Mail-Adresse noch nicht registriert wurde
     if(!$error) {
-        $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $statement = $pdo->prepare("SELECT * FROM PigeonUser WHERE email = :email");
         $result = $statement->execute(array('email' => $email));
         $user = $statement->fetch();
 
@@ -48,7 +52,7 @@ if(isset($_GET['register'])) {
     if(!$error) {
         $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
 
-        $statement = $pdo->prepare("INSERT INTO users (email, passwort) VALUES (:email, :passwort)");
+        $statement = $pdo->prepare("INSERT INTO PigeonUser (email, passwort) VALUES (:email, :passwort)");
         $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
 
         if($result) {
@@ -65,13 +69,23 @@ if($showFormular) {
 
     <form action="?register=1" method="post">
         E-Mail:<br>
-        <input type="email" size="40" maxlength="250" name="email"><br><br>
+        <input type="email" size="40" maxlength="250" name="email"><br>
+
+        Vorname<br>
+        <input type="text" size="40" maxlength="250" name="vorname"><br>
+
+        Nachname:<br>
+        <input type="text" size="40" maxlength="250" name="nachname"><br>
 
         Dein Passwort:<br>
         <input type="password" size="40"  maxlength="250" name="passwort"><br>
 
         Passwort wiederholen:<br>
-        <input type="password" size="40" maxlength="250" name="passwort2"><br><br>
+        <input type="password" size="40" maxlength="250" name="passwort2"><br>
+
+        Geburtsdatum<br>
+        <input type="date" size="40" maxlength="250" name="geburtsdatum"><br>
+
 
         <input type="submit" value="Abschicken">
     </form>
