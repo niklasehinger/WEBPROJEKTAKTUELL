@@ -1,6 +1,6 @@
 
 <?php
-require 'db.php';
+include 'db.php';
 session_start();
 ?>
 
