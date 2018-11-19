@@ -2,14 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="ccb03fd6-4447-4cc2-b121-8d54825ea5be" name="mars.iuk.hdm-stuttgart.de" url="http://mars.iuk.hdm-stuttgart.de/~ne025">
-<<<<<<< Updated upstream
-        <fileTransfer host="mars.iuk.hdm-stuttgart.de" port="22" rootFolder="/home/ne025/public_html" accessType="SFTP">
-=======
-        <fileTransfer host="mars.iuk.hdm-stuttgart.de" port="22" accessType="SFTP">
->>>>>>> Stashed changes
+      <webServer id="5f025341-66f0-49ce-a263-94ef8a604194" name="mars" url="http://mars.iuk.hdm-stuttgart.de/~ne025">
+        <fileTransfer host="mars.iuk.hdm-stuttgart.de" port="22" rootFolder="/usr/bin" accessType="SFTP">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
           </advancedOptions>
           <option name="port" value="22" />
         </fileTransfer>
