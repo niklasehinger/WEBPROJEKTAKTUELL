@@ -29,8 +29,11 @@
     <li><a href="#" id="button3">Kontaktinformationen</a></li>
     <li><a href="#" id="button3"></a></li>
 
+    <li><a href="#" id="button4">Arbeit und Ausbildung</a></li>
+    <li><a href="#" id="button4"></a></li>
 
-</div>
+
+
 
     <div id = "upload" div style = >
         <form action = "" method = "POST">
@@ -39,7 +42,7 @@
         </form>
     </div>
 
-
+</div>
     <div id="Uebersicht" style ="font-family:'Arial Black'; font-weight: bold; text-align:center;">
         <div class="w3-container w3-teal">
             <h1>Übersicht</h1>
@@ -84,7 +87,7 @@
 </div>
 
 
-<div id="ArbeitundAusbildung" style= "font-family:'Arial Black'; font-weight: bold; text-align:center;">
+<div id="IchanderHdM" style= "font-family:'Arial Black'; font-weight: bold; text-align:center;">
         <h1>Ich an der HdM</h1>
 
 
@@ -179,6 +182,14 @@
                        type="text">
             </div>
 
+            <div class="form-group row">
+                <label for="username" class="col-4 col-form-label">Schule</label>
+                <div class="col-4">
+                    <input id="username" name="username" class="form-control here"
+                           required="required"
+                           type="text">
+                </div>
+
 
 
             <div class="form-group row">
@@ -196,40 +207,9 @@
     </div>
 </div>
 
-<script>
-    $(function () {
-        $('InformationundKommunikation').click(function (){
-            $('#InformationundKommunikation').show ();
-            $('#DruckundMedien').hide ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
-
-    $(function () {
-        $('DruckundMedien').click(function (){
-            $('#InformationundKommunikation').hide ();
-            $('#DruckundMedien').show ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
-
-
-    $(function () {
-        $('ElectronicMedia').click(function (){
-            $('#InformationundKommunikation').hide ();
-            $('#DruckundMedien').hide ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
-</script>
-
-
-
-
-
 
 <div>
-    <div id="Detailsüberdich" div style="font-family:'Arial Black'; font-weight: bold; text-align:center">
+    <div id="Hierfindestdumichauch" div style="font-family:'Arial Black'; font-weight: bold; text-align:center">
             <h1>Hier findest du mich auch:</h1>
 
 
@@ -257,61 +237,49 @@
 
 <script>
 
-    $(function () {
-        $('InformationundKommunikation').click(function (){
-            $('#InformationundKommunikation').show ();
-            $('#DruckundMedien').hide ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
-
-    $(function () {
-        $('DruckundMedien').click(function (){
-            $('#InformationundKommunikation').hide ();
-            $('#DruckundMedien').show ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
-
-
-    $(function () {
-        $('ElectronicMedia').click(function (){
-            $('#InformationundKommunikation').hide ();
-            $('#DruckundMedien').hide ();
-            $('#ElectronicMedia').hide ();
-        })
-    })
 
     $(document).ready (function(){
         $('#ArbeitundAusbildung').hide();
-        $('#Detailsüberdich').hide();
+        $('#IchanderHdM').hide();
         $('#Uebersicht').show();
+        $('#Hierfindestdumichauch').hide();
     });
 
         $(function () {
             $('#button1').click(function () {
+                $('#IchanderHdM').hide();
                 $('#ArbeitundAusbildung').hide();
-                $('#Detailsüberdich').hide();
-                $('#Uebersicht').show();
+                $('#Uebersicht').show ();
+                $('#Hierfindestdumichauch').hide();
             });
         });
 
         $(function () {
             $('#button2').click(function () {
-                $('#ArbeitundAusbildung').show();
-                $('#Detailsüberdich').hide();
+                $('#IchanderHdM').show();
+                $('#ArbeitundAusbildung').hide();
                 $('#Uebersicht').hide();
+                $('#Hierfindestdumichauch').hide();
             });
         });
 
         $(function () {
             $('#button3').click(function () {
-                $('#ArbeitundAusbildung').hide();
-                $('#Detailsüberdich').show();
+                $('#IchanderHdM').hide();
+                $('#ArbeitundAusbildung').show();
                 $('#Uebersicht').hide();
+                $('#Hierfindestdumichauch').hide ();
             });
         });
 
+    $(function () {
+        $('#button4').click(function () {
+            $('#IchanderHdM').hide();
+            $('#ArbeitundAusbildung').hide ();
+            $('#Uebersicht').hide();
+            $('#Hierfindestdumichauch').show();
+        });
+    });
 </script>
 </body>
 </html>
