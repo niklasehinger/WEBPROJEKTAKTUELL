@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="passwords" />
     <orderEntry type="module" module-name="passwords" />
+    <orderEntry type="module" module-name=".idea" />
   </component>
 </module>
