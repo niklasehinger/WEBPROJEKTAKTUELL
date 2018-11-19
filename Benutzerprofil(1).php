@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,13 @@
 
 </head>
 <body>
+
+<?php
+
+
+
+?>
+
 <h1>Bearbeite dein Profil</h1>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
     <h3>Info</h3>
