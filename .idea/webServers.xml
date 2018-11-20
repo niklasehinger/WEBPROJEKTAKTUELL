@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="5f025341-66f0-49ce-a263-94ef8a604194" name="mars" url="http://mars.iuk.hdm-stuttgart.de/~ne025">
-        <fileTransfer host="mars.iuk.hdm-stuttgart.de" port="22" rootFolder="/usr/bin" accessType="SFTP">
+      <webServer id="9638ed6a-4d71-45ce-b8b2-0e026f8cc2a6" name="mars.iuk.hdm-stuttgart.de" url="http://mars.iuk.hdm-stuttgart.de/~ne025">
+        <fileTransfer host="mars.iuk.hdm-stuttgart.de" port="22" rootFolder="/home/ne025/public_html" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
           </advancedOptions>

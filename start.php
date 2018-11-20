@@ -92,7 +92,7 @@ session_start();
 
 <button type="button" id="loginbutton">Login</button>
 
-<form id="login" method="post">
+<form id="login" method="post" action="login.php">
     <div class="input-group">
         <label>Username</label>
         <input type="text" name="username" >
