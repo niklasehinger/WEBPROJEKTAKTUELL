@@ -13,7 +13,7 @@
     <style>
         .parallax {
             /* Hintergrundbild */
-            background-image: url("wald.jpg");
+            background-image: url("./pictures/wald.jpg");
 
             min-height: 300px;
 
