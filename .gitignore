@@ -58,9 +58,6 @@ typings/
 .env
 
 # next.js build output
-.next
-.idea
 db.php
-*.jpg
-*.png
+
 
