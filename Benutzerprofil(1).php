@@ -2,7 +2,7 @@
 session_start();
 $id = $_SESSION['2'];
 
-include_once ('db.php');
+include_once ('passwords/db.php');
 
 ?>
 
@@ -27,6 +27,7 @@ include_once ('db.php');
 </head>
 <div>
     <h1>Bearbeite dein Profil</h1>
+    <form action="ei">  </form>
 
     <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%">
         <h3>Info</h3>
@@ -43,7 +44,7 @@ include_once ('db.php');
     </div>
 
 
-    <div id="upload" div style=>
+    <div id="upload"  style=>
         <form action="" method="POST">
             Bild: <input type="file" name="bild">
             <input type="submit" name="upload" value="upload">

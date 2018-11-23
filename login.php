@@ -1,27 +1,31 @@
 <?php
+
 session_start();
 
+include 'passwords/db.php';
 
 $username = $_POST["username"];
 $passwort = $_POST["passwort"];
-
 $_SESSION["username"] = $username;
 $_SESSION["passwort"] = $passwort;
 
-include './passwords/db.php';
+$options = [
+    'cost' => 12
+];
+$hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
-$pdo = new PDO ($dsn, $dbuser, $dbpass, array('charset'=>'utf8'));
-$sql = "SELECT passwort FROM user WHERE username=:username";
+$pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+$sql = "SELECT passwort FROM users WHERE username=:username";
 $statement = $pdo->prepare($sql);
-$statement->execute(array(":username"=>"$username"));
+$statement->execute(array(":username" => "$username"));
 $row = $statement->fetchObject();
-if ($passwort == $row->passwort) {
+if (password_verify($passwort, $hash)) {
     $_SESSION["log"] = "TRUE";
-    header("Location: start.php");
+    header("Location: index aktuell.php");
 } else {
-    $_SESSION["log"]="FALSE";
-    header("Location: index.html");
+    $_SESSION["log"] = "FALSE";
+    header("Location: errors.php");
 }
-?>
+
 
 

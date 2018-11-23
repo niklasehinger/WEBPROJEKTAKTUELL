@@ -95,11 +95,11 @@ session_start();
 <form id="login" method="post" action="login.php">
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" >
+        <input type="text" name="username" required>
     </div>
     <div class="input-group">
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="login_user">Login</button>
@@ -112,23 +112,23 @@ session_start();
 <form id="register" method="post" action="register.php">
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" >
+        <input type="text" name="username" required>
     </div>
     <div class="input-group">
         <label>Vorname</label>
-        <input type="text" name="vorname" >
+        <input type="text" name="vorname" required>
     </div>
     <div class="input-group">
         <label>Nachname</label>
-        <input type="text" name="nachname" >
+        <input type="text" name="nachname" required>
     </div>
     <div class="input-group">
         <label>Email</label>
-        <input type="email" name="email" >
+        <input type="email" name="email" required>
     </div>
     <div class="input-group">
         <label>Passwort</label>
-        <input type="password" name="passwort">
+        <input type="password" name="passwort" required>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="register_user">Register</button>

@@ -16,32 +16,37 @@ $_SESSION ["nachname"]="$nachname";
 $_SESSION ["email"]="$email";
 $_SESSION ["passwort"]="$passwort";
 
-include ("./passwords/db.php");
+include ("passwords/db.php");
 
-//Überprüfung, ob Kürzel in Datenbank bereits vergeben ist
-$pdo_check = new PDO ($dsn, $dbuser, $dbpass,$option);
-$sql_statement = "SELECT username FROM user WHERE username=:username";
-$statement_check = $pdo_check->prepare($sql_statement);
-$statement_check->execute(array(":username"=>"$username"));
-$row = $statement_check->fetchObject();
-if ($username == $row->username) {
-    session_destroy(); ?>
-    <div class="alert alert-danger" role="alert">
-        <p>Benutzername bereits vergeben. Bitte wählen Sie einen anderen!</p>
-    </div>
+//Passwort hashen
+$options = [
+    'cost' => 5
+];
+$hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
-    <?php
-    //header("Location: ../home/Startseite.php");
-}else{    $_SESSION["log"] = "TRUE";
-    header("Location: index.html");
+//Checken ob Username bereits vergeben ist
+$pdocheck = new PDO($dsn, $dbuser, $dbpass, $option);
+$sql_statement = "SELECT username FROM users WHERE username=:username";
+
+$statementcheck = $pdocheck->prepare($sql_statement);
+$statementcheck -> execute(array(":username" => "$username"));
+
+$row = $statementcheck -> fetchObject();
+
+if ($username == $row->username){
+    session_destroy();
+    header("Location: errors.php");
+}  else {
+
+    //Daten in die Datenbank schreiben
+    $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+    $sql = "INSERT INTO users (username, vorname, nachname, email, passwort) VALUES (?, ?, ?, ?, ?)";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array("$username", "$vorname", "$nachname", "$email", "$hash"));
+    $row = $statement->fetchObject();
+    header("Location: index aktuell.php");
 }
 
-//Daten in die Datenbank schreiben
-$pdo = new PDO($dsn, $dbuser, $dbpass, $option);
-$sql = "INSERT INTO users (username, vorname, nachname, email, passwort) VALUES (?, ?, ?, ?, ?)";
-$statement = $pdo->prepare($sql);
-$statement->execute(array("$username", "$vorname", "$nachname", "$email", "$passwort"));
-$row = $statement->fetchObject();
 ?>
 
 
