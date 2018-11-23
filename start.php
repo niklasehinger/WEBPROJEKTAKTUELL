@@ -16,6 +16,10 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="src/fullclip.min.js"></script>
      <style>
+         body {
+             background-image: url("pictures/workspace.jpg");
+         }
+
          #loginbutton {
              background-color: #2b4046;
              border: none;
@@ -76,7 +80,7 @@ session_start();
              padding: 10px;
              font-size: 15px;
              color: white;
-             background: #5F9EA0;
+             background: #000000;
              border: none;
              border-radius: 5px;
          }
@@ -89,9 +93,10 @@ session_start();
 
 <div class="logo">PIGEON</div>
 
-
+// Buttom, der zum Login führt
 <button type="button" id="loginbutton">Login</button>
 
+// Loginformular
 <form id="login" method="post" action="login.php">
     <div class="input-group">
         <label>Username</label>
@@ -109,6 +114,7 @@ session_start();
     </p>
 </form>
 
+//Registrierungsformular
 <form id="register" method="post" action="register.php">
     <div class="input-group">
         <label>Username</label>
