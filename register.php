@@ -10,11 +10,7 @@ $email = $_POST["email"];
 $passwort = $_POST["passwort"];
 
 
-$_SESSION ["username"]="$username";
-$_SESSION ["vorname"]="$vorname";
-$_SESSION ["nachname"]="$nachname";
-$_SESSION ["email"]="$email";
-$_SESSION ["passwort"]="$passwort";
+$_SESSION ["id"]="$id";
 
 include ("./passwords/db.php");
 
