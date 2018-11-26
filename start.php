@@ -16,6 +16,10 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="src/fullclip.min.js"></script>
      <style>
+         body {
+             background-image: url("pictures/workspace.jpg");
+         }
+
          #loginbutton {
              background-color: #2b4046;
              border: none;
@@ -76,7 +80,7 @@ session_start();
              padding: 10px;
              font-size: 15px;
              color: white;
-             background: #5F9EA0;
+             background: #000000;
              border: none;
              border-radius: 5px;
          }
@@ -89,17 +93,18 @@ session_start();
 
 <div class="logo">PIGEON</div>
 
-
+// Buttom, der zum Login führt
 <button type="button" id="loginbutton">Login</button>
 
+// Loginformular
 <form id="login" method="post" action="login.php">
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" >
+        <input type="text" name="username" required>
     </div>
     <div class="input-group">
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="login_user">Login</button>
@@ -109,26 +114,27 @@ session_start();
     </p>
 </form>
 
+//Registrierungsformular
 <form id="register" method="post" action="register.php">
     <div class="input-group">
         <label>Username</label>
-        <input type="text" name="username" >
+        <input type="text" name="username" required>
     </div>
     <div class="input-group">
         <label>Vorname</label>
-        <input type="text" name="vorname" >
+        <input type="text" name="vorname" required>
     </div>
     <div class="input-group">
         <label>Nachname</label>
-        <input type="text" name="nachname" >
+        <input type="text" name="nachname" required>
     </div>
     <div class="input-group">
         <label>Email</label>
-        <input type="email" name="email" >
+        <input type="email" name="email" required>
     </div>
     <div class="input-group">
         <label>Passwort</label>
-        <input type="password" name="passwort">
+        <input type="password" name="passwort" required>
     </div>
     <div class="input-group">
         <button type="submit" class="btn" name="register_user">Register</button>

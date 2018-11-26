@@ -23,6 +23,7 @@ $websites = $_POST["websites"];
 $sociallinks = $_POST["sociallinks"];
 
 
+include_once ('passwords/db.php');
 
 ?>
 
@@ -54,6 +55,7 @@ $sociallinks = $_POST["sociallinks"];
 
 <div>
     <h1>Bearbeite dein Profil</h1>
+    <form action="ei">  </form>
 
    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%">
             <h3>Info</h3>
@@ -73,6 +75,7 @@ $sociallinks = $_POST["sociallinks"];
 
 
     <div id="upload" div style=>
+    <div id="upload"  style=>
         <form action="" method="POST">
             Bild: <input type="file" name="bild">
             <input type="submit" name="upload" value="upload">
