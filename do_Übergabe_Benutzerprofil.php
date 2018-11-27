@@ -31,7 +31,6 @@ $statement->execute(array( "$vorname", "$nachname", "$email"));
 $row = $statement->fetchObject();
 
 header("Location: Benutzerprofil(1).php");
-
 ?>
 
 

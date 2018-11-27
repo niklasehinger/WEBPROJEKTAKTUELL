@@ -1,8 +1,17 @@
 <?php
 session_start();
+if(!isset($_SESSION['username'])) {
+    die("Bitte erst einloggen"); //Mit die beenden wir den weiteren Scriptablauf
+}
 
+$name = $_SESSION['username'];
+
+echo "Du heißt immer noch: $name
+<a href=\"logout.php\">Logout</a>";
 
 include_once ('./passwords/db.php');
+
+session_start();
 
 
 $fakultät = $_POST["fakultät"];
@@ -18,9 +27,6 @@ $seit = $_POST["seit"];
 
 $websites = $_POST["websites"];
 $sociallinks = $_POST["sociallinks"];
-
-
-include_once ('passwords/db.php');
 
 ?>
 
@@ -49,27 +55,21 @@ include_once ('passwords/db.php');
     ?>
 </header>
 
-
 <div>
     <h1>Bearbeite dein Profil</h1>
-    <form action="ei">  </form>
+    <form action="ei"></form>
 
    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%">
             <h3>Info</h3>
+
             <li><a href="#" class="active" id="button1">Übersicht</a></li>
-            <li>
-                <a href="#" id="button2">Ich an der HdM</a>
-            </li>
+
+            <li><a href="#" id="button2">Ich an der HdM</a></li>
 
             <li><a href="#" id="button3">Arbeit und Ausbildung</a></li>
-            <li><a href="#" id="button3"></a></li>
 
             <li><a href="#" id="button4">Kontaktinformationen</a></li>
-            <li><a href="#" id="button4"></a></li>
         </div>
-
-
-
 
     <div id="upload" div style=>
     <div id="upload"  style=>
@@ -81,7 +81,7 @@ include_once ('passwords/db.php');
 
 
 <h1>Übersicht</h1>
-<form action="do_Übergabe_Benutzerprofil.php" method="post">
+<form action="do_Übergabe_Benutzerprofil.php" id= "uebersicht" method="post">
     <p>Vorname<input type="text" id="vorname" name="vorname"></p>
     <p>Name<input type="text" id="name" name="name"></p>
     <p>E-Mail<input type="text" id="email" name="email"></p>
