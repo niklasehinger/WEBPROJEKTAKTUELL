@@ -1,7 +1,6 @@
 body {
     font-family: arial, sans-serif;
     background: whitesmoke;
-    display: grid;
     padding: 0px;
     margin: 0px;
     grid-template-columns: 10% 80% 10%;

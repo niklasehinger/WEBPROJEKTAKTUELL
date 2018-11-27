@@ -15,79 +15,79 @@ session_start();
     <link rel="stylesheet" href="style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="src/fullclip.min.js"></script>
-     <style>
-         body {
-             background-image: url("pictures/workspace.jpg");
-         }
+    <style>
+        body {
+            background-image: url("pictures/workspace.jpg");
+        }
 
-         #loginbutton {
-             background-color: #2b4046;
-             border: none;
-             color: white;
-             text-align: center;
-             text-decoration: none;
-             font-size: 24px;
-             left: 50%;
-         }
+        #loginbutton {
+            background-color: #2b4046;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+            left: 50%;
+        }
 
-         .logo{
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             font-family:'Arial Black';
-             font-weight: bold;
-             font-size: 15em;
-             text-align: center;
+        .logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family:'Arial Black';
+            font-weight: bold;
+            font-size: 15em;
+            text-align: center;
 
-         }
+        }
 
-         #login {
-             width: 30%;
-             margin: 0px auto;
-             padding: 20px;
-             border: 1px solid #B0C4DE;
-             background: white;
-             border-radius: 0px 0px 10px 10px;
-         }
-
-
-         #register {
-             width: 30%;
-             margin: 0px auto;
-             padding: 20px;
-             border: 1px solid #B0C4DE;
-             background: white;
-             border-radius: 0px 0px 10px 10px;
-         }
-
-         .input-group {
-             margin: 10px 0px 10px 0px;
-         }
-         .input-group label {
-             display: block;
-             text-align: left;
-             margin: 3px;
-         }
-         .input-group input {
-             height: 30px;
-             width: 93%;
-             padding: 5px 10px;
-             font-size: 16px;
-             border-radius: 5px;
-             border: 1px solid gray;
-         }
-         .btn {
-             padding: 10px;
-             font-size: 15px;
-             color: white;
-             background: #000000;
-             border: none;
-             border-radius: 5px;
-         }
+        #login {
+            width: 30%;
+            margin: 0px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
 
 
+        #register {
+            width: 30%;
+            margin: 0px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
 
-     </style>
+        .input-group {
+            margin: 10px 0px 10px 0px;
+        }
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin: 3px;
+        }
+        .input-group input {
+            height: 30px;
+            width: 93%;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        .btn {
+            padding: 10px;
+            font-size: 15px;
+            color: white;
+            background: #000000;
+            border: none;
+            border-radius: 5px;
+        }
+
+
+
+    </style>
 
 </head>
 
@@ -147,8 +147,9 @@ session_start();
 
 <script>
     $(document).ready (function(){
-        $('#login').hide();
+        $('#login').show();
         $('#register').hide();
+        $('#loginbutton').hide();
     });
 
     $(function () {
@@ -182,4 +183,3 @@ session_start();
 </body>
 
 </html>
-

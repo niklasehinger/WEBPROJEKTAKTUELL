@@ -12,93 +12,107 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="src/fullclip.min.js"></script>
-     <style>
-         body {
-             background-image: url("pictures/workspace.jpg");
-         }
+    <style>
+        body {
+            background-image: url("../pictures/workspace.jpg");
+        }
 
-         #loginbutton {
-             background-color: #2b4046;
-             border: none;
-             color: white;
-             text-align: center;
-             text-decoration: none;
-             font-size: 24px;
-             left: 50%;
-         }
+        #loginbutton {
+            background-color: #2b4046;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+            left: 50%;
+        }
 
-         .logo{
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             font-family:'Arial Black';
-             font-weight: bold;
-             font-size: 15em;
-             text-align: center;
+        .logo{
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family:'Arial Black';
+            font-weight: bold;
+            font-size: 15em;
+            text-align: center;
 
-         }
+        }
 
-         #login {
-             width: 30%;
-             margin: 0px auto;
-             padding: 20px;
-             border: 1px solid #B0C4DE;
-             background: white;
-             border-radius: 0px 0px 10px 10px;
-         }
-
-
-         #register {
-             width: 30%;
-             margin: 0px auto;
-             padding: 20px;
-             border: 1px solid #B0C4DE;
-             background: white;
-             border-radius: 0px 0px 10px 10px;
-         }
-
-         .input-group {
-             margin: 10px 0px 10px 0px;
-         }
-         .input-group label {
-             display: block;
-             text-align: left;
-             margin: 3px;
-         }
-         .input-group input {
-             height: 30px;
-             width: 93%;
-             padding: 5px 10px;
-             font-size: 16px;
-             border-radius: 5px;
-             border: 1px solid gray;
-         }
-         .btn {
-             padding: 10px;
-             font-size: 15px;
-             color: white;
-             background: #000000;
-             border: none;
-             border-radius: 5px;
-         }
+        #login {
+            width: 30%;
+            margin: 0px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
 
 
+        #register {
+            width: 30%;
+            margin: 0px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
 
-     </style>
+        .input-group {
+            margin: 10px 0px 10px 0px;
+        }
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin: 3px;
+        }
+        .input-group input {
+            height: 30px;
+            width: 93%;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        .btn {
+            padding: 10px;
+            font-size: 15px;
+            color: white;
+            background: #000000;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .error{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family:'Arial Black';
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+
+        }
+
+
+    </style>
 
 </head>
 
 <body>
 
 <div class="logo">PIGEON</div>
+<div class="error">Der Benutzername ist bereits vergeben. <br>
+    Bitte wähle einen anderen!</div>
+
 
 <button type="button" id="loginbutton">Login</button>
 
 
-<form id="login" method="post" action="phpfiles/login.php">
+<form id="login" method="post" action="../phpfiles/login.php">
     <div class="input-group">
         <label>Username</label>
         <input type="text" name="username" required>
@@ -116,7 +130,7 @@ session_start();
 </form>
 
 
-<form id="register" method="post" action="phpfiles/register.php">
+<form id="register" method="post" action="../phpfiles/register.php">
     <div class="input-group">
         <label>Username</label>
         <input type="text" name="username" required>
@@ -148,7 +162,8 @@ session_start();
 <script>
     $(document).ready (function(){
         $('#login').hide();
-        $('#register').hide();
+        $('#register').show();
+        $('#loginbutton').hide();
     });
 
     $(function () {

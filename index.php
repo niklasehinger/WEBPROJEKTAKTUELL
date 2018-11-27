@@ -1,3 +1,9 @@
+<?php
+session_start();
+include 'passwords/db.php';
+include 'header.html';
+?>
+
 
 <!DOCTYPE html>
 <html lang="de">
@@ -28,19 +34,13 @@
 </head>
 <body>
 
-<header>
-<?php
-include "header.html";
-?>
+<div id="do_post">
+    <form method='post' action='phpfiles/add_post.php'>
+        <textarea  name='post' rows='5' cols='40' wrap=VIRTUAL placeholder="Was machst du gerade?"></textarea>
+        <p><input type='submit' value='submit'/></p>
+    </form>
+</div>
 
-</header>
-
-// Formular zum posten von Nachrichten
-<form method='post' action='add_post.php'>
-    <p>Was machst du gerade?</p>
-    <textarea name='textfeld' rows='5' cols='40' wrap=VIRTUAL></textarea>
-    <p><input type='submit' value='submit'/></p>
-</form>
 
 <div style="color: #fff; text-decoration: underline;" class="parallax">
     <h1> POST 1</h1>

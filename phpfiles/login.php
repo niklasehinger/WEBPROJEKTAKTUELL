@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-
 include 'passwords/db.php';
 
 $username = $_POST["username"];
 $passwort = $_POST["passwort"];
+
 $_SESSION["username"] = $username;
 $_SESSION["passwort"] = $passwort;
 
@@ -14,6 +14,7 @@ $options = [
 ];
 $hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
+
 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
 $sql = "SELECT passwort FROM users WHERE username=:username";
 $statement = $pdo->prepare($sql);
@@ -21,11 +22,13 @@ $statement->execute(array(":username" => "$username"));
 $row = $statement->fetchObject();
 if (password_verify($passwort, $hash)) {
     $_SESSION["log"] = "TRUE";
-    header("Location: index aktuell.php");
+    header("Location: index.php");
 } else {
     $_SESSION["log"] = "FALSE";
-    header("Location: errors.php");
+    header("Location: errors/start errorusername.php");
 }
+
+
 
 
 
