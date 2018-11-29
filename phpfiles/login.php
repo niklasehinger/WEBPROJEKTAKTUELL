@@ -1,13 +1,10 @@
 <?php
 
 session_start();
-include 'passwords/db.php';
+include '../passwords/db.php';
 
 $username = $_POST["username"];
 $passwort = $_POST["passwort"];
-
-$_SESSION["username"] = $username;
-$_SESSION["passwort"] = $passwort;
 
 $options = [
     'cost' => 12
@@ -22,10 +19,10 @@ $statement->execute(array(":username" => "$username"));
 $row = $statement->fetchObject();
 if (password_verify($passwort, $hash)) {
     $_SESSION["log"] = "TRUE";
-    header("Location: index.php");
+    header("Location: ../index.php");
 } else {
     $_SESSION["log"] = "FALSE";
-    header("Location: errors/start errorusername.php");
+    header("Location: ../errors/start errorlogin.php");
 }
 
 
