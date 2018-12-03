@@ -40,7 +40,7 @@ $ergebnis = $statement->execute(array( ':userid'=>$eingeloggt, ':vorname'=>$vorn
 
 
 if($ergebnis) {
-    echo 'Du hast erfolgreich deine Angaben geändert. <a href="Benutzerprofil(1).php">Weiter zum Profil</a>';
+    echo 'Du hast erfolgreich deine Angaben geändert! <a href="Benutzerprofil(1).php">Weiter zum Profil</a>';
 }
 else {
     echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
