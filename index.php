@@ -34,10 +34,10 @@ include 'header.html';
 </head>
 <body>
 
-<div id="do_post">
+<div id="do_post" style="position: center">
     <form method='post' action='phpfiles/add_post.php'>
-        <textarea  name='post' rows='5' cols='40' wrap=VIRTUAL placeholder="Was machst du gerade?"></textarea>
-        <p><input type='submit' value='submit'/></p>
+        <textarea  name='content' rows='2' cols='80' wrap=VIRTUAL placeholder="Was machst du gerade?"></textarea>
+        <p><input type='submit' value='POSTEN' style="position: center"/></p>
     </form>
 </div>
 

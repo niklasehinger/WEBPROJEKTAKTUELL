@@ -13,6 +13,7 @@ $passwort = $_POST["passwort"];
 $_SESSION ["id"]="$id";
 
 include ("passwords/db.php");
+include("../passwords/db.php");
 
 //Passwort hashen
 $options = [
@@ -31,7 +32,7 @@ $row = $statementcheck -> fetchObject();
 
 if ($username == $row->username){
     session_destroy();
-    header("Location: errors.php");
+    header("Location: errors/start errorusername.php");
 }  else {
 
     //Daten in die Datenbank schreiben
@@ -40,12 +41,8 @@ if ($username == $row->username){
     $statement = $pdo->prepare($sql);
     $statement->execute(array("$username", "$vorname", "$nachname", "$email", "$hash"));
     $row = $statement->fetchObject();
-    header("Location: index aktuell.php");
+    $_SESSION["log"] = "TRUE";
+    header("Location: startlogin.php");
 }
 
 ?>
-
-
-
-
-
