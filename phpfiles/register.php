@@ -32,7 +32,7 @@ $row = $statementcheck -> fetchObject();
 
 if ($username == $row->username){
     session_destroy();
-    header("Location: errors/start errorusername.php");
+    header("Location: ../errors/start errorusername.php");
 }  else {
 
     //Daten in die Datenbank schreiben
@@ -42,7 +42,7 @@ if ($username == $row->username){
     $statement->execute(array("$username", "$vorname", "$nachname", "$email", "$hash"));
     $row = $statement->fetchObject();
     $_SESSION["log"] = "TRUE";
-    header("Location: startlogin.php");
+    header("Location: ../startlogin.php");
 }
 
 ?>
