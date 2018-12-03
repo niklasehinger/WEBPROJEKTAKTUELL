@@ -1,8 +1,7 @@
 <?php
 session_start();
-include 'passwords/db.php';
+
 include 'header.html';
-include 'phpfiles/do_post.php';
 ?>
 
 
@@ -41,8 +40,12 @@ include 'phpfiles/do_post.php';
 <div style="color: #fff; text-decoration: underline;" class="parallax">
     <div class="posttext" align="center">
         <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
-            <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea>
+            <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea><br>
             <button type="submit" class="postbutton" name="create_post">posten</button>
+        </form>
+        <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
+            <input type="file" name="file">
+            <button type="submit" class="bildupload" name="create_post">posten</button>
         </form>
     </div>
 </div>
