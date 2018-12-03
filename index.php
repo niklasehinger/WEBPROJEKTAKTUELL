@@ -2,6 +2,7 @@
 session_start();
 include 'passwords/db.php';
 include 'header.html';
+include 'phpfiles/do_post.php';
 ?>
 
 
@@ -38,17 +39,13 @@ include 'header.html';
 
 
 <div style="color: #fff; text-decoration: underline;" class="parallax">
-    <div class="tweet-body" align="center">
-        <form method="post" enctype="multipart/form-data" action="do_post">
-            <textarea class="status" name="status" placeholder="Write your post here!" rows="4" cols="50"></textarea>
+    <div class="posttext" align="center">
+        <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
+            <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea>
             <button type="submit" class="postbutton" name="create_post">posten</button>
         </form>
     </div>
-
 </div>
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
