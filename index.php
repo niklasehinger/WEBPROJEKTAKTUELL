@@ -1,7 +1,13 @@
 <?php
 session_start();
-include 'passwords/db.php';
+if(!isset($_SESSION['username'])) {
+    echo "Fehler";
+    echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
+    die();
+}
+
 include 'header.html';
+include 'passwords/db.php';
 ?>
 
 
@@ -14,7 +20,6 @@ include 'header.html';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" >
-
 
     <style>
         .parallax {
@@ -34,41 +39,29 @@ include 'header.html';
 </head>
 <body>
 
-<div id="do_post" style="position: center">
-    <form method='post' action='phpfiles/add_post.php'>
-        <textarea  name='content' rows='2' cols='80' wrap=VIRTUAL placeholder="Was machst du gerade?"></textarea>
-        <p><input type='submit' value='POSTEN' style="position: center"/></p>
-    </form>
-</div>
-
-
 <div style="color: #fff; text-decoration: underline;" class="parallax">
-    <h1> POST 1</h1>
-    <h2> Daniela Koch</h2>
+    <div class="feed" align="center">
+        <div class="posttext" align="center">
+            <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
+                <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea><br>
+                <button type="submit" class="postbutton" name="create_post">posten</button>
+            </form>
+            <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
+                <input type="file" name="file">
+                <button type="submit" class="bildupload" name="create_post">posten</button>
+            </form>
+        </div>
+    </div>
 </div>
 
-<div style="class=parallax">
-    bt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt
-    justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-    Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-    amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-    clita kasd gubergren, no sea takimata sanctus.
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-    dolores et ea rebum.
-
-    <br>
-    <p>Paragraph</p>
-
-</div>
-
-<div class="post" >
-    <img src="https://thegap.at/wp-content/uploads/converted/galerien/website/2015/03_Maerz/Tauben/14.jpg" alt="Bild mit Tauben">
-
+<div class="postings" align="center" style="background-color: black">
+    <?php
+    $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+    $sql = "SELECT content, author FROM posts";
+    foreach ($pdo->query($sql) as $row) {
+        echo $row['content']." ".$row['author']."<br/><br/>";
+    }
+    ?>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

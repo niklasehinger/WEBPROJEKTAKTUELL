@@ -1,10 +1,13 @@
 <?php
 
 session_start();
+
 include '../passwords/db.php';
 
 $username = $_POST["username"];
 $passwort = $_POST["passwort"];
+
+$_SESSION["username"]="$username";
 
 $options = [
     'cost' => 12
