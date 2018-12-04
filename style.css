@@ -27,8 +27,8 @@ h2 {
     font-weight: bold;
 }
 
-div
-
-#post {
-
+.postings {
+    background-color: cadetblue;
+    font-family: "Arial Black";
+    margin-top: 300px;
 }

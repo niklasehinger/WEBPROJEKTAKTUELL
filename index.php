@@ -2,6 +2,7 @@
 session_start();
 
 include 'header.html';
+include 'passwords/db.php';
 ?>
 
 
@@ -14,7 +15,6 @@ include 'header.html';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" >
-
 
     <style>
         .parallax {
@@ -34,19 +34,27 @@ include 'header.html';
 </head>
 <body>
 
-
-
-
 <div style="color: #fff; text-decoration: underline;" class="parallax">
-    <div class="posttext" align="center">
-        <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
-            <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea><br>
-            <button type="submit" class="postbutton" name="create_post">posten</button>
-        </form>
-        <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
-            <input type="file" name="file">
-            <button type="submit" class="bildupload" name="create_post">posten</button>
-        </form>
+    <div class="feed" align="center">
+        <div class="posttext" align="center">
+            <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
+                <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea><br>
+                <button type="submit" class="postbutton" name="create_post">posten</button>
+            </form>
+            <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
+                <input type="file" name="file">
+                <button type="submit" class="bildupload" name="create_post">posten</button>
+            </form>
+        </div>
+        <div class="postings" align="center" style="background-color: black">
+            <?php
+            $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+            $sql = "SELECT content, author FROM posts";
+            foreach ($pdo->query($sql) as $row) {
+            echo $row['content']." ".$row['author']."<br/><br/>";
+            }
+            ?>
+        </div>
     </div>
 </div>
 
