@@ -1,5 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION['username'])) {
+    echo "Fehler";
+    echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
+    die();
+}
 
 include 'header.html';
 include 'passwords/db.php';
