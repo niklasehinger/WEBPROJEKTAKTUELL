@@ -9,8 +9,6 @@ if(!isset($_SESSION['username'])) {
 
 $name = $_SESSION['username'];
 
-echo "Du heißt immer noch: $name
-<a href=\"logout.php\">Logout</a>";
 
 include_once ('./passwords/db.php');
 
