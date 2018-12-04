@@ -1,8 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-    echo "kuzfk";
-    echo"Bitte zuerst <a href=\"login.php\">einloggen</a>";
+    echo "Fehler";
+    echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
     die();
 }
 
