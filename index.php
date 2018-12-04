@@ -46,16 +46,17 @@ include 'passwords/db.php';
                 <button type="submit" class="bildupload" name="create_post">posten</button>
             </form>
         </div>
-        <div class="postings" align="center" style="background-color: black">
-            <?php
-            $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-            $sql = "SELECT content, author FROM posts";
-            foreach ($pdo->query($sql) as $row) {
-            echo $row['content']." ".$row['author']."<br/><br/>";
-            }
-            ?>
-        </div>
     </div>
+</div>
+
+<div class="postings" align="center" style="background-color: black">
+    <?php
+    $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+    $sql = "SELECT content, author FROM posts";
+    foreach ($pdo->query($sql) as $row) {
+        echo $row['content']." ".$row['author']."<br/><br/>";
+    }
+    ?>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
