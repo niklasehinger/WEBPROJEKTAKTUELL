@@ -145,6 +145,10 @@ session_start();
     </p>
 </form>
 
+<form id="benutzerinfo" method="post" action="">
+
+</form>
+
 <script>
     $(document).ready (function(){
         $('#login').hide();

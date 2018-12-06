@@ -1,54 +1,18 @@
 <?php
-/*session_start();
-if(!isset($_SESSION["angemeldet"]))
-{
-    echo"Bitte zuerst <a href=\"login.html\">einloggen</a>";
-    die();
-}
-else {
-    $eingeloggt = $_SESSION['angemeldet'];
-    echo "Hallo User: ".$eingeloggt;
-}*/
-
-if(isset($_POST["Update"]))
-{
-    $vorname = $_POST["vorname"];
-    $nachname = $_POST["nachname"];
-    $email = $_POST["email"];
-
-    $fakultät = $_POST["fakultät"];
-    $studiengang = $_POST["studiengang"];
-
-    $semester = $_POST["semester"];
-
-    $arbeitgeber = $_POST["arbeitgeber"];
-
-}
-
-else
-{
-    echo"Keine Daten";
-    die();
-}
 
 include '../passwords/db.php';
-$pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+session_start();
 
-$statement = $pdo->prepare("UPDATE users SET vorname=:vorname , nachname=:nachname , email=:email , fakultät=:fakultät , studiengang=:studiengang , semester=:semester , arbeitgeber=:arbeitgeber WHERE id=:userid");
+$post = $_POST["post"];
+$username = $_SESSION["username"];
 
-$ergebnis = $statement->execute(array( ':userid'=>$eingeloggt, ':vorname'=>$vorname , ':nachname'=>$nachname , ':email'=>$email, ':fakultät'=>$fakultät , ':studiengang'=>$studiengang , ':semester'=>$semester , ':arbeitgeber'=>$arbeitgeber  ));
+$pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+$sql = "INSERT INTO posts (author, content) VALUES (?, ?)";
+$statement = $pdo->prepare($sql);
+$statement->execute(array("$username", "$post"));
 
 
-if($ergebnis) {
-    echo 'Du hast erfolgreich deine Angaben geändert! <a href="../Benutzerprofil(1).php">Weiter zum Profil</a>';
-}
-else {
-    echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
-    echo "Datenbank-Fehler:";
-    echo $statement->errorInfo()[2];
-    echo $statement->queryString;
-    die();
-}
+header("Location: ../index.php");
 
 
 
@@ -81,7 +45,7 @@ $statement = $pdo->prepare($sql);
 $statement->execute(array( "$vorname", "$nachname", "$email"));
 $row = $statement->fetchObject();
 
-header("Location: Benutzerprofil(1).php");
+header("Location: Benutzerprofil.php");
 */?><!--
 
 -->

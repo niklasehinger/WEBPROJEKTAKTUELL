@@ -43,7 +43,9 @@ if ($username == $row->username){
     $statement->execute(array("$username", "$vorname", "$nachname", "$email", "$hash"));
     $row = $statement->fetchObject();
     $_SESSION["log"] = "TRUE";
-    header("Location: ../startlogin.php");
+    header("Location: ../startbenutzerinfo.php");
 }
+
+
 
 ?>

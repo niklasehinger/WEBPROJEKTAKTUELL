@@ -1,28 +1,12 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
+
 if(!isset($_SESSION['username'])) {
-    echo "Fehler";
+    echo "Fehler!!   ";
     echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
     die();
 }
-
-
-$name = $_SESSION['username'];
-
-
-include_once ('./passwords/db.php');
-
-session_start();
-
-
-$fakultät = $_POST["fakultät"];
-$studiengang = $_POST["studiengang"];
-
-$semester = $_POST["semester"];
-
-$arbeitgeber = $_POST["arbeitgeber"];
-
-
 
 ?>
 
@@ -30,18 +14,48 @@ $arbeitgeber = $_POST["arbeitgeber"];
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Mein Profil</title>
+</head>
 
+<head>
+    <meta charset="UTF-8">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="src/fullclip.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Mein Profil</title>
-
 </head>
+
+<body>
+<form action = "do_Übergabe_Benutzerprofil.php" method="post">
+    <p>Vorname:</p>
+    <input type="text" size="40" maxlength="250" name="vorname" placeholder="Gebe deinen Vornamen ein"><br><br>
+
+    <p>Nachname:</p>
+    <input type="text" size="40" maxlength="250" name="nachname" placeholder="Gebe deinen Nachnamen ein"><br><br>
+
+    <p>Email:</p>
+    <input type="text" size="40" maxlength="250" name="email" placeholder="Gebe deine E-Mail ein"><br><br>
+
+    <p>Fakultät:</p>
+    <input type="text" size="40" maxlength="250" name="fakultät" placeholder="Gebe deine Fakultät ein"><br><br>
+
+    <p>Studiengang:</p>
+    <input type="password" size="40"  maxlength="250" name="studiengang" placeholder="Gebe deinen Studiengang ein"><br>
+
+    <p>Semester:</p>
+    <input type="password" size="40"  maxlength="250" name="semester" placeholder="Gebe dein aktuelles Semester an"><br>
+
+    <p>Arbeitgeber:</p>
+    <input type="password" size="40"  maxlength="250" name="arbeitgeber" placeholder="Hast du einen Werkstudentenjob?"><br>
+
+
+
+    <input type="submit" name="Update" value="Ändere deine Angaben">
 
 <!--<body>-->
 <!---->
