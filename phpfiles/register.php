@@ -8,6 +8,7 @@ $vorname = $_POST["vorname"];
 $nachname = $_POST["nachname"];
 $email = $_POST["email"];
 $passwort = $_POST["passwort"];
+$studiengang = $_POST["studiengang"];
 
 
 $_SESSION ["username"]="$username";
@@ -38,12 +39,12 @@ if ($username == $row->username){
 
     //Daten in die Datenbank schreiben
     $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
-    $sql = "INSERT INTO users (username, vorname, nachname, email, passwort) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users (username, vorname, nachname, studiengang, email, passwort) VALUES (?, ?, ?, ?, ?, ?)";
     $statement = $pdo->prepare($sql);
-    $statement->execute(array("$username", "$vorname", "$nachname", "$email", "$hash"));
+    $statement->execute(array("$username", "$vorname", "$nachname", "$studiengang", "$email", "$hash"));
     $row = $statement->fetchObject();
     $_SESSION["log"] = "TRUE";
-    header("Location: ../startbenutzerinfo.php");
+    header("Location: ../startlogin.php");
 }
 
 

@@ -95,7 +95,10 @@ session_start();
 
 <div class="logo">PIGEON</div>
 
-<button type="button" id="loginbutton">Login</button>
+<div align="center">
+    <button type="button" id="loginbutton">Login</button>
+</div>
+
 
 
 <form id="login" method="post" action="phpfiles/login.php">
@@ -110,9 +113,9 @@ session_start();
     <div class="input-group">
         <button type="submit" class="btn" name="login_user">Login</button>
     </div>
-    <p>
-        Not yet a member? <button type="button" id="registerfirst">Registrieren</button>
-    </p>
+
+    <p align="center">Not yet a member? <button type="button" id="registerfirst">Registrieren</button></p>
+
 </form>
 
 
@@ -130,6 +133,10 @@ session_start();
         <input type="text" name="nachname" required>
     </div>
     <div class="input-group">
+        <label>Studiengang</label>
+        <input type="text" name="studiengang" required>
+    </div>
+    <div class="input-group">
         <label>Email</label>
         <input type="email" name="email" required>
     </div>
@@ -145,9 +152,7 @@ session_start();
     </p>
 </form>
 
-<form id="benutzerinfo" method="post" action="">
 
-</form>
 
 <script>
     $(document).ready (function(){
