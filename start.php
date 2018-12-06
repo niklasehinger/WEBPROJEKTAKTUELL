@@ -21,7 +21,7 @@ session_start();
          }
 
          #loginbutton {
-             background-color: #2b4046;
+             background-color: #204638;
              border: none;
              color: white;
              text-align: center;
@@ -38,6 +38,7 @@ session_start();
              font-weight: bold;
              font-size: 15em;
              text-align: center;
+             color: white;
 
          }
 
@@ -164,6 +165,7 @@ session_start();
         $('#loginbutton').click(function () {
             $('#login').show();
             $('#loginbutton').hide();
+
         });
     });
 

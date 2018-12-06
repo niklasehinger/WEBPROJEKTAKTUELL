@@ -53,6 +53,30 @@ if(!isset($_SESSION['username'])) {
             echo "E-Mail: ".$row['email']."<br /><br />";
         }
         ?>
+        <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png"> Text</button>
+    </div>
+    <div class="update_benutzerprofil">
+        <form class="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
+            <div class="input-group">
+                <label>Vorname</label>
+                <input type="text" name="vorname" required>
+            </div>
+            <div class="input-group">
+                <label>Nachname</label>
+                <input type="password" name="nachname" required>
+            </div>
+            <div class="input-group">
+                <label>Studiengang</label>
+                <input type="password" name="studiengang" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="password" name="email" required>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn" name="update_user">Update</button>
+            </div>
+        </form>
     </div>
 </div>
 
