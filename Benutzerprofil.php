@@ -96,7 +96,7 @@ if(!isset($_SESSION['username'])) {
         <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
             <div class="input-group">
                 <label>Vorname</label>
-                <input type="text" name="vorname" required>
+                <input type="text" name="vorname">
             </div>
             <div class="input-group">
                 <label>Nachname</label>
