@@ -69,7 +69,7 @@ if(!isset($_SESSION['username'])) {
 
 <body>
 
-<div id="container" align="center" style="width:100%; height:100%">
+<div id="main" align="center" style="width:100%; height:100%">
    <h1> Deine Daten</h1>
     <div class="profil" align="center" style="width: 50%; height: 50%; background-color: #2b4046; color: white; margin-top: 10px; padding-top: 5px">
         <?php

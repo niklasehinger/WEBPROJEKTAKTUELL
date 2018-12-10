@@ -11,6 +11,7 @@ $passwort = $_POST["passwort"];
 $studiengang = $_POST["studiengang"];
 
 
+
 $_SESSION ["username"]="$username";
 
 
