@@ -39,6 +39,7 @@ include 'passwords/db.php';
             float: left;
             margin-top: 50px;
             padding-top: 10px;
+            height: auto;
         }
 
 
@@ -68,7 +69,7 @@ include 'passwords/db.php';
         <div class="content" style="background-color: #2b4046; width: 30%">
             <?php
             $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-            $sql = "SELECT author FROM posts";
+            $sql = "SELECT author FROM posts ORDER BY created_on DESC";
             foreach ($pdo->query($sql) as $row) {
                 echo $row['author']."<br/><br/>";
             }
@@ -77,7 +78,7 @@ include 'passwords/db.php';
         <div class="content" style="background-color: white; width: 70%">
                 <?php
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "SELECT content FROM posts";
+                $sql = "SELECT content FROM posts ORDER BY created_on DESC";
                 foreach ($pdo->query($sql) as $row) {
                     echo $row['content']."<br/><br/>";
                 }
