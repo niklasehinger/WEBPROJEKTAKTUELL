@@ -58,13 +58,13 @@ include 'passwords/db.php';
             </form>
             <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
                 <input type="file" name="file">
-                <button type="submit" class="bildupload" name="create_post">posten</button>
+                <button type="submit" class="bildupload" name="upload">Upload</button>
             </form>
         </div>
     </div>
 </div>
 
-<div id="main" align="center" style="width:100%; height:100%; float:">
+<div id="container" align="center" style="width:100%; height:100%; float:">
     <div class="postings" align="center" style="background-color: black; width: 50%; height: 50%">
         <div class="content" style="background-color: #2b4046; width: 30%">
             <?php

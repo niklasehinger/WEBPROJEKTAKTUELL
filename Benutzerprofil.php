@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Mein Profil</title>
@@ -32,7 +32,6 @@ if(!isset($_SESSION['username'])) {
 
     <style>
         #update_benutzerprofil {
-            width: 30%;
             margin: 40px auto;
             padding: 20px;
             border: 1px solid #B0C4DE;
@@ -41,7 +40,6 @@ if(!isset($_SESSION['username'])) {
         }
 
         #upload_probilbild{
-            width: 30%;
             margin: 40px auto;
             padding: 20px;
             border: 1px solid #B0C4DE;
@@ -116,11 +114,34 @@ if(!isset($_SESSION['username'])) {
             <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="updatebutton" align="top"></button>
         </div>
         <div class="user" style="width: 40%">
-            <p>Profilbild</p>
+            <?php
+            $username = $_SESSION['username'];
+                echo $username."<br>";
+
+                $file_pointer = '../profilbild/'.$username . '.jpg';
+                    if (file_exists($file_pointer)) {
+                        echo "<div id=\"imagePreview2\" style=\"background-image: url(../profilbild/" . $username . ".jpg);\">
+                    </div>";
+                    } else {
+                        echo "<div id=\"imagePreview2\" style=\"background-image: url(../profilbild/root.jpg);\">
+                    </div>";
+                    }
+                    ?>
+
+
+            $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+            $statement = $pdo->prepare("SELECT pb FROM users WHERE username = '$username'");
+            $statement->execute(array($username));
+            while($row = $statement->fetch()) {
+                echo $row['pb'];
+            }
+
+            ?> <br>
+
             <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="upload_bild" align="top"></button>
         </div>
 
-    </div>
+    <div style="margin-top: 300px">
         <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
             <div class="input-group">
                 <label>Vorname</label>
@@ -144,9 +165,11 @@ if(!isset($_SESSION['username'])) {
         </form>
     </div>
 
-    <div>
-        <form id="upload_probilbild" method="post" action="">
-            Lade ein Profilbild hoch:  <input type="file" name="profilbild">Upload
+    <div style="margin-top: 300px">
+
+        <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+            <input type="file" name="profilbild">
+            <input type="submit" name="upload" value="Profilbild aktualisieren">
         </form>
     </div>
 
