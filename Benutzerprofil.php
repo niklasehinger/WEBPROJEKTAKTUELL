@@ -118,25 +118,16 @@ if(!isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
                 echo $username."<br>";
 
-                $file_pointer = '../profilbild/'.$username . '.jpg';
+               $file_pointer = 'profilbild/'.$username.'.jpg';
                     if (file_exists($file_pointer)) {
-                        echo "<div id=\"imagePreview2\" style=\"background-image: url(../profilbild/" . $username . ".jpg);\">
+                        echo "<div id=imagePreview style=\"background-image: url('profilbild/'.$username.'.jpg);\">
                     </div>";
                     } else {
-                        echo "<div id=\"imagePreview2\" style=\"background-image: url(../profilbild/root.jpg);\">
+                        echo "<div id=imagePreview style=\"background-image: url(profilbild/root.jpg);\">
                     </div>";
                     }
                     ?>
 
-
-            $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
-            $statement = $pdo->prepare("SELECT pb FROM users WHERE username = '$username'");
-            $statement->execute(array($username));
-            while($row = $statement->fetch()) {
-                echo $row['pb'];
-            }
-
-            ?> <br>
 
             <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="upload_bild" align="top"></button>
         </div>
