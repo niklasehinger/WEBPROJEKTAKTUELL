@@ -2,14 +2,6 @@
 session_start();
 include 'passwords/db.php';
 include 'header.html';
-include 'phpfiles/do_upload_profilbild.php';
-
-if(!isset($_SESSION['username'])) {
-    echo "Fehler!!   ";
-    echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
-    die();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +109,8 @@ if(!isset($_SESSION['username'])) {
         <div class="user" style="width: 40%">
             <?php
             $username = $_SESSION['username'];
-                echo $username."<br>";
+            echo $username."<br>";
+
 
 ?>
 
@@ -152,7 +145,8 @@ if(!isset($_SESSION['username'])) {
 
         <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
             <input type="file" name="profilbild">
-            <input type="submit" name="upload" value="Profilbild aktualisieren">
+            <button type="submit" name="submit">Profilbild aktualisieren</button>
+
         </form>
     </div>
 

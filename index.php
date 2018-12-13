@@ -77,10 +77,14 @@ include 'passwords/db.php';
         </div>
         <div class="content" style="background-color: white; width: 70%">
                 <?php
+
+
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "SELECT content FROM posts ORDER BY created_on DESC";
+                $sql = "SELECT content, bild_id FROM posts ORDER BY created_on DESC";
                 foreach ($pdo->query($sql) as $row) {
                     echo $row['content']."<br/><br/>";
+                    echo "<a href=/'$bild_id'><img class='bild' src='/$bild_id'>";
+
                 }
                 ?>
         </div>
