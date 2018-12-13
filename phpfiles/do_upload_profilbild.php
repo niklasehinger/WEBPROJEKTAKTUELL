@@ -24,7 +24,7 @@ if ($_POST['upload']){
 
 }
 
-
+header("Location: ../Benutzerprofil.php");
 
 
 

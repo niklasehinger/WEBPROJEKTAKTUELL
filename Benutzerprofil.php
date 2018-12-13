@@ -2,6 +2,7 @@
 session_start();
 include 'passwords/db.php';
 include 'header.html';
+include 'phpfiles/do_upload_profilbild.php';
 
 if(!isset($_SESSION['username'])) {
     echo "Fehler!!   ";
@@ -118,16 +119,7 @@ if(!isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
                 echo $username."<br>";
 
-               $file_pointer = 'profilbild/'.$username.'.jpg';
-                    if (file_exists($file_pointer)) {
-                        echo "<div id=imagePreview style=\"background-image: url('profilbild/'.$username.'.jpg);\">
-                    </div>";
-                    } else {
-                        echo "<div id=imagePreview style=\"background-image: url(profilbild/root.jpg);\">
-                    </div>";
-                    }
-                    ?>
-
+?>
 
             <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="upload_bild" align="top"></button>
         </div>
