@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="mars" persistUploadOnCheckin="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="mars (project level)" uploadOnCheckin="1d897328-abdd-488d-a31e-cc87190138e7">
     <serverData>
-      <paths name="mars">
+      <paths name="mars (project level)">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
@@ -10,6 +10,7 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="mars (project level)" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
