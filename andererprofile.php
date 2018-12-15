@@ -1,7 +1,10 @@
 <?php
+
 session_start();
 include 'passwords/db.php';
 include 'header.html';
+$username = $_GET ["username"];
+$_SESSION ["username"] = $username;
 ?>
 
 <!DOCTYPE html>
@@ -82,74 +85,72 @@ include 'header.html';
 </head>
 
 <body>
-
-<div id="main" align="center" style="width:100%; height:100%">
-   <h1> Deine Daten</h1>
-    <div class="profil" align="center">
-        <div id="main" align="center" style="width:100%; height:100%">
-            <?php
+<?php
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
-            if(isset($_SESSION['username'])) {
-                $username = $_SESSION['username'];
-            } else {
-                die("Bitte zuerst einloggen!!");
-            }
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = '$username'");
             $statement->execute(array($username));
             while($row = $statement->fetch()) {
-                echo $row['vorname']." ".$row['nachname']."<br /><br />";
-                echo "Studiengang: ".$row['studiengang']."<br /><br />";
-                echo "E-Mail: ".$row['email']."<br /><br />";
-                echo "Fakultät: ".$row['fakultaet']."<br /><br />";
-                echo "Meine Beiträge: ".$row['beitraege']."<br /><br />";
+
+?>
+<div id="main" align="center" style="width:100%; height:100%">
+    <h1><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Daten</h1>
+    <div class="profil" align="center">
+        <div id="main" align="center" style="width:100%; height:100%">
+            <?php
+            echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
+            echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
+            echo "E-Mail: " . $row['email'] . "<br /><br />";
+            echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
+            echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />";
             }
             ?>
-            <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="updatebutton" align="top"></button>
+            <button type="submit" class="btn btn-secondary">Folgen</button>
         </div>
 
 
-        <div style="margin-top: 300px">
-            <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
-                <div class="input-group">
-                    <label>Vorname</label>
-                    <input type="text" name="vorname">
-                </div>
-                <div class="input-group">
-                    <label>Nachname</label>
-                    <input type="text" name="nachname" required>
-                </div>
-                <div class="input-group">
-                    <label>Studiengang</label>
-                    <input type="text" name="studiengang" required>
-                </div>
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label>Fakultät</label>
-                    <input type="text" name="fakultaet" required>
-                </div>
-                <div class="input-group">
-                    <label>Meine Beiträge</label>
-                    <input type="text" name="beitraege" required>
-                </div>
-                <div class="input-group">
-                    <button type="submit" class="btn" name="update_user">Update</button>
-                </div>
-            </form>
-        </div>
+    <div style="margin-top: 300px">
+        <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
+            <div class="input-group">
+                <label>Vorname</label>
+                <input type="text" name="vorname">
+            </div>
+            <div class="input-group">
+                <label>Nachname</label>
+                <input type="text" name="nachname" required>
+            </div>
+            <div class="input-group">
+                <label>Studiengang</label>
+                <input type="text" name="studiengang" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Fakultät</label>
+                <input type="text" name="fakultaet" required>
+            </div>
+            <div class="input-group">
+                <label>s Beiträge</label>
+                <input type="text" name="beitraege" required>
+            </div>
 
-        <div style="margin-top: 300px">
+            <div class="input-group">
+                <button type="submit" class="btn" name="update_user">Update</button>
+            </div>
+        </form>
+    </div>
 
-            <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-                <input type="file" name="profilbild">
-                <button type="submit" name="submit">Profilbild aktualisieren</button>
+    <div style="margin-top: 300px">
 
-            </form>
-        </div>
+        <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+            <input type="file" name="profilbild">
+            <button type="submit" name="submit">Profilbild aktualisieren</button>
+
+        </form>
+    </div>
 
 
 
