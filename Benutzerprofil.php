@@ -87,6 +87,8 @@ if(!isset($_SESSION['username'])) {
             echo $row['vorname']." ".$row['nachname']."<br /><br />";
             echo "Studiengang: ".$row['studiengang']."<br /><br />";
             echo "E-Mail: ".$row['email']."<br /><br />";
+            echo "Fakultät: ".$row['fakultaet']."<br /><br />";
+            echo "Meine Beiträge: ".$row['beitraege']."<br /><br />";
         }
         ?>
         <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="updatebutton" align="top"></button>
@@ -109,6 +111,14 @@ if(!isset($_SESSION['username'])) {
             <div class="input-group">
                 <label>Email</label>
                 <input type="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Fakultät</label>
+                <input type="text" name="fakultaet" required>
+            </div>
+            <div class="input-group">
+                <label>Meine Beiträge</label>
+                <input type="text" name="beitraege" required>
             </div>
             <div class="input-group">
                 <button type="submit" class="btn" name="update_user">Update</button>

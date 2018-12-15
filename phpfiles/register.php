@@ -14,7 +14,7 @@ $studiengang = $_POST["studiengang"];
 $_SESSION ["username"]="$username";
 
 
-include ("passwords/db.php");
+
 include("../passwords/db.php");
 
 //Passwort hashen
