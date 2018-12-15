@@ -120,7 +120,7 @@ session_start();
 </form>
 
 
-<form id="register" method="post" action="phpfiles/register.php">
+<form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
     <div class="input-group">
         <label>Username</label>
         <input type="text" name="username" required>

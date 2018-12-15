@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0d2ed2f-873c-4dfb-8262-6a9b413a2ff2" name="Default" comment="anderes profil">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpfiles/do_upload_profilbild.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profilbild/root.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Benutzerprofil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzerprofil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errors/start errorusername.php" beforeDir="false" afterPath="$PROJECT_DIR$/errors/start errorusername.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpfiles/do_bildupload.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpfiles/do_bildupload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpfiles/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpfiles/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phpfiles/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpfiles/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.php" beforeDir="false" afterPath="$PROJECT_DIR$/start.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,22 +20,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phpfiles/do_update_Benutzerprofil.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Benutzerprofil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="149" column="7" lean-forward="true" selection-end-line="149" selection-end-column="7" />
+            <state relative-caret-position="76">
+              <caret line="105" column="69" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
               <folding>
-                <marker date="1544697058547" expanded="true" signature="2511:2559" ph="SELECT * FRO... users" />
+                <element signature="e#2410#2441#0#HTML" expanded="true" />
+                <element signature="e#2534#2552#0#HTML" expanded="true" />
+                <element signature="e#3410#3428#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,9 +84,9 @@
         <option value="$PROJECT_DIR$/Benutzerprofil(1).php" />
         <option value="$PROJECT_DIR$/start.php" />
         <option value="$PROJECT_DIR$/phpfiles/register.php" />
-        <option value="$PROJECT_DIR$/Benutzerprofil.php" />
         <option value="$PROJECT_DIR$/anderesprofil.php" />
         <option value="$PROJECT_DIR$/phpfiles/do_update_Benutzerprofil.php" />
+        <option value="$PROJECT_DIR$/Benutzerprofil.php" />
       </list>
     </option>
   </component>
@@ -211,7 +218,7 @@
       <workItem from="1544622299215" duration="16000" />
       <workItem from="1544622366232" duration="1694000" />
       <workItem from="1544696134333" duration="1948000" />
-      <workItem from="1544875269415" duration="3762000" />
+      <workItem from="1544875269415" duration="4066000" />
     </task>
     <task id="LOCAL-00001" summary="benutzerprofil">
       <created>1542644040710</created>
@@ -287,7 +294,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107721000" />
+    <option name="totallyTimeSpent" value="108025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -410,23 +417,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Benutzerprofil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="149" column="7" lean-forward="true" selection-end-line="149" selection-end-column="7" />
-          <folding>
-            <marker date="1544697058547" expanded="true" signature="2511:2559" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anderesprofil.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/phpfiles/do_update_Benutzerprofil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Benutzerprofil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="105" column="69" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
+          <folding>
+            <element signature="e#2410#2441#0#HTML" expanded="true" />
+            <element signature="e#2534#2552#0#HTML" expanded="true" />
+            <element signature="e#3410#3428#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

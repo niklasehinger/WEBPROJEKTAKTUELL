@@ -1,8 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-    echo "Fehler";
-    echo"Bitte zuerst <a href=\"start.php\">einloggen</a>";
+    echo"Bitte zuerst <a href='start.php'>einloggen</a>";
     die();
 }
 
@@ -22,11 +21,13 @@ include 'passwords/db.php';
     <link rel="stylesheet" href="style.css" >
 
     <style>
+
+
         .parallax {
             /* Hintergrundbild */
             background-image: url("./pictures/wald.jpg");
 
-            min-height: 300px;
+            min-height: 200px;
 
             background-attachment: fixed;
             background-position: center;
@@ -34,9 +35,14 @@ include 'passwords/db.php';
             background-size: cover;
         }
 
-        .#container{
-            background-image: url("pictures/workspace.jpg");
+        .content{
+            float: left;
+            margin-top: 50px;
+            padding-top: 10px;
+            height: auto;
         }
+
+
     </style>
 
     <title>Pigeon inc.</title>
@@ -52,21 +58,36 @@ include 'passwords/db.php';
             </form>
             <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
                 <input type="file" name="file">
-                <button type="submit" class="bildupload" name="create_post">posten</button>
+                <button type="submit" class="bildupload" name="upload">Upload</button>
             </form>
         </div>
     </div>
 </div>
 
-<div id="container" style="width:100%; height:100%">
-    <div class="postings" align="center" style="background-color: black">
-        <?php
-        $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-        $sql = "SELECT content, author FROM posts";
-        foreach ($pdo->query($sql) as $row) {
-            echo $row['content']." ".$row['author']."<br/><br/>";
-        }
-        ?>
+<div id="container" align="center" style="width:100%; height:100%; float:">
+    <div class="postings" align="center" style="background-color: black; width: 50%; height: 50%">
+        <div class="content" style="background-color: #2b4046; width: 30%">
+            <?php
+            $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+            $sql = "SELECT author FROM posts ORDER BY created_on DESC";
+            foreach ($pdo->query($sql) as $row) {
+                echo $row['author']."<br/><br/>";
+            }
+            ?>
+        </div>
+        <div class="content" style="background-color: white; width: 70%">
+                <?php
+
+
+                $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+                $sql = "SELECT content, bild_id FROM posts ORDER BY created_on DESC";
+                foreach ($pdo->query($sql) as $row) {
+                    echo $row['content']."<br/><br/>";
+                    echo "<a href=/'$bild_id'><img class='bild' src='/$bild_id'>";
+
+                }
+                ?>
+        </div>
     </div>
 </div>
 
