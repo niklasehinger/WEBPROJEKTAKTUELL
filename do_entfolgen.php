@@ -6,8 +6,8 @@ $username = $_SESSION ["username"]; //hole den nutzernamen von der person, die e
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
-$statement = $pdo->prepare("INSERT INTO following (username, usernameandere) VALUES (?,?)");
-$statement->execute(array("$username","$usernameandere"));
+$statement = $pdo->prepare("DELETE FROM following WHERE usernameandere=:usernameandere AND username=:username");
+$statement->execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
 
 header ("Location: andererprofile.php?usernameandere=$usernameandere");
 

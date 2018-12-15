@@ -3,8 +3,9 @@
 session_start();
 include 'passwords/db.php';
 include 'header.html';
-$username = $_GET ["username"];
-$_SESSION ["username"] = $username;
+$usernameandere = $_GET ["usernameandere"];
+$username = $_SESSION ["username"];
+$_SESSION ["usernameandere"] = $usernameandere;
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ $_SESSION ["username"] = $username;
             border-radius: 0px 0px 10px 10px;
         }
 
-        #upload_probilbild{
+        #upload_probilbild {
             margin: 40px auto;
             padding: 20px;
             border: 1px solid #B0C4DE;
@@ -46,11 +47,13 @@ $_SESSION ["username"] = $username;
         .input-group {
             margin: 10px 0px 10px 0px;
         }
+
         .input-group label {
             display: block;
             text-align: left;
             margin: 3px;
         }
+
         .input-group input {
             height: 30px;
             width: 93%;
@@ -59,6 +62,7 @@ $_SESSION ["username"] = $username;
             border-radius: 5px;
             border: 1px solid gray;
         }
+
         .btn {
             padding: 10px;
             font-size: 15px;
@@ -68,7 +72,7 @@ $_SESSION ["username"] = $username;
             border-radius: 5px;
         }
 
-        .profil{
+        .profil {
             width: 50%;
             height: 50%;
             background-color: #2b4046;
@@ -77,7 +81,7 @@ $_SESSION ["username"] = $username;
             padding-top: 5px
         }
 
-        .user{
+        .user {
             float: right;
             background-color: #2b4046;
         }
@@ -86,12 +90,12 @@ $_SESSION ["username"] = $username;
 
 <body>
 <?php
-            $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+$pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
 
-            $statement = $pdo->prepare("SELECT * FROM users WHERE username = '$username'");
-            $statement->execute(array($username));
-            while($row = $statement->fetch()) {
+$statement = $pdo->prepare("SELECT * FROM users WHERE username = '$usernameandere'");
+$statement->execute(array($usernameandere));
+while ($row = $statement->fetch()) {
 
 ?>
 <div id="main" align="center" style="width:100%; height:100%">
@@ -104,60 +108,70 @@ $_SESSION ["username"] = $username;
             echo "E-Mail: " . $row['email'] . "<br /><br />";
             echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
             echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />";
+}
+
+            $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+            $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
+            $row = $statement->fetch();
+            if ($usernameandere == $row['usernameandere']){
+                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Entfolgen</button>";
+            }
+            else {
+                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Folgen</button>";
             }
             ?>
-            <button type="submit" class="btn btn-secondary">Folgen</button>
+
+
         </div>
 
 
-    <div style="margin-top: 300px">
-        <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
-            <div class="input-group">
-                <label>Vorname</label>
-                <input type="text" name="vorname">
-            </div>
-            <div class="input-group">
-                <label>Nachname</label>
-                <input type="text" name="nachname" required>
-            </div>
-            <div class="input-group">
-                <label>Studiengang</label>
-                <input type="text" name="studiengang" required>
-            </div>
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="input-group">
-                <label>Fakultät</label>
-                <input type="text" name="fakultaet" required>
-            </div>
-            <div class="input-group">
-                <label>s Beiträge</label>
-                <input type="text" name="beitraege" required>
-            </div>
+        <div style="margin-top: 300px">
+            <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
+                <div class="input-group">
+                    <label>Vorname</label>
+                    <input type="text" name="vorname">
+                </div>
+                <div class="input-group">
+                    <label>Nachname</label>
+                    <input type="text" name="nachname" required>
+                </div>
+                <div class="input-group">
+                    <label>Studiengang</label>
+                    <input type="text" name="studiengang" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>Fakultät</label>
+                    <input type="text" name="fakultaet" required>
+                </div>
+                <div class="input-group">
+                    <label>s Beiträge</label>
+                    <input type="text" name="beitraege" required>
+                </div>
 
-            <div class="input-group">
-                <button type="submit" class="btn" name="update_user">Update</button>
-            </div>
-        </form>
-    </div>
+                <div class="input-group">
+                    <button type="submit" class="btn" name="update_user">Update</button>
+                </div>
+            </form>
+        </div>
 
-    <div style="margin-top: 300px">
+        <div style="margin-top: 300px">
 
-        <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-            <input type="file" name="profilbild">
-            <button type="submit" name="submit">Profilbild aktualisieren</button>
+            <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php"
+                  enctype="multipart/form-data">
+                <input type="file" name="profilbild">
+                <button type="submit" name="submit">Profilbild aktualisieren</button>
 
-        </form>
-    </div>
-
-
+            </form>
+        </div>
 
 
 </body>
 <script>
-    $(document).ready (function(){
+    $(document).ready(function () {
         $('#update_benutzerprofil').hide();
         $('#upload_probilbild').hide();
     });
@@ -177,6 +191,8 @@ $_SESSION ["username"] = $username;
 
         });
     });
+
+
 
 
 </script>
