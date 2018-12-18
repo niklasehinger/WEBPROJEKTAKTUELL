@@ -6,7 +6,7 @@ include '../passwords/db.php';
 
 
 if (isset($_POST['submit'])); {
-    $profilbild = $_FILES['file'];
+
 
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
@@ -26,13 +26,13 @@ if (isset($_POST['submit'])); {
                 $fileDestination = '/home/ne025/public_html/bildupload/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
-
                 $author = $_SESSION['username'];
+                $content = $_POST['text'];
                 $bild_id = $fileNameNew;
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "INSERT INTO posts (author, bild_id) VALUES (?, ?)";
+                $sql = "INSERT INTO posts (author, bild_id, content) VALUES (?, ?, ?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute(array("$author", "$bild_id"));
+                $statement->execute(array("$author", "$bild_id", "$content"));
 
 
                 header("Location: ../index.php?uploadsuccess");

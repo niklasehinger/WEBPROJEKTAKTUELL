@@ -51,14 +51,17 @@ include 'passwords/db.php';
 
 <div style="color: #fff; text-decoration: underline;" class="parallax">
     <div class="feed" align="center">
-        <div class="posttext" align="center">
-            <form method="post" enctype="multipart/form-data" action="phpfiles/do_post.php">
-                <textarea class="status" name="post" placeholder="Write your post here!" rows="4" cols="50"></textarea><br>
-                <button type="submit" class="postbutton" name="create_post">posten</button>
-            </form>
-            <form method="post" enctype="multipart/form-data" action="phpfiles/do_bildupload.php">
-                <input type="file" name="file">
-                <button type="submit" class="bildupload" name="upload">Upload</button>
+        <div class="create_post" align="center">
+            <form method="post" action="phpfiles/do_bildupload.php" enctype="multipart/form-data">
+                    <div>
+                        <input type="file" name="post">
+                    </div>
+                    <div>
+                        <textarea name="text" cols="40" rows="4" placeholder="Was geht ab?"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" name="upload" value="Post">
+                    </div>
             </form>
         </div>
     </div>
@@ -77,7 +80,6 @@ include 'passwords/db.php';
         </div>
         <div class="content" style="background-color: white; width: 70%">
                 <?php
-
 
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
                 $sql = "SELECT content, bild_id FROM posts ORDER BY created_on DESC";
