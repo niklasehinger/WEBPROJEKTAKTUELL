@@ -68,30 +68,34 @@ include 'passwords/db.php';
 </div>
 
 <div id="container" align="center" style="width:100%; height:100%; float:">
-    <div class="postings" align="center" style="background-color: black; width: 50%; height: 50%">
-        <div class="content" style="background-color: #2b4046; width: 30%">
-            <?php
-            $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-            $sql = "SELECT author FROM posts ORDER BY created_on DESC";
-            foreach ($pdo->query($sql) as $row) {
-                echo $row['author']."<br/><br/>";
-            }
-            ?>
-        </div>
-        <div class="content" style="background-color: white; width: 70%">
+
+
                 <?php
 
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "SELECT content, bild_id FROM posts ORDER BY created_on DESC";
-                foreach ($pdo->query($sql) as $row) {
-                    echo $row['content']."<br/><br/>";
-                    echo "<a href=/'$bild_id'><img class='bild' src='/$bild_id'>";
+                $sql = "SELECT * FROM posts ORDER BY created_on DESC";
+                $query = $pdo->prepare($sql);
+                $query -> execute();
+
+                $bildlink = $row['bild_id'];
+                while ($row = $query->fetch()){
+
+                    echo "<div class=\"postings\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
+                    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%\">";
+                    echo "<a>".$row['author']."</a>";
+                    echo "</div>";
+                    echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
+                    echo "<a>".$row['content']."</a>";
+                    echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink'>";
+                    echo "</div>";
+                    echo "</div>";
 
                 }
+
                 ?>
-        </div>
-    </div>
 </div>
+
+
 
 
 

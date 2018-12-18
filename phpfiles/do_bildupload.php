@@ -7,12 +7,16 @@ include '../passwords/db.php';
 
 if (isset($_POST['submit'])); {
 
+    $author = $_SESSION['username'];
+
 
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
     $fileSize = $_FILES['file']['size'];
     $fileError = $_FILES['file']['error'];
     $fileType = $_FILES['file']['type'];
+
+
 
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
@@ -26,13 +30,11 @@ if (isset($_POST['submit'])); {
                 $fileDestination = '/home/ne025/public_html/bildupload/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
-                $author = $_SESSION['username'];
-                $content = $_POST['text'];
                 $bild_id = $fileNameNew;
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "INSERT INTO posts (author, bild_id, content) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO posts (author, bild_id) VALUES (?, ?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute(array("$author", "$bild_id", "$content"));
+                $statement->execute(array("$author", "$bild_id"));
 
 
                 header("Location: ../index.php?uploadsuccess");
