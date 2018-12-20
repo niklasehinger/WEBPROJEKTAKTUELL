@@ -45,23 +45,16 @@ include 'passwords/db.php';
 
     </style>
 
-    <title>Pigeon inc.</title>
+    <title>Pigeon</title>
 </head>
 <body>
 
 <div style="color: #fff; text-decoration: underline;" class="parallax">
     <div class="feed" align="center">
         <div class="create_post" align="center">
-            <form method="post" action="phpfiles/do_bildupload.php" enctype="multipart/form-data">
-                    <div>
-                        <input type="file" name="post">
-                    </div>
-                    <div>
-                        <textarea name="text" cols="40" rows="4" placeholder="Was geht ab?"></textarea>
-                    </div>
-                    <div>
-                        <input type="submit" name="upload" value="Post">
-                    </div>
+            <form action="phpfiles/do_post.php" method="post">
+                <textarea placeholder="Was geht ab?" name="post" style="margin-top: 30px" cols="50" rows="4"></textarea> <br>
+                <input type="submit" value="Posten" name="submit">
             </form>
         </div>
     </div>

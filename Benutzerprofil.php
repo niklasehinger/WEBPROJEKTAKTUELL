@@ -107,7 +107,7 @@ include 'header.html';
 
         <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="updatebutton" align="top"></button>
 
-<div style="margin-top: 300px">
+<div style="margin-top: 100px">
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
         <div class="input-group">
             <label>Vorname</label>
