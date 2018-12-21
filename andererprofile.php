@@ -107,7 +107,19 @@ while ($row = $statement->fetch()) {
             echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
             echo "E-Mail: " . $row['email'] . "<br /><br />";
             echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
-            echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />";
+            echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />"; }
+            ?>
+
+            <p>
+                <?php
+                $statement = $pdo->prepare("SELECT * FROM posts WHERE author = '$usernameandere'");
+                $statement->execute(array($usernameandere));
+                while ($row = $statement->fetch()) {
+                    echo $row['content'] . " <br /><br />";
+                }
+                ?>
+            </p>
+
 }
 
             $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");

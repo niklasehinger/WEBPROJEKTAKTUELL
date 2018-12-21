@@ -74,10 +74,6 @@ include 'header.html';
             padding-top: 5px
         }
 
-        .user{
-            float: right;
-            background-color: #2b4046;
-        }
     </style>
 </head>
 
@@ -104,9 +100,21 @@ include 'header.html';
                 echo "Fakultät: ".$row['fakultaet']."<br /><br />";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "</div>";
-                echo "Meine Beiträge: ".$row['beitraege']."<br /><br />";
+                echo "Meine Beiträge: <br /><br />";
             }
             ?>
+             <p>
+                <?php
+
+                $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+                $statement = $pdo->prepare("SELECT * FROM posts WHERE author = :username");
+                $statement->execute(array(":username"=>"$username"));
+                while ($row = $statement->fetch()) {
+                    echo $row['content'] . " <br /><br />";
+                }
+                ?>
+             </p>
+
 </div>
 
 
