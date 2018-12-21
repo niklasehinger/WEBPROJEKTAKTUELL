@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 if(!isset($_SESSION['username'])) {
     echo"Bitte zuerst <a href='start.php'>einloggen</a>";
     die();
@@ -22,6 +24,9 @@ include 'passwords/db.php';
 
     <style>
 
+        div .content{
+            height: max-content;
+        }
 
         .parallax {
             /* Hintergrundbild */
@@ -56,6 +61,11 @@ include 'passwords/db.php';
                 <textarea placeholder="Was geht ab?" name="post" style="margin-top: 30px" cols="50" rows="4"></textarea> <br>
                 <input type="submit" value="Posten" name="submit">
             </form>
+            <br>
+            <form action="phpfiles/do_bildupload.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" style="margin-bottom: 10px">
+                <input type="submit" value="Bild posten" name="submit">
+            </form>
         </div>
     </div>
 </div>
@@ -70,15 +80,20 @@ include 'passwords/db.php';
                 $query = $pdo->prepare($sql);
                 $query -> execute();
 
-                $bildlink = $row['bild_id'];
+
+
+
+
+
                 while ($row = $query->fetch()){
+                    $bildlink = $row['bild_id'];
 
                     echo "<div class=\"postings\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
-                    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%\">";
+                    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
                     echo "<a>".$row['author']."</a>";
                     echo "</div>";
                     echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
-                    echo "<a>".$row['content']."</a>";
+                    echo "<a>".$row['content']."</a>"."</br>";
                     echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink'>";
                     echo "</div>";
                     echo "</div>";
@@ -86,6 +101,7 @@ include 'passwords/db.php';
                 }
 
                 ?>
+
 </div>
 
 

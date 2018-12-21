@@ -83,29 +83,33 @@ include 'header.html';
 
 <body>
 
-<div id="main" align="center" style="width:100%; height:100%">
+<div id="container" align="center" style="width:100%; height:100%">
             <?php
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
             if(isset($_SESSION['username'])) {
                 $username = $_SESSION['username'];
             } else {
-                die("Bitte zuerst einloggen!!");
+                echo"Bitte zuerst <a href='start.php'>einloggen</a>";
+                die();
             }
 
-            $statement = $pdo->prepare("SELECT * FROM users WHERE username = '$username'");
-            $statement->execute(array($username));
+            $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+            $statement->execute(array(":username"=>"$username"));
             while($row = $statement->fetch()) {
+                echo "<div class=\"profil\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
                 echo "E-Mail: ".$row['email']."<br /><br />";
                 echo "Fakultät: ".$row['fakultaet']."<br /><br />";
+                echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
+                echo "</div>";
                 echo "Meine Beiträge: ".$row['beitraege']."<br /><br />";
             }
             ?>
 </div>
 
-        <button type="submit"><img src="pictures/icons/cogwheel-setting-2.png" id="updatebutton" align="top"></button>
+
 
 <div style="margin-top: 100px">
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
