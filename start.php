@@ -21,8 +21,10 @@ session_start();
          }
 
          #loginbutton {
-             background-color: #204638;
-             border: none;
+             background-color: #0068ff;
+             padding-top: 5px;
+             border: 5px;
+             border-radius: 20px;
              color: white;
              text-align: center;
              text-decoration: none;
@@ -30,16 +32,10 @@ session_start();
              left: 50%;
          }
 
-         .logo{
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             font-family:'Arial Black';
-             font-weight: bold;
-             font-size: 15em;
-             text-align: center;
-             color: white;
-
+         #logo{
+             width: 100%;
+             height: auto;
+             align: center;
          }
 
          #login {
@@ -94,7 +90,9 @@ session_start();
 
 <body>
 
-<div class="logo">PIGEON</div>
+<div id="logo" >
+    <img src="Logos/Logo-Blau.png" alt="Logo">
+</div>
 
 <div align="center">
     <button type="button" id="loginbutton">Login</button>
