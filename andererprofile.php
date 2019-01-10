@@ -120,8 +120,8 @@ while ($row = $statement->fetch()) {
                 ?>
             </p>
 
-}
 
+            <?
             $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
             $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
             $row = $statement->fetch();
@@ -132,8 +132,6 @@ while ($row = $statement->fetch()) {
                 echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Folgen</button>";
             }
             ?>
-
-
         </div>
 
 
