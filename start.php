@@ -142,24 +142,6 @@ body {
     </div>
 </div>
 
-
-<!--<div class="container "
-<div class="jumbotron" align="center">
-    <form class="form-inline" id="login" method="post" action="phpfiles/login.php">
-        <div class="input-group ">
-            <input type="text" name="username" class="form-control" size="50" placeholder="Username" required><br />
-        </div>
-        <div class="input-group">
-            <input type="password" name="password" class="form-control" size="50" placeholder="Passwort" required>
-        </div><br>
-        <div class="input-group ">
-            <button type="submit" class="loginbutton" name="login_user">Login</button>
-        </div>
-        <p class="margin" align="center">Noch nicht eingeloggt? <br><button class="loginbutton" type="button" id="loginbutton" >Registrieren</button></p>
-    </form>
-</div>
-</div>-->
-
 <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
     <div class="input-group">
         <label>Username</label>
