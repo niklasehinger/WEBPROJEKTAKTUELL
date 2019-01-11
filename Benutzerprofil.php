@@ -80,6 +80,7 @@ include 'header.html';
 <body>
 
 <div id="container" align="center" style="width:100%; height:100%">
+
             <?php
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
@@ -90,6 +91,7 @@ include 'header.html';
                 die();
             }
 
+
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
             while($row = $statement->fetch()) {
@@ -99,6 +101,7 @@ include 'header.html';
                 echo "E-Mail: ".$row['email']."<br /><br />";
                 echo "Fakultät: ".$row['fakultaet']."<br /><br />";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
+                echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
                 echo "Meine Beiträge: <br /><br />";
             }
