@@ -71,37 +71,40 @@ include 'passwords/db.php';
 </div>
 
 <div id="container" align="center" style="width:100%; height:100%; float:">
-
-
-                <?php
-
-                $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "SELECT * FROM posts ORDER BY created_on DESC";
-                $query = $pdo->prepare($sql);
-                $query -> execute();
+    <div id="feed" align="center" style="width: 50%; height: 50%;">
 
 
 
+        <?php
+
+        $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+        $sql = "SELECT * FROM posts ORDER BY created_on DESC";
+        $query = $pdo->prepare($sql);
+        $query -> execute();
 
 
 
-                while ($row = $query->fetch()){
-                    $bildlink = $row['bild_id'];
 
-                    echo "<div class=\"postings\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
-                    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
-                    echo "<a>".$row['author']."</a>";
-                    echo "</div>";
-                    echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
-                    echo "<a>".$row['content']."</a>"."</br>";
-                    echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink'>";
-                    echo "</div>";
-                    echo "</div>";
 
-                }
 
-                ?>
+        while ($row = $query->fetch()){
+            $bildlink = $row['bild_id'];
 
+            echo "<div class=\"postings\" align=\"center\" style=\"background-color: black;\">";
+            echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
+            echo "<a>".$row['author']."</a>";
+            echo "</div>";
+            echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
+            echo "<a>".$row['content']."</a>"."</br>";
+            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'";
+            echo "</div>";
+            echo "</div>";
+
+        }
+
+        ?>
+
+    </div>
 </div>
 
 
