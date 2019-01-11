@@ -1,12 +1,8 @@
-body {
+.body {
     font-family: arial, sans-serif;
     background: whitesmoke;
-    padding: 0px;
-    margin: 0px;
-    grid-template-columns: 10% 80% 10%;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-
 }
+
 
 header {
     background: #F1F3F4;
