@@ -15,6 +15,37 @@ session_start();
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
 
+        body {
+            font: 20px Roboto, sans-serif;
+            background-color: white;
+        }
+
+        .jumbotron {
+            background-color: whitesmoke;
+        }
+
+        .logo {
+            padding: 30px;
+        }
+
+        .loginbutton {
+            background-color: transparent;
+            padding: 7px;
+            border: none;
+            color: #0068ff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .loginbutton:hover {
+            border-radius: 5px;
+            background-color: #0068ff;
+            color: whitesmoke;
+        }
+
+        .margin {
+            margin: 60px;
+        }
+
      </style>
 </head>
 
