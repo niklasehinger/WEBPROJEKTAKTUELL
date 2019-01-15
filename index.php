@@ -97,7 +97,7 @@ include 'passwords/db.php';
             echo "</div>";
             echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
             echo "<a>".$row['content']."</a>"."</br>";
-            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'";
+            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'>";
             echo "</div>";
             echo "</div>";
 
