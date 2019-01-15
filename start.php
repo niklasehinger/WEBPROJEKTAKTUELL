@@ -39,6 +39,7 @@ session_start();
         .loginbutton:hover {
             border-radius: 5px;
             background-color: #0068ff;
+            text-decoration: none;
             color: whitesmoke;
         }
 
@@ -54,9 +55,9 @@ session_start();
 
 <div class="container">
      <div class="jumbotron margin" align="center">
-         <div class="container text-center">
+         <div class="container">
              <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
-             <form class="form-inline" id="login" method="post" action="phpfiles/login.php">
+             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
                  <div class="input-group ">
                      <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>
                  </div>
@@ -67,50 +68,46 @@ session_start();
                      <button type="submit" class="loginbutton" name="login_user">Login</button>
                  </div>
              </form>
-             <a type="button" id="loginbutton" class="loginbutton btn btn-default btn-lg">Login</a>
+             <a type="button" id="loginbutton" class="loginbutton">Login</a>
          </div>
 
-         <form
-         <p class="margin" align="center">Neu hier? <br> <button class="register" type="button" id="registerfirst">Registrieren</button> </p>
+         <p class="margin" align="center" id="neuhier">Neu hier?</p>
+         <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
+
+
+         <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
+             <div class="input-group">
+                 <label>Username</label>
+                 <input type="text" name="username" required>
+             </div>
+             <div class="input-group">
+                 <label>Vorname</label>
+                 <input type="text" name="vorname" required>
+             </div>
+             <div class="input-group">
+                 <label>Nachname</label>
+                 <input type="text" name="nachname" required>
+             </div>
+             <div class="input-group">
+                 <label>Studiengang</label>
+                 <input type="text" name="studiengang" required>
+             </div>
+             <div class="input-group">
+                 <label>Email</label>
+                 <input type="email" name="email" required>
+             </div>
+             <div class="input-group">
+                 <label>Passwort</label>
+                 <input type="password" name="passwort" required>
+             </div>
+             <div class="input-group">
+                 <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
+             </div>
+                 Bereits registriert? <button class="loginbutton" type="button" id="signup" >Login</button>
          </form>
-    </div>
+
+     </div>
 </div>
-
-
-
-<form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" required>
-    </div>
-    <div class="input-group">
-        <label>Vorname</label>
-        <input type="text" name="vorname" required>
-    </div>
-    <div class="input-group">
-        <label>Nachname</label>
-        <input type="text" name="nachname" required>
-    </div>
-    <div class="input-group">
-        <label>Studiengang</label>
-        <input type="text" name="studiengang" required>
-    </div>
-    <div class="input-group">
-        <label>Email</label>
-        <input type="email" name="email" required>
-    </div>
-    <div class="input-group">
-        <label>Passwort</label>
-        <input type="password" name="passwort" required>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn" name="register_user">Register</button>
-    </div>
-    <p>
-        Bereits registriert? <button type="button" id="signup" >Login</button>
-    </p>
-</form>
-
 
 
 <script>
@@ -129,8 +126,10 @@ session_start();
 
     $(function () {
         $('#registerfirst').click(function () {
-            $('#login').hide();
+            $('#loginbutton').hide();
             $('#register').show();
+            $('#neuhier').hide();
+            $('#registerfirst').hide();
         });
     });
 
@@ -140,7 +139,6 @@ session_start();
             $('#register').hide();
         });
     });
-
 
 
 </script>
