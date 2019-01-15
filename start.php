@@ -56,24 +56,27 @@ session_start();
      <div class="jumbotron margin" align="center">
          <div class="container text-center">
              <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
+             <form class="form-inline" id="login" method="post" action="phpfiles/login.php">
+                 <div class="input-group ">
+                     <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>
+                 </div>
+                 <div class="input-group">
+                     <input type="password" name="password" class="form-control" size="10" placeholder="Passwort" required>
+                 </div>
+                 <div class="input-group ">
+                     <button type="submit" class="loginbutton" name="login_user">Login</button>
+                 </div>
+             </form>
              <a type="button" id="loginbutton" class="loginbutton btn btn-default btn-lg">Login</a>
          </div>
-    <form class="form-inline" id="login" method="post" action="phpfiles/login.php">
-        <div class="input-group ">
-            <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-            <input type="password" name="password" class="form-control" size="10" placeholder="Passwort" required>
-        </div>
-        <div class="input-group ">
-        <button type="submit" class="loginbutton" name="login_user">Login</button>
-        </div>
-    </form>
+
          <form
-         <p class="margin" align="center">Neu hier? <br><button class="loginbutton" type="button" id="loginbutton" >Registrieren</button></p>
+         <p class="margin" align="center">Neu hier? <br> <button class="register" type="button" id="registerfirst">Registrieren</button> </p>
          </form>
     </div>
 </div>
+
+
 
 <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
     <div class="input-group">
