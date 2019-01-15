@@ -16,6 +16,7 @@ include 'header.html';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+/*
         #update_benutzerprofil {
             margin: 40px auto;
             padding: 20px;
@@ -65,6 +66,7 @@ include 'header.html';
             margin-top: 10px;
             padding-top: 5px
         }
+*/
 
     </style>
 </head>
