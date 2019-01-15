@@ -2,18 +2,19 @@
 include '../passwords/db.php';
 session_start();
 
+
 if (isset($_POST['submit'])); {
 
 
     $file = $_FILES['profilbild'];
-    $user = $_SESSION['username'];
+    $username = $_SESSION['username'];
 
 
-    $fileName = $_FILES['file']['name'];
-    $fileTmpName = $_FILES['file']['tmp_name'];
-    $fileSize = $_FILES['file']['size'];
-    $fileError = $_FILES['file']['error'];
-    $fileType = $_FILES['file']['type'];
+    $fileName = $_FILES['profilbild']['name'];
+    $fileTmpName = $_FILES['profilbild']['tmp_name'];
+    $fileSize = $_FILES['profilbild']['size'];
+    $fileError = $_FILES['profilbild']['error'];
+    $fileType = $_FILES['profilbild']['type'];
 
 
 
@@ -26,7 +27,7 @@ if (isset($_POST['submit'])); {
         if ($fileError === 0){
             if ($fileSize < 5000000) {
                 $fileNameNew = uniqid('', true).".". $fileActualExt;
-                $fileDestination = '/home/ne025/public_html/profilbild/'.$fileNameNew;
+                $fileDestination = '/home/ne025/public_html/profilbild/'.$username;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
                 $bild_id = $fileNameNew;
@@ -46,7 +47,6 @@ if (isset($_POST['submit'])); {
     } else {echo "Dateiformat nicht akzeptiert!";}
 
 }
-
 
 
 
