@@ -92,10 +92,18 @@ include 'header.html';
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
+            $query = $pdo->prepare($sql);
+            $query -> execute();
+
             while($row = $statement->fetch()) {
+                $bildlink = $row['pb'];
+
                 echo "<div class=\"profil\" align=\"center\" >";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
+                echo "<div class=\"profilbild\" align=\"center\" >";
+                echo "<img class='pb' src='profilbild/$bildlink'><br>";
+                echo "</div>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
@@ -114,11 +122,16 @@ include 'header.html';
                     echo $row['content'] . " <br /><br />";
                 }
                 ?>
-
-
 </div>
 
+<div>
+    <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+        Profilbild aktualisieren: <input type="file" name="profilbild">
+        <input type="submit" name="submit" value="Upload">
+    </form>
+</div>
 
+<br><br>
 
 <div>
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
@@ -140,14 +153,7 @@ include 'header.html';
     </form>
 </div>
 
-<div style="margin-top: 300px">
 
-    <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-        <input type="file" name="profilbild">
-        <button type="submit" name="submit">Profilbild aktualisieren</button>
-
-    </form>
-</div>
 
 
 
