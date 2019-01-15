@@ -27,17 +27,17 @@ if (isset($_POST['submit'])); {
         if ($fileError === 0){
             if ($fileSize < 5000000) {
                 $fileNameNew = uniqid('', true).".". $fileActualExt;
-                $fileDestination = '/home/ne025/public_html/profilbild/'.$username;
+                $fileDestination = '/home/ne025/public_html/profilbild/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
                 $bild_id = $fileNameNew;
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "INSERT INTO posts (author, bild_id) VALUES (?, ?)";
+                $sql = "INSERT INTO pb (username, pb) VALUES (?, ?)";
                 $statement = $pdo->prepare($sql);
-                $statement->execute(array("$author", "$bild_id"));
+                $statement->execute(array("$username", "$bild_id"));
 
 
-                header("Location: ../index.php?uploadsuccess");
+                header("Location: ../Benutzerprofil.php?uploadsuccess");
 
 
             } else {echo "Die Datei ist zu groß!";}
