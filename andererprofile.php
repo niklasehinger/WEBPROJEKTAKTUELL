@@ -109,20 +109,23 @@ while ($row = $statement->fetch()) {
             echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
             echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />"; }
             ?>
+        </div>
+        <?php
+        $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+        $statement = $pdo->prepare("SELECT * FROM posts WHERE author = '$usernameandere'");
+        $statement->execute(array($usernameandere));
+        while ($row = $statement->fetch()) {
+            echo $row['content'] . " <br /><br />";
+        }
+        ?>
+    </div>
 
-            <p>
-                <?php
-                $statement = $pdo->prepare("SELECT * FROM posts WHERE author = '$usernameandere'");
-                $statement->execute(array($usernameandere));
-                while ($row = $statement->fetch()) {
-                    echo $row['content'] . " <br /><br />";
-                }
-                ?>
-            </p>
+
 
 <p>
-    <?
-    $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+    <?php
+    $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
+    $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username");
     $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
     $row = $statement->fetch();
     if ($usernameandere == $row['usernameandere']){
@@ -134,10 +137,9 @@ while ($row = $statement->fetch()) {
     ?>
 </p>
 
-        </div>
 
 
-        <div style="margin-top: 300px">
+       <div style="margin-top: 300px">
             <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
                 <div class="input-group">
                     <label>Vorname</label>
