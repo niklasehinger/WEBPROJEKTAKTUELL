@@ -68,7 +68,7 @@ include 'header.html';
 
 
 
-<div style="margin-top: 100px">
+<div>
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
         <div class="input-group">
             <label>Vorname</label>
