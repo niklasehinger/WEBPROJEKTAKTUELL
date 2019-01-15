@@ -120,18 +120,20 @@ while ($row = $statement->fetch()) {
                 ?>
             </p>
 
+<p>
+    <?
+    $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+    $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
+    $row = $statement->fetch();
+    if ($usernameandere == $row['usernameandere']){
+        echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Entfolgen</button>";
+    }
+    else {
+        echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Folgen</button>";
+    }
+    ?>
+</p>
 
-            <?
-            $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
-            $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
-            $row = $statement->fetch();
-            if ($usernameandere == $row['usernameandere']){
-                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Entfolgen</button>";
-            }
-            else {
-                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Folgen</button>";
-            }
-            ?>
         </div>
 
 
