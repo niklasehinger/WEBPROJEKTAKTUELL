@@ -15,65 +15,18 @@ include 'header.html';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        #update_benutzerprofil {
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
 
-        #upload_probilbild{
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        .input-group {
-            margin: 10px 0px 10px 0px;
-        }
-        .input-group label {
-            display: block;
-            text-align: left;
-            margin: 3px;
-        }
-        .input-group input {
-            height: 30px;
-            width: 93%;
-            padding: 5px 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid gray;
-        }
-        .btn {
-            padding: 10px;
-            font-size: 15px;
-            color: white;
-            background: #000000;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .profil{
-            width: 50%;
-            height: 50%;
-            background-color: #2b4046;
-            color: white;
-            margin-top: 10px;
-            padding-top: 5px
-        }
-
-    </style>
 </head>
 
 <body>
 
-<div id="container" align="center" style="width:100%; height:100%">
+
+
+
+<div id="container" align="center">
 
             <?php
+
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
             if(isset($_SESSION['username'])) {
@@ -83,21 +36,29 @@ include 'header.html';
                 die();
             }
 
+           /* $statement = $pdo->prepare("SELECT pb FROM pb WHERE username = :username");
+            $statement->execute(array(":username"=>"$username"));
+
+            $bildlink = $row['pb'];
+
+            echo "<a href='profilbild/$bildlink'><img class='bild' src='profilbild/$bildlink' style='max-width: 100%'; height='auto'";*/
+
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
             while($row = $statement->fetch()) {
-                echo "<div class=\"profil\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
+                echo "<div class=\"profil\" align=\"center\" >";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
                 echo "E-Mail: ".$row['email']."<br /><br />";
-                echo "Fakultät: ".$row['fakultaet']."<br /><br />";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
                 echo "Meine Beiträge: <br /><br />";
             }
+
             ?>
+
              <p>
                 <?php
 
