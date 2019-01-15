@@ -36,13 +36,6 @@ include 'header.html';
                 die();
             }
 
-           /* $statement = $pdo->prepare("SELECT pb FROM pb WHERE username = :username");
-            $statement->execute(array(":username"=>"$username"));
-
-            $bildlink = $row['pb'];
-
-            echo "<a href='profilbild/$bildlink'><img class='bild' src='profilbild/$bildlink' style='max-width: 100%'; height='auto'";*/
-
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
@@ -59,7 +52,7 @@ include 'header.html';
 
             ?>
 
-             <p>
+
                 <?php
 
                 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
@@ -69,7 +62,7 @@ include 'header.html';
                     echo $row['content'] . " <br /><br />";
                 }
                 ?>
-             </p>
+
 
 </div>
 

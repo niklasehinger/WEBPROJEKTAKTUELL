@@ -121,7 +121,7 @@ while ($row = $statement->fetch()) {
             </p>
 
 
-            <?
+            <?php
             $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
             $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
             $row = $statement->fetch();
