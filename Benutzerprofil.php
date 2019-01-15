@@ -96,7 +96,6 @@ include 'header.html';
                 echo "<div class=\"profil\" align=\"center\" >";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
-                echo "E-Mail: ".$row['email']."<br /><br />";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
@@ -134,10 +133,6 @@ include 'header.html';
         <div class="input-group">
             <label>Studiengang</label>
             <input type="text" name="studiengang" required>
-        </div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" required>
         </div>
         <div class="input-group">
             <button type="submit" class="btn" name="update_user">Update</button>

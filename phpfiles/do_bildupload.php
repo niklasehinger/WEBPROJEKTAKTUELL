@@ -46,7 +46,7 @@ if (isset($_POST['submit'])); {
 
         } else {echo "Die Datei konnte nicht hochgeladen werden!";}
 
-    } else {echo "Dateiformat nicht akzeptiert!";}
+    } else {echo "Keine oder fehlerhafte Datei!";}
 
 }
 
