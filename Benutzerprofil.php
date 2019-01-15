@@ -73,9 +73,13 @@ include 'header.html';
 
 <body>
 
-<div id="container" align="center" style="width:100%; height:100%">
+
+
+
+<div id="container" align="center">
 
             <?php
+
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
             if(isset($_SESSION['username'])) {
@@ -85,21 +89,29 @@ include 'header.html';
                 die();
             }
 
+           /* $statement = $pdo->prepare("SELECT pb FROM pb WHERE username = :username");
+            $statement->execute(array(":username"=>"$username"));
+
+            $bildlink = $row['pb'];
+
+            echo "<a href='profilbild/$bildlink'><img class='bild' src='profilbild/$bildlink' style='max-width: 100%'; height='auto'";*/
+
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
             while($row = $statement->fetch()) {
-                echo "<div class=\"profil\" align=\"center\" style=\"background-color: black; width: 50%; height: 50%\">";
+                echo "<div class=\"profil\" align=\"center\" >";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
                 echo "E-Mail: ".$row['email']."<br /><br />";
-                echo "Fakultät: ".$row['fakultaet']."<br /><br />";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
                 echo "Meine Beiträge: <br /><br />";
             }
+
             ?>
+
              <p>
                 <?php
 
