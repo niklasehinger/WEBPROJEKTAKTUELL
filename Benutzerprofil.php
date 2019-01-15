@@ -5,7 +5,7 @@ include 'header.html';
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Mein Profil</title>
     <meta charset="utf-8">
