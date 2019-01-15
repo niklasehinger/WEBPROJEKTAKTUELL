@@ -121,7 +121,7 @@ include 'header.html';
 
 
 
-<div style="margin-top: 100px">
+<div>
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
         <div class="input-group">
             <label>Vorname</label>
@@ -138,10 +138,6 @@ include 'header.html';
         <div class="input-group">
             <label>Email</label>
             <input type="email" name="email" required>
-        </div>
-        <div class="input-group">
-            <label>Fakultät</label>
-            <input type="text" name="fakultaet" required>
         </div>
         <div class="input-group">
             <button type="submit" class="btn" name="update_user">Update</button>
