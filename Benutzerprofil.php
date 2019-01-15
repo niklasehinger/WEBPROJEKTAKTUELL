@@ -87,10 +87,6 @@ include 'header.html';
             <input type="email" name="email" required>
         </div>
         <div class="input-group">
-            <label>Fakultät</label>
-            <input type="text" name="fakultaet" required>
-        </div>
-        <div class="input-group">
             <button type="submit" class="btn" name="update_user">Update</button>
         </div>
     </form>
