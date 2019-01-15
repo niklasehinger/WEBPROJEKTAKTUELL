@@ -1,30 +1,30 @@
-.body {
-    font-family: arial, sans-serif;
-    background: whitesmoke;
+body {
+    font: 20px Roboto, sans-serif;
+    background-color: white;
 }
 
-
-header {
-    background: #F1F3F4;
-    border-color: #d5d5d5;
-    grid-column: 1 / span 3;
-    grid-row: 1;
+.jumbotron {
+    background-color: whitesmoke;
 }
 
-h1 {
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
-    font-style: italic;
+.logo {
+    padding: 40px;
 }
 
-h2 {
-    text-align: center;
-    font-weight: bold;
+.loginbutton {
+    background-color: transparent;
+    padding: 7px;
+    border: none;
+    color: #0068ff;
+    text-decoration: none;
+    font-size: 20px;
+}
+.loginbutton:hover {
+    border-radius: 5px;
+    background-color: #0068ff;
+    color: whitesmoke;
 }
 
-.postings {
-    background-color: cadetblue;
-    font-family: "Arial Black";
-
+.margin {
+    margin: 60px;
 }
