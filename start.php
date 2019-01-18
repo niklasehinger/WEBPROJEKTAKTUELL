@@ -93,7 +93,7 @@ session_start();
 
              <div class="form-group">
                  <label for="input4">Studiengang</label>
-                 <select type="text" class="form-control" name="studiengang" required>
+                 <select placeholder="Bitte  etwas  eingeben..." type="text" class="form-control" name="studiengang" required>
                      <option>Online-Medien-Management</option>
                      <option>Informationsdesign</option>
                      <option>Wirtschaftsinformatik</option>
