@@ -7,7 +7,6 @@ if(!isset($_SESSION['username'])) {
     die();
 }
 
-include 'header.html';
 include 'passwords/db.php';
 ?>
 
@@ -54,7 +53,9 @@ include 'passwords/db.php';
     <title>Pigeon</title>
 </head>
 <body>
-
+<?php
+include 'header.html';
+?>
 <div style="color: #fff; text-decoration: underline;" class="parallax">
     <div class="feed" align="center">
         <div class="create_post" align="center">
@@ -97,7 +98,7 @@ include 'passwords/db.php';
             echo "</div>";
             echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
             echo "<a>".$row['content']."</a>"."</br>";
-            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'";
+            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'>";
             echo "</div>";
             echo "</div>";
 

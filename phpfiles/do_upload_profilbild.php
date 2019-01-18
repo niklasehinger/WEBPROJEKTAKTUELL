@@ -32,12 +32,12 @@ if (isset($_POST['submit'])); {
 
                 $bild_id = $fileNameNew;
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "INSERT INTO pb (username, pb) VALUES (?, ?)";
-                $statement = $pdo->prepare($sql);
-                $statement->execute(array("$username", "$bild_id"));
+                $statement = $pdo->prepare("UPDATE users SET pb = :pb_neu WHERE username = :username");
+                $statement->execute(array('username' => $username, 'pb_neu' => $bild_id));
 
 
-                header("Location: ../Benutzerprofil.php?uploadsuccess");
+
+                header("Location: ../Benutzerprofil.php");
 
 
             } else {echo "Die Datei ist zu groß!";}

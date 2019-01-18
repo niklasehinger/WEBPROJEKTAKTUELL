@@ -5,7 +5,7 @@ include 'header.html';
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Mein Profil</title>
     <meta charset="utf-8">
@@ -15,7 +15,60 @@ include 'header.html';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+/*
+        #update_benutzerprofil {
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
 
+        #upload_probilbild{
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #B0C4DE;
+            background: white;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .input-group {
+            margin: 10px 0px 10px 0px;
+        }
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin: 3px;
+        }
+        .input-group input {
+            height: 30px;
+            width: 93%;
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        .btn {
+            padding: 10px;
+            font-size: 15px;
+            color: white;
+            background: #000000;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .profil{
+            width: 50%;
+            height: 50%;
+            background-color: #2b4046;
+            color: white;
+            margin-top: 10px;
+            padding-top: 5px
+        }
+*/
+
+    </style>
 </head>
 
 <body>
@@ -39,11 +92,18 @@ include 'header.html';
 
             $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
             $statement->execute(array(":username"=>"$username"));
+            $query = $pdo->prepare($sql);
+            $query -> execute();
+
             while($row = $statement->fetch()) {
+                $bildlink = $row['pb'];
+
                 echo "<div class=\"profil\" align=\"center\" >";
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
-                echo "E-Mail: ".$row['email']."<br /><br />";
+                echo "<div class=\"profilbild\" align=\"center\" >";
+                echo "<img class='pb' src='profilbild/$bildlink'><br>";
+                echo "</div>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";
                 echo "</div>";
@@ -62,11 +122,16 @@ include 'header.html';
                     echo $row['content'] . " <br /><br />";
                 }
                 ?>
-
-
 </div>
 
+<div>
+    <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+        Profilbild aktualisieren: <input type="file" name="profilbild">
+        <input type="submit" name="submit" value="Upload">
+    </form>
+</div>
 
+<br><br>
 
 <div>
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
@@ -83,23 +148,12 @@ include 'header.html';
             <input type="text" name="studiengang" required>
         </div>
         <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" required>
-        </div>
-        <div class="input-group">
             <button type="submit" class="btn" name="update_user">Update</button>
         </div>
     </form>
 </div>
 
-<div style="margin-top: 300px">
 
-    <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-        <input type="file" name="profilbild">
-        <button type="submit" name="submit">Profilbild aktualisieren</button>
-
-    </form>
-</div>
 
 
 

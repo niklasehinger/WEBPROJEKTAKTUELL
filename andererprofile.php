@@ -2,7 +2,6 @@
 
 session_start();
 include 'passwords/db.php';
-include 'header.html';
 $usernameandere = $_GET ["usernameandere"];
 $username = $_SESSION ["username"];
 $_SESSION ["usernameandere"] = $usernameandere;
@@ -28,7 +27,7 @@ $_SESSION ["usernameandere"] = $usernameandere;
     <title>Mein Profil</title>
 
     <style>
-        #update_benutzerprofil {
+/*        #update_benutzerprofil {
             margin: 40px auto;
             padding: 20px;
             border: 1px solid #B0C4DE;
@@ -84,7 +83,7 @@ $_SESSION ["usernameandere"] = $usernameandere;
         .user {
             float: right;
             background-color: #2b4046;
-        }
+        }*/
     </style>
 </head>
 
@@ -168,7 +167,7 @@ while ($row = $statement->fetch()) {
             </form>
         </div>
 
-        <div style="margin-top: 300px">
+        <div>
 
             <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php"
                   enctype="multipart/form-data">
