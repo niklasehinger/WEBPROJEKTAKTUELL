@@ -19,10 +19,16 @@ $_SESSION ["username"]="$username";
 include("../passwords/db.php");
 
 //Passwort hashen
-$options = [
-    'cost' => 5
-];
-$hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
+//$options = [
+  //  'cost' => 5
+//];
+//$hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
+
+
+$password = "password";
+$hash = password_hash ($password, PASSWORD_DEFAULT);
+
+
 
 
 
