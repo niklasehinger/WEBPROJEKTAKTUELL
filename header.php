@@ -67,7 +67,6 @@ include 'passwords/db.php';
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="Benutzerprofil.php">Benutzerprofil</a></li>
-                <li><a href="#">Link</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Benachrichtigungen
