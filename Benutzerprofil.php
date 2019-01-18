@@ -1,78 +1,15 @@
 <?php
 session_start();
+
+
+if(!isset($_SESSION['username'])) {
+    echo"Bitte zuerst <a href='start.php'>einloggen</a>";
+    die();
+}
+
 include 'passwords/db.php';
 include 'header.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="de" xmlns="http://www.w3.org/1999/html">
-<head>
-    <title>Mein Profil</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-/*
-        #update_benutzerprofil {
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        #upload_probilbild{
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        .input-group {
-            margin: 10px 0px 10px 0px;
-        }
-        .input-group label {
-            display: block;
-            text-align: left;
-            margin: 3px;
-        }
-        .input-group input {
-            height: 30px;
-            width: 93%;
-            padding: 5px 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid gray;
-        }
-        .btn {
-            padding: 10px;
-            font-size: 15px;
-            color: white;
-            background: #000000;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .profil{
-            width: 50%;
-            height: 50%;
-            background-color: #2b4046;
-            color: white;
-            margin-top: 10px;
-            padding-top: 5px
-        }
-*/
-
-    </style>
-</head>
-
-<body>
-
 
 
 
@@ -102,7 +39,7 @@ include 'header.php';
                 echo $row['vorname']." ".$row['nachname']."<br /><br />";
                 echo "Studiengang: ".$row['studiengang']."<br /><br />";
                 echo "<div class=\"profilbild\" align=\"center\" >";
-                echo "<img class='pb' src='profilbild/$bildlink'><br>";
+                echo "<img src='profilbild/$bildlink'><br>";
                 echo "</div>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='updatebutton' align='top' ></button>";
                 echo "<button type='submit'><img src='pictures/icons/cogwheel-setting-2.png' id='upload_bild' align='top' ></button>";

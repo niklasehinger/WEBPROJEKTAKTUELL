@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,10 @@ session_start();
     <title>Pigeon</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../ui/sweetalert/sweetalert2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../ui/sweetalert/sweetalert2.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,6 +34,16 @@ session_start();
 
 
 <body>
+
+<?php
+if ($_GET["seite"]=="falsch"){
+    echo "<script type='text/javascript'>swal('Benutzername oder Passwort ist falsch');</script>";
+}
+
+if ($_GET["seite"]=="username") {
+    echo "<script type='text/javascript'>swal('Benutzername bereits vergeben');</script>";
+}
+?>
 
 <div class="container ">
      <div class="jumbotron margin" align="center">
@@ -54,7 +69,7 @@ session_start();
 
          <form class="margin registrieren py-lg-5" id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
 
-             <div class="form-group ">
+             <div class="form-group">
                  <label for="input2">Username</label>
                  <input type="text" class="form-control" name="username" required>
              </div>
@@ -68,7 +83,7 @@ session_start();
                  <label for="input2">Nachname</label>
                  <input type="text" class="form-control" name="nachname" required>
              </div>
-
+             
              <div class="form-group">
                  <label for="input4">Studiengang</label>
                  <select type="text" class="form-control" name="studiengang" required>
@@ -87,7 +102,7 @@ session_start();
 
              <div class="form-group">
                  <label for="input2">Passwort</label>
-                 <input id="input2" class="form-control" type="passwort" required>
+                 <input id="input2" class="form-control" type="password" name="passwort" required>
              </div>
 
              <div class="input-group">

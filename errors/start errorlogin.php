@@ -63,7 +63,7 @@ session_start();
                     <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="password" class="form-control" size="10" placeholder="Passwort" required>
+                    <input type="password" name="passwort" class="form-control" size="10" placeholder="Passwort" required>
                 </div>
                 <div class="input-group ">
                     <button type="submit" class="loginbutton" name="login_user">Login</button>
@@ -76,7 +76,7 @@ session_start();
         <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
 
 
-        <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
+        <form id="register" method="post" action="../phpfiles/register.php" enctype="multipart/form-data">
             <div class="input-group">
                 <label>Username</label>
                 <input type="text" name="username" required>
