@@ -23,8 +23,7 @@ if (password_verify($passwort, $row->passwort)) {
     header("Location: ../index.php");
 } else {
     session_destroy();
-    //header("Location: ../errors/start errorlogin.php");
-    echo "Ihr schafft es vielleicht beim nächsten mal";
+    header("Location: ../start.php?seite=falsch");;
 }
 
 if (!$statement){
