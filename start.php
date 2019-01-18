@@ -114,7 +114,7 @@ session_start();
 
              <div class="form-group">
                  <label for="input2">Passwort</label>
-                 <input id="input2" class="form-control" type="password" required>
+                 <input id="input2" class="form-control" type="passwort" required>
              </div>
 
              <div class="input-group">
