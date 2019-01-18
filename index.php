@@ -49,11 +49,16 @@ include 'header.php';
 
             echo "<div class=\"postings\" align=\"center\" style=\"background-color: black;\">";
             echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
+
             echo "<p>".$row['author']."</p>";
             echo "</div>";
             echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
-            echo "<p>".$row['content']."</p>"."</br>";
-            echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'>";
+            if ($row -> bild_id == NULL){
+                echo "<p>".$row['content']."</p>";
+            }
+            if ($row -> content == NULL){
+                echo "<a href='bildupload/$bildlink'><img class='bild' src='bildupload/$bildlink' style='max-width: 100%'; height='auto'>";
+            }
             echo "</div>";
             echo "</div>";
 

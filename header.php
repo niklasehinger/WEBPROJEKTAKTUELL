@@ -1,5 +1,8 @@
 <?php
+session_start();
 include 'passwords/db.php';
+
+$username=$_SESSION['username'];
 ?>
 <!DOCTYPE html>
 
@@ -87,7 +90,7 @@ include 'passwords/db.php';
 
                         <?php // wenn es Nachrichten gibt, dann zeige Klasse 'dropdown-item', ansonsten führe else aus 'Keine neuen Nachrichten'
 
-                        $sql = "SELECT author from posts where gelesen = '0'";
+                        $sql = "SELECT author from posts where gelesen = '0' AND author = (SELECT usernameandere FROM following WHERE username = $username) ";
                         $query = $pdo->prepare($sql);
                         $query->execute();
                         $row = array();
@@ -98,7 +101,7 @@ include 'passwords/db.php';
                             echo '<a href="#">';
                             echo '<ul>';
                             echo '<li>';
-                            echo 'Neuer Beitrag von ' . $row["author"];
+                            echo '<a href="do_gelesen.php?usernameandere='.$row["author"].'&id='.$row["id"].'">Neuer Beitrag von '. $row["author"].'</a>';
                             echo '</li>';
                             echo '</ul>';
                             echo '</a>';

@@ -37,7 +37,7 @@ if (isset($_POST['submit'])); {
 
 
 
-                header("Location: ../Benutzerprofil.php");
+                header("Location: ../Benutzerprofil.php?uploadsuccess");
 
 
             } else {echo "Die Datei ist zu groß!";}
