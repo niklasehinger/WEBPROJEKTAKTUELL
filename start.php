@@ -8,7 +8,6 @@ session_start();
     <title>Pigeon</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -77,7 +76,7 @@ session_start();
 
          <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
 
-             <div class="form-group ">
+             <div class="form-group">
                  <label for="input2">Username</label>
                  <input type="text" class="form-control" name="username" required>
              </div>
@@ -91,10 +90,10 @@ session_start();
                  <label for="input2">Nachname</label>
                  <input type="text" class="form-control" name="nachname" required>
              </div>
-
+             
              <div class="form-group">
                  <label for="input4">Studiengang</label>
-                 <select placeholder="Bitte  etwas  eingeben..." type="text" class="form-control" name="studiengang" required>
+                 <select type="text" class="form-control" name="studiengang" required>
                      <option>Online-Medien-Management</option>
                      <option>Informationsdesign</option>
                      <option>Wirtschaftsinformatik</option>
@@ -110,7 +109,7 @@ session_start();
 
              <div class="form-group">
                  <label for="input2">Passwort</label>
-                 <input id="input2" class="form-control" type="passwort" required>
+                 <input id="input2" class="form-control" type="password" required>
              </div>
 
              <div class="input-group">
