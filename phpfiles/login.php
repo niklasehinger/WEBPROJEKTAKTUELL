@@ -23,9 +23,13 @@ if (password_verify($passwort, $row->passwort)) {
     header("Location: ../index.php");
 } else {
     session_destroy();
-    header("Location: ../errors/start errorlogin.php");
+    //header("Location: ../errors/start errorlogin.php");
+    echo "Ihr schafft es vielleicht beim nächsten mal";
 }
 
+if (!$statement){
+    echo "Datenbakfehler";
+}
 
 
 

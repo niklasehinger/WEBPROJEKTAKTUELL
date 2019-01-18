@@ -25,7 +25,7 @@ include("../passwords/db.php");
 //$hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
 
-$password = "password";
+$password = "passwort";
 $hash = password_hash ($password, PASSWORD_DEFAULT);
 
 
