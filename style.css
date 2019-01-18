@@ -3,3 +3,43 @@ body {
     background-color: white;
     background: linear-gradient(#cba, darkslategrey);
 }
+@media only screen and (max-width: 992px) {
+    .registrieren{
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .registrieren{
+        padding-left: 250!important;
+        padding-right: 250!important;
+    }
+}
+
+.logo {
+    padding: 30px;
+}
+
+.loginbutton {
+    background-color: transparent;
+    padding: 7px;
+    border: none;
+    color: #0068ff;
+    text-decoration: none;
+    font-size: 20px;
+}
+.loginbutton:hover {
+    border-radius: 5px;
+    background-color: #0068ff;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.margin {
+    margin: 60px;
+}
+
+.registrieren {
+    padding-left: 220px;
+    padding-right: 220px;
+}

@@ -16,35 +16,11 @@ session_start();
     <style>
 
         body {
-            font: 16px Roboto, sans-serif;
             background-color: white;
         }
 
         .jumbotron {
             background-color: whitesmoke;
-        }
-
-        .logo {
-            padding: 30px;
-        }
-
-        .loginbutton {
-            background-color: transparent;
-            padding: 7px;
-            border: none;
-            color: #0068ff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .loginbutton:hover {
-            border-radius: 5px;
-            background-color: #0068ff;
-            text-decoration: none;
-            color: whitesmoke;
-        }
-
-        .margin {
-            margin: 60px;
         }
 
      </style>
@@ -53,7 +29,7 @@ session_start();
 
 <body>
 
-<div class="container">
+<div class="container ">
      <div class="jumbotron margin" align="center">
          <div class="container">
              <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
@@ -74,7 +50,8 @@ session_start();
          <p class="margin" align="center" id="neuhier">Neu hier?</p>
          <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
 
-         <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
+
+         <form class="margin registrieren py-lg-5" id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
 
              <div class="form-group">
                  <label for="input2">Username</label>
