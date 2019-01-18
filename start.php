@@ -76,7 +76,7 @@ session_start();
 
          <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
 
-             <div class="form-group">
+             <div class="form-group ">
                  <label for="input2">Username</label>
                  <input type="text" class="form-control" name="username" required>
              </div>
