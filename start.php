@@ -16,7 +16,7 @@ session_start();
     <style>
 
         body {
-            font: 20px Roboto, sans-serif;
+            font: 16px Roboto, sans-serif;
             background-color: white;
         }
 
@@ -74,38 +74,56 @@ session_start();
          <p class="margin" align="center" id="neuhier">Neu hier?</p>
          <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
 
-
          <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
-             <div class="input-group">
-                 <label>Username</label>
-                 <input type="text" name="username" required>
+
+             <div class="form-group">
+                 <label for="input2">Username</label>
+                 <input type="text" class="form-control" name="username" required>
              </div>
-             <div class="input-group">
-                 <label>Vorname</label>
-                 <input type="text" name="vorname" required>
+
+             <div class="form-group">
+                 <label for="input2">Vorname</label>
+                 <input type="text" class="form-control" name="vorname" required>
              </div>
-             <div class="input-group">
-                 <label>Nachname</label>
-                 <input type="text" name="nachname" required>
+
+             <div class="form-group">
+                 <label for="input2">Nachname</label>
+                 <input type="text" class="form-control" name="nachname" required>
              </div>
-             <div class="input-group">
-                 <label>Studiengang</label>
-                 <input type="text" name="studiengang" required>
+
+             <div class="form-group">
+                 <label for="input2">Studiengang</label>
+                 <input type="text" class="form-control" name="studiengang" required>
              </div>
-             <div class="input-group">
-                 <label>Email</label>
-                 <input type="email" name="email" required>
+
+             <div class="form-group">
+                 <label for="input4">Studiengang</label>
+                 <select type="text" class="form-control" name="studiengang" required>
+                     <option>Online-Medien-Management</option>
+                     <option>Informationsdesign</option>
+                     <option>Wirtschaftsinformatik</option>
+                     <option>Audiovisuellemedien</option>
+                     <option>Medieninformatik</option>
+                 </select>
              </div>
-             <div class="input-group">
-                 <label>Passwort</label>
-                 <input type="password" name="passwort" required>
+
+             <div class="form-group">
+                 <label for="input2">Email</label>
+                 <input type="email" class="form-control" name="email" required>
              </div>
+
+             <div class="form-group">
+                 <label for="input2">Passwort</label>
+                 <input id="input2" class="form-control" type="password" required>
+             </div>
+
              <div class="input-group">
                  <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
              </div>
                  Bereits registriert? <button class="loginbutton" type="button" id="signup" >Login</button>
          </form>
 
+     </div>
      </div>
 </div>
 
@@ -126,6 +144,7 @@ session_start();
 
     $(function () {
         $('#registerfirst').click(function () {
+            $('#login').hide();
             $('#loginbutton').hide();
             $('#register').show();
             $('#neuhier').hide();
