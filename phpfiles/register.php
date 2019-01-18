@@ -43,7 +43,7 @@ $row = $statementcheck -> fetchObject();
 
 if ($username == $row->username){
     session_destroy();
-    header("Location: ../errors/start errorusername.php");
+    header("Location: ../start.php?seite=username");
 }  else {
 
     //Daten in die Datenbank schreiben

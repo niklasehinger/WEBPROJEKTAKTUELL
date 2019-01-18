@@ -39,6 +39,10 @@ session_start();
 if ($_GET["seite"]=="falsch"){
     echo "<script type='text/javascript'>swal('Benutzername oder Passwort ist falsch');</script>";
 }
+
+if ($_GET["seite"]=="username") {
+    echo "<script type='text/javascript'>swal('Benutzername bereits vergeben');</script>";
+}
 ?>
 
 <div class="container ">
