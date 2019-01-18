@@ -24,6 +24,8 @@ $options = [
 ];
 $hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
+
+
 //Checken ob Username bereits vergeben ist
 $pdocheck = new PDO($dsn, $dbuser, $dbpass, $option);
 $sql_statement = "SELECT username FROM users WHERE username=:username";
@@ -45,7 +47,7 @@ if ($username == $row->username){
     $statement->execute(array("$username", "$vorname", "$nachname", "$studiengang", "$email", "$hash"));
     $row = $statement->fetchObject();
     $_SESSION["log"] = "TRUE";
-    header("Location: ../startlogin.php");
+    header("Location: ../index.php");
 }
 
 

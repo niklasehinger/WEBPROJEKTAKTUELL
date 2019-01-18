@@ -4,178 +4,133 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="de" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-
 <head>
     <title>Pigeon</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="src/fullclip.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+
         body {
-            background-image: url("../pictures/workspace.jpg");
+            font: 20px Roboto, sans-serif;
+            background-color: white;
         }
 
-        #loginbutton {
-            background-color: #2b4046;
+        .jumbotron {
+            background-color: whitesmoke;
+        }
+
+        .logo {
+            padding: 30px;
+        }
+
+        .loginbutton {
+            background-color: transparent;
+            padding: 7px;
             border: none;
-            color: white;
-            text-align: center;
+            color: #0068ff;
             text-decoration: none;
-            font-size: 24px;
-            left: 50%;
+            font-size: 20px;
         }
-
-        .logo{
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family:'Arial Black';
-            font-weight: bold;
-            font-size: 15em;
-            text-align: center;
-
-        }
-
-        #login {
-            width: 30%;
-            margin: 0px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-
-        #register {
-            width: 30%;
-            margin: 0px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        .input-group {
-            margin: 10px 0px 10px 0px;
-        }
-        .input-group label {
-            display: block;
-            text-align: left;
-            margin: 3px;
-        }
-        .input-group input {
-            height: 30px;
-            width: 93%;
-            padding: 5px 10px;
-            font-size: 16px;
+        .loginbutton:hover {
             border-radius: 5px;
-            border: 1px solid gray;
-        }
-        .btn {
-            padding: 10px;
-            font-size: 15px;
-            color: white;
-            background: #000000;
-            border: none;
-            border-radius: 5px;
+            background-color: #0068ff;
+            text-decoration: none;
+            color: whitesmoke;
         }
 
-        .error{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family:'Arial Black';
-            font-weight: bold;
-            font-size: 15px;
-            text-align: center;
-
+        .margin {
+            margin: 60px;
         }
-
 
     </style>
-
 </head>
+
 
 <body>
 
-<div class="logo">PIGEON</div>
-<div class="error">Benutzername oder Passwort ist falsch oder nicht vergeben. </div>
+<div class="container">
+    <div class="jumbotron margin" align="center">
+        <div class="container">
+            <img src="../Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
+            <p>Benutername oder Passwort ist falsch!</p>
+            <form class="form-inline" id="login" method="post" action="../phpfiles/login.php" >
+                <div class="input-group ">
+                    <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" class="form-control" size="10" placeholder="Passwort" required>
+                </div>
+                <div class="input-group ">
+                    <button type="submit" class="loginbutton" name="login_user">Login</button>
+                </div>
+            </form>
+            <a type="button" id="loginbutton" class="loginbutton">Login</a>
+        </div>
+
+        <p class="margin" align="center" id="neuhier">Neu hier?</p>
+        <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
 
 
-<button type="button" id="loginbutton">Login</button>
+        <form id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="input-group">
+                <label>Vorname</label>
+                <input type="text" name="vorname" required>
+            </div>
+            <div class="input-group">
+                <label>Nachname</label>
+                <input type="text" name="nachname" required>
+            </div>
+            <div class="input-group">
+                <label>Studiengang</label>
+                <input type="text" name="studiengang" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Passwort</label>
+                <input type="password" name="passwort" required>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
+            </div>
+            Bereits registriert? <button class="loginbutton" type="button" id="signup" >Login</button>
+        </form>
 
+    </div>
+</div>
 
-<form id="login" method="post" action="../phpfiles/login.php">
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" required>
-    </div>
-    <div class="input-group">
-        <label>Password</label>
-        <input type="password" name="password" required>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn" name="login_user">Login</button>
-    </div>
-    <p>
-        Not yet a member? <button type="button" id="registerfirst">Registrieren</button>
-    </p>
-</form>
-
-
-<form id="register" method="post" action="../phpfiles/register.php">
-    <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" required>
-    </div>
-    <div class="input-group">
-        <label>Vorname</label>
-        <input type="text" name="vorname" required>
-    </div>
-    <div class="input-group">
-        <label>Nachname</label>
-        <input type="text" name="nachname" required>
-    </div>
-    <div class="input-group">
-        <label>Email</label>
-        <input type="email" name="email" required>
-    </div>
-    <div class="input-group">
-        <label>Passwort</label>
-        <input type="password" name="passwort" required>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn" name="register_user">Register</button>
-    </div>
-    <p>
-        Bereits registriert? <button type="button" id="signup" >Login</button>
-    </p>
-</form>
 
 <script>
     $(document).ready (function(){
-        $('#login').show();
+        $('#login').hide();
         $('#register').hide();
-        $('#loginbutton').hide();
     });
 
     $(function () {
         $('#loginbutton').click(function () {
             $('#login').show();
             $('#loginbutton').hide();
+
         });
     });
 
     $(function () {
         $('#registerfirst').click(function () {
-            $('#login').hide();
+            $('#loginbutton').hide();
             $('#register').show();
+            $('#neuhier').hide();
+            $('#registerfirst').hide();
         });
     });
 
@@ -196,4 +151,3 @@ session_start();
 </body>
 
 </html>
-
