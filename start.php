@@ -92,11 +92,6 @@ session_start();
              </div>
 
              <div class="form-group">
-                 <label for="input2">Studiengang</label>
-                 <input type="text" class="form-control" name="studiengang" required>
-             </div>
-
-             <div class="form-group">
                  <label for="input4">Studiengang</label>
                  <select type="text" class="form-control" name="studiengang" required>
                      <option>Online-Medien-Management</option>
