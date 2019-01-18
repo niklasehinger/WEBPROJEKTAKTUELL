@@ -1,94 +1,19 @@
 <?php
-
 session_start();
+
+
+if(!isset($_SESSION['username'])) {
+    echo"Bitte zuerst <a href='start.php'>einloggen</a>";
+    die();
+}
+
 include 'passwords/db.php';
+include 'header.php';
+
 $usernameandere = $_GET ["usernameandere"];
 $username = $_SESSION ["username"];
 $_SESSION ["usernameandere"] = $usernameandere;
-?>
 
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>Mein Profil</title>
-</head>
-
-<head>
-    <meta charset="UTF-8">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="src/fullclip.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>Mein Profil</title>
-
-    <style>
-/*        #update_benutzerprofil {
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        #upload_probilbild {
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #B0C4DE;
-            background: white;
-            border-radius: 0px 0px 10px 10px;
-        }
-
-        .input-group {
-            margin: 10px 0px 10px 0px;
-        }
-
-        .input-group label {
-            display: block;
-            text-align: left;
-            margin: 3px;
-        }
-
-        .input-group input {
-            height: 30px;
-            width: 93%;
-            padding: 5px 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid gray;
-        }
-
-        .btn {
-            padding: 10px;
-            font-size: 15px;
-            color: white;
-            background: #000000;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .profil {
-            width: 50%;
-            height: 50%;
-            background-color: #2b4046;
-            color: white;
-            margin-top: 10px;
-            padding-top: 5px
-        }
-
-        .user {
-            float: right;
-            background-color: #2b4046;
-        }*/
-    </style>
-</head>
-
-<body>
-<?php
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
 
@@ -120,7 +45,7 @@ while ($row = $statement->fetch()) {
             </p>
 
 
-            <?
+            <?php
             $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
             $statement-> execute(array(":username"=>"$username",":usernameandere"=>"$usernameandere"));
             $row = $statement->fetch();
