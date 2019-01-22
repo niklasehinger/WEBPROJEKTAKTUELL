@@ -1,10 +1,12 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
 
 
 if(!isset($_SESSION['username'])) {
     echo"Bitte zuerst <a href='start.php'>einloggen</a>";
     die();
+
 }
 
 include 'passwords/db.php';
@@ -27,10 +29,10 @@ include 'header.php';
             }
 
 
-            $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+            $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
             $statement->execute(array(":username"=>"$username"));
             $query = $pdo->prepare($sql);
-            $query -> execute();
+           
 
             while($row = $statement->fetch()) {
                 $bildlink = $row['pb'];

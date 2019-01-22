@@ -18,6 +18,11 @@ $username=$_SESSION['username'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -77,8 +82,8 @@ $username=$_SESSION['username'];
                         $anzahl = 0;
                         $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
-                        $statement = $pdo->prepare("SELECT * FROM posts WHERE gelesen='0'"); //nimm alls spalten aus der tabelle null wo gelesen auf null gessetzt ist, also die posts die noch ungelesen sind
-                        $statement->execute();
+                        $statement = $pdo->prepare("SELECT * FROM posts WHERE gelesen='0' AND author = ANY (SELECT usernameandere from following WHERE username=:username)"); //nimm alls spalten aus der tabelle null wo gelesen auf null gessetzt ist, also die posts die noch ungelesen sind
+                        $statement->execute(array(":username"=>"$username"));
                         $anzahl = $statement->rowCount(); //zähle die zeilen in der tabelle wo er NULL findet und zeige die anzahl der spalten als anzahl der benachrichtigungen an
 
                         ?>
@@ -90,9 +95,13 @@ $username=$_SESSION['username'];
 
                         <?php // wenn es Nachrichten gibt, dann zeige Klasse 'dropdown-item', ansonsten führe else aus 'Keine neuen Nachrichten'
 
-                        $sql = "SELECT author from posts where gelesen = '0' AND author == (SELECT usernameandere FROM following WHERE username = $username) ";
+                        if ($anzahl > 0){
+
+                        $username=$_SESSION['username'];
+
+                        $sql = "SELECT * from posts WHERE gelesen='0' AND author = ANY (SELECT usernameandere from following WHERE username=:username)";
                         $query = $pdo->prepare($sql);
-                        $query->execute();
+                        $query->execute(array(":username"=>"$username"));
                         $row = array();
                         while ($row = $query->fetch()) {
 
@@ -108,6 +117,11 @@ $username=$_SESSION['username'];
                             echo '<div class="dropdown-divider"></div>';
 
                         }
+                        }
+                        else {
+                            echo 'Keine neuen Nachrichten';
+                        }
+
                         ?>
                     </div>
                 </li>
@@ -128,9 +142,8 @@ $username=$_SESSION['username'];
                         <?php
 
                         $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
-                        $statement->execute(array(":username"=>"$username"));
                         $query = $pdo->prepare($sql);
-                        $query -> execute();
+                        $query -> execute(array(":username"=>$username));
 
                         $profilbild = $row['pb'];
 
