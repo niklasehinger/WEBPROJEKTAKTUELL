@@ -18,7 +18,10 @@ session_start();
 
         body {
             background-color: white;
+
+
         }
+
 
         .jumbotron {
             background-color: whitesmoke;

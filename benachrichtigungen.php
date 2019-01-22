@@ -1,9 +1,10 @@
 <?php
 session_start();
 include 'passwords/db.php';
+include 'header.php';
 $usernameandere = $_SESSION ["usernameandere"] ; //hole usernameandere aus der URL
 $username = $_SESSION ["username"];
-include 'header.php';
+
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 

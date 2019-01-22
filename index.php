@@ -21,8 +21,8 @@ include 'header.php';
                 </form>
                 <br>
                 <form action="phpfiles/do_bildupload.php" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="Bild posten" name="submit">
-                    <input type="file" name="file" style="margin-bottom: 10px">
+
+                    <input type="file" name="file" style="margin-bottom: 10px"><input type="submit" value="Bild posten" name="submit">
                 </form>
             </div>
         </div>
@@ -41,17 +41,24 @@ include 'header.php';
         $query = $pdo->prepare($sql);
         $query -> execute();
 
+       /* $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+        $sql = "SELECT pb FROM users";
+        $query = $pdo->prepare($sql);
+        $query -> execute();*/
 
 
 
 
 
         while ($row = $query->fetch()){
+
             $bildlink = $row['bild_id'];
+            //$pb = $row['pb'];
 
             echo "<div class=\"postings\" align=\"center\" style=\"background-color: black;\">";
             echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
-            echo "<p>".$row['author']."</p>";
+            //echo "<a href='profilbild/$pb'><img class='bild' src='profilbild/$pb' style='max-width: 100%'; height='auto'>";
+            echo "<a>".$row['author'] ."</a>";
             echo "</div>";
             echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
             echo "<p>".$row['content']."</p>"."</br>";

@@ -90,7 +90,7 @@ $username=$_SESSION['username'];
 
                         <?php // wenn es Nachrichten gibt, dann zeige Klasse 'dropdown-item', ansonsten führe else aus 'Keine neuen Nachrichten'
 
-                        $sql = "SELECT author from posts where gelesen = '0' AND author = (SELECT usernameandere FROM following WHERE username = $username) ";
+                        $sql = "SELECT author from posts where gelesen = '0' AND author == (SELECT usernameandere FROM following WHERE username = $username) ";
                         $query = $pdo->prepare($sql);
                         $query->execute();
                         $row = array();
@@ -113,12 +113,38 @@ $username=$_SESSION['username'];
                 </li>
             </ul>
 
+
+
             <form class="nav navbar-form navbar-right" method="get" action="do_suchen.php" role="search">
                 <div class="form-group">
                     <input type="search" class="form-control" placeholder="Suchen" aria-label="Search" name="searchbox">
                 </div>
                 <button type="submit" class="btn btn-default">Los</button>
             </form>
+
+            <!--<li class="nav-item">
+                <div class="headerprofilbild">
+                    <a href="Benutzerprofil.php">
+                        <?php
+/*
+                        $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
+                        $statement->execute(array(":username"=>"$username"));
+                        $query = $pdo->prepare($sql);
+                        $query -> execute();
+
+                        $profilbild = $row['pb'];
+
+
+                        if (file_exists("<img src='profilbild/$profilbild'>")) {
+                            echo "<img src=\"profilbild/$profilbild\" width=\"39\" height=\"39\" alt=\"\">";
+                        } else {
+                            echo "<img src=\"profilbild/root.jpg\" width=\"39\" height=\"39\" alt=\"\">";
+                        }
+                        */?>
+                    </a>
+                </div>
+            </li>-->
+
             <!--
 
                         <form class="form-inline my-2 my-lg-0" method="get" action="do_suchen.php">

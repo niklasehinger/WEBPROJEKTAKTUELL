@@ -2,6 +2,7 @@ body {
     font: 16px Roboto, sans-serif;
     background-color: white;
     background: linear-gradient(#cba, darkslategrey);
+
 }
 @media only screen and (max-width: 992px) {
     .registrieren{
