@@ -41,10 +41,10 @@ include 'header.php';
         $query = $pdo->prepare($sql);
         $query -> execute();
 
-       /* $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
+        $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
         $sql = "SELECT pb FROM users";
         $query = $pdo->prepare($sql);
-        $query -> execute();*/
+        $query -> execute();
 
 
 
@@ -53,11 +53,11 @@ include 'header.php';
         while ($row = $query->fetch()){
 
             $bildlink = $row['bild_id'];
-            //$pb = $row['pb'];
+            $pb = $row['pb'];
 
             echo "<div class=\"postings\" align=\"center\" style=\"background-color: black;\">";
             echo "<div class=\"content\" style=\"background-color: #2b4046; width: 30%;\">";
-            //echo "<a href='profilbild/$pb'><img class='bild' src='profilbild/$pb' style='max-width: 100%'; height='auto'>";
+            echo "<a href='profilbild/$pb'><img class='bild' src='profilbild/$pb' style='max-width: 100%'; height='auto'>";
             echo "<a>".$row['author'] ."</a>";
             echo "</div>";
             echo "<div class=\"content\" style=\"background-color: white; width: 70%\">";
