@@ -122,11 +122,11 @@ $username=$_SESSION['username'];
                 <button type="submit" class="btn btn-default">Los</button>
             </form>
 
-            <!--<li class="nav-item">
+            <li class="nav-item">
                 <div class="headerprofilbild">
                     <a href="Benutzerprofil.php">
                         <?php
-/*
+
                         $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
                         $statement->execute(array(":username"=>"$username"));
                         $query = $pdo->prepare($sql);
@@ -140,10 +140,10 @@ $username=$_SESSION['username'];
                         } else {
                             echo "<img src=\"profilbild/root.jpg\" width=\"39\" height=\"39\" alt=\"\">";
                         }
-                        */?>
+                        ?>
                     </a>
                 </div>
-            </li>-->
+            </li>
 
             <!--
 
