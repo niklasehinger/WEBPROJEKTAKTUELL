@@ -3,11 +3,6 @@ session_start();
 $username = $_SESSION['username'];
 
 
-if(!isset($_SESSION['username'])) {
-    echo"Bitte zuerst <a href='start.php'>einloggen</a>";
-    die();
-
-}
 
 include 'passwords/db.php';
 include 'header.php';
