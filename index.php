@@ -49,8 +49,8 @@ while ($row = $query->fetch()) {
     $bildlink = $row['bild_id'];
     $pb = $row['pb'];
 
-    echo "<div class=\"postings\" align=\"center\" style=\"background-color: black;\">";
-    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 50%;\">";
+    echo "<div class=\"postings\" align=\"center\">";
+    echo "<div class=\"content\" style=\"background-color: #2b4046; width: 50px;\">";
     echo "<a href='profilbild/$pb'><img class='bild' src='profilbild/$pb' style='max-width: 100%'; height='auto'>";
     echo "<a>" . $row['author'] . "</a>";
     echo "</div>";
