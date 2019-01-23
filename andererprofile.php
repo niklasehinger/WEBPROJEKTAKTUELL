@@ -27,7 +27,12 @@ while ($row = $statement->fetch()) {
     <div class="profil" align="center">
         <div id="main" align="center" style="width:100%; height:100%">
             <?php
+            $bildlink = $row['pb'];
+
             echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
+            echo "<div class=\"profilbild\" align=\"center\" >";
+            echo "<img src='profilbild/$bildlink'><br>";
+            echo "</div>";
             echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
             echo "E-Mail: " . $row['email'] . "<br /><br />";
             echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
@@ -76,10 +81,6 @@ while ($row = $statement->fetch()) {
                 <div class="input-group">
                     <label>Email</label>
                     <input type="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label>Fakultät</label>
-                    <input type="text" name="fakultaet" required>
                 </div>
                 <div class="input-group">
                     <label>s Beiträge</label>
