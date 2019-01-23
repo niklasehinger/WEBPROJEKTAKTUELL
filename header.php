@@ -45,11 +45,8 @@ $username=$_SESSION['username'];
             background-size: cover;
         }
 
-        .content{
-            float: left;
-            margin-top: 50px;
-            padding-top: 10px;
-            height: auto;
+        .farbe{
+           color: #0068ff;
         }
 
 
@@ -75,6 +72,7 @@ $username=$_SESSION['username'];
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="Benutzerprofil.php">Benutzerprofil</a></li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Benachrichtigungen
@@ -135,28 +133,6 @@ $username=$_SESSION['username'];
                 </div>
                 <button type="submit" class="btn btn-default">Los</button>
             </form>
-
-            <li class="nav-item">
-                <div class="headerprofilbild">
-                    <a href="Benutzerprofil.php">
-                        <?php
-
-                        $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
-                        $query = $pdo->prepare($sql);
-                        $query -> execute(array(":username"=>$username));
-
-                        $profilbild = $row['pb'];
-
-
-                        if (file_exists("<img src='profilbild/$profilbild'>")) {
-                            echo "<img src=\"profilbild/$profilbild\" width=\"39\" height=\"39\" alt=\"\">";
-                        } else {
-                            echo "<img src=\"profilbild/root.jpg\" width=\"39\" height=\"39\" alt=\"\">";
-                        }
-                        ?>
-                    </a>
-                </div>
-            </li>
 
             <!--
 

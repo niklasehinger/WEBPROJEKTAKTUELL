@@ -1,19 +1,17 @@
 body {
     font: 16px Roboto, sans-serif;
     background-color: white;
-    background: linear-gradient(#cba, darkslategrey);
-
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1000px) {
     .registrieren{
         padding-left: 0!important;
         padding-right: 0!important;
     }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1000px) {
     .registrieren{
-        padding-left: 250!important;
-        padding-right: 250!important;
+        padding-left: 150!important;
+        padding-right: 150!important;
     }
 }
 
@@ -37,7 +35,7 @@ body {
 }
 
 .margin {
-    margin: 60px;
+    margin: 70px;
 }
 
 .registrieren {
