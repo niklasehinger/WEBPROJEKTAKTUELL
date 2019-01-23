@@ -71,10 +71,6 @@ while ($row = $query->fetch()) {
 
 <div class="container marketing">
 
-
-    <!-- START THE FEATURETTES -->
-
-
     <hr class="featurette-divider">
 
     <div class="row featurette">
@@ -92,7 +88,6 @@ while ($row = $query->fetch()) {
         </div>
     </div>
 
-    <!-- /END THE FEATURETTES -->
 
 </div>
 
