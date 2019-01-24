@@ -74,6 +74,3 @@ while ($row = $statement->fetch()) {
     echo $row['content'] . " <br /><br />";
 }
 ?>
-
-
-
