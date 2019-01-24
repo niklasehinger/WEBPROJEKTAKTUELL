@@ -17,11 +17,12 @@ $_SESSION ["usernameandere"] = $usernameandere;
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
 
-$statement = $pdo->prepare("SELECT * FROM users WHERE username = '$usernameandere'");
-$statement->execute(array($usernameandere));
+$statement = $pdo->prepare("SELECT * FROM users WHERE username =:usernameandere");
+$statement->execute(array("usernameandere"=>"$usernameandere"));
 while ($row = $statement->fetch()) {
 
 ?>
+
 <div id="main" align="center" style="width:100%; height:100%">
     <h1><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Daten</h1>
     <div class="profil" align="center">
@@ -41,8 +42,8 @@ while ($row = $statement->fetch()) {
 
             <p>
                 <?php
-                $statement = $pdo->prepare("SELECT * FROM posts WHERE author = '$usernameandere'");
-                $statement->execute(array($usernameandere));
+                $statement = $pdo->prepare("SELECT * FROM posts WHERE author =:usernameandere");
+                $statement->execute(array("usernameandere"=>"$usernameandere"));
                 while ($row = $statement->fetch()) {
                     echo $row['content'] . " <br /><br />";
                 }
@@ -62,7 +63,8 @@ while ($row = $statement->fetch()) {
             }
             ?>
         </div>
-
+    </div>
+</div>
 
         <div style="margin-top: 300px">
             <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
