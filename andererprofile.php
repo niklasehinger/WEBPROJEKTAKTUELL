@@ -2,11 +2,6 @@
 session_start();
 
 
-if(!isset($_SESSION['username'])) {
-    echo"Bitte zuerst <a href='start.php'>einloggen</a>";
-    die();
-}
-
 include 'passwords/db.php';
 include 'header.php';
 
@@ -66,72 +61,7 @@ while ($row = $statement->fetch()) {
     </div>
 </div>
 
-        <div style="margin-top: 300px">
-            <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
-                <div class="input-group">
-                    <label>Vorname</label>
-                    <input type="text" name="vorname">
-                </div>
-                <div class="input-group">
-                    <label>Nachname</label>
-                    <input type="text" name="nachname" required>
-                </div>
-                <div class="input-group">
-                    <label>Studiengang</label>
-                    <input type="text" name="studiengang" required>
-                </div>
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label>s Beiträge</label>
-                    <input type="text" name="beitraege" required>
-                </div>
-
-                <div class="input-group">
-                    <button type="submit" class="btn" name="update_user">Update</button>
-                </div>
-            </form>
-        </div>
-
-        <div>
-
-            <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php"
-                  enctype="multipart/form-data">
-                <input type="file" name="profilbild">
-                <button type="submit" name="submit">Profilbild aktualisieren</button>
-
-            </form>
-        </div>
-
 
 </body>
-<script>
-    $(document).ready(function () {
-        $('#update_benutzerprofil').hide();
-        $('#upload_probilbild').hide();
-    });
-
-    $(function () {
-        $('#updatebutton').click(function () {
-            $('#update_benutzerprofil').show();
-
-
-        });
-    });
-
-    $(function () {
-        $('#upload_bild').click(function () {
-            $('#upload_probilbild').show();
-
-
-        });
-    });
-
-
-
-
-</script>
 
 </html>

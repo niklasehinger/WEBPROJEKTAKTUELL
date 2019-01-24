@@ -8,9 +8,8 @@ if (!isset($_SESSION['username'])) {
     echo "
 
 <html lang=\"de\" xmlns=\"http://www.w3.org/1999/html\" xmlns=\"http://www.w3.org/1999/html\">
-<title>Pigeon</title>
 <head>
-    
+    <title>Pigeon</title>
     <meta charset=\"utf-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">
     <script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>
@@ -164,22 +163,25 @@ if (!isset($_SESSION['username'])) {
                 <li class="nav-item">
                     <div class="headerprofilbild">
                         <a href="Benutzerprofil.php">
+
                             <?php
-
-                            $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
-                            $statement->execute(array(":username"=>"$username"));
+                            $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
+                            $statement->execute(array(":username" => "$username"));
                             $query = $pdo->prepare($sql);
-                            $query -> execute();
 
-                            $profilbild = $row['pb'];
+                            while ($row = $statement->fetch()) {
+                                $bildlink = $row['pb'];
+                                $file_pointer = 'profilbild/' . $bildlink . '';
 
 
-                            if (file_exists("<img src='profilbild/$profilbild'>")) {
-                                echo "<img src=\"profilbild/$profilbild\" width=\"39\" height=\"39\" alt=\"\">";
-                            } else {
-                                echo "<img src=\"profilbild/root.jpg\" width=\"39\" height=\"39\" alt=\"\">";
+                                if (file_exists($file_pointer)) {
+                                    echo "<img src='profilbild/$bildlink' width=\"39\" height=\"39\" alt=\"\">";
+                                } else {
+                                    echo "<img src='profilbild/root.jpg' width=\"39\" height=\"39\" alt=\"\">";
+                                }
                             }
                             ?>
+
                         </a>
                     </div>
                 </li>
