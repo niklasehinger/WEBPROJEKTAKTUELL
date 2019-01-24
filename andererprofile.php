@@ -41,7 +41,7 @@ while ($row = $statement->fetch()) {
 
             <p>
                 <?php
-                $statement = $pdo->prepare("SELECT * FROM posts WHERE author = '$usernameandere'");
+                $statement = $pdo->prepare("SELECT * FROM posts WHERE author =:usernameandere");
                 $statement->execute(array($usernameandere));
                 while ($row = $statement->fetch()) {
                     echo $row['content'] . " <br /><br />";
