@@ -24,14 +24,6 @@ $options = [
 ];
 $hash = password_hash($passwort, PASSWORD_DEFAULT, $options);
 
-
-$password = "passwort";
-$hash = password_hash ($password, PASSWORD_DEFAULT);
-
-
-
-
-
 //Checken ob Username bereits vergeben ist
 $pdocheck = new PDO($dsn, $dbuser, $dbpass, $option);
 $sql_statement = "SELECT username FROM users WHERE username=:username";
