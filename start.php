@@ -27,7 +27,6 @@ session_start();
 
         .jumbotron {
             background-color: whitesmoke;
-            box-shadow:1px 1px 30px 1px  lightgrey;
         }
 
     </style>
@@ -47,9 +46,9 @@ if ($_GET["seite"]=="username"){
 
 ?>
 
-<div class="container">
-    <div class="jumbotron  " align="center" style="margin-top: 150px;">
-        <div class="container ">
+<div class="container ">
+    <div class="jumbotron margin" align="center">
+        <div class="container">
             <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
                 <div class="input-group ">
@@ -107,12 +106,10 @@ if ($_GET["seite"]=="username"){
                 <input id="input2" class="form-control" type="password" name="passwort" required>
             </div>
 
-            <div class="input-group" >
+            <div class="input-group">
                 <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
             </div>
-            <div class="input-group" style="margin-top: 50px;">
             Bereits registriert? <button class="loginbutton" type="button" id="signup" >Login</button>
-            </div>
         </form>
 
     </div>

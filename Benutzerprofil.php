@@ -66,31 +66,41 @@ include 'header.php';
 </div>
 
 <br><br>
-
-<div>
+<div class ="container-fluid">
     <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
-        <div class="input-group">
-            <label>Vorname</label>
-            <input type="text" name="vorname">
-        </div>
-        <div class="input-group">
-            <label>Nachname</label>
-            <input type="text" name="nachname" required>
-        </div>
-        <div class="input-group">
-            <label>Studiengang</label>
-            <input type="text" name="studiengang" required>
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" name="update_user">Update</button>
-        </div>
+            <div class="input-group" align="center">
+                <button type="button" class="btn" data-toggle="modal" data-target="#myModal" name="update_user"  >Update</button>
+            </div>
     </form>
-</div>
 
-
-
-
-
+    </form>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bearbeite dein Benutzerprofil</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+                <div class="input-group mb-3 align="center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Vorname</span>
+                    <input type="text" name="vorname">
+                </div>
+                <div class="input-group mb-3 align="center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nachname</span>
+                    <input type="text" name="nachname">
+                </div>
+                <div class="input-group mb-3 align="center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Studiengang</span>
+                    <input type="text" name="nachname">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                </form>
 
 </body>
 <script>
