@@ -22,7 +22,7 @@ session_start();
     <style>
 
         body {
-            background-color: white;
+            background-image: url(Logos/BG.jpg);
         }
 
         .jumbotron {
@@ -46,9 +46,9 @@ if ($_GET["seite"]=="username"){
 
 ?>
 
-<div class="container ">
+<div class="container">
     <div class="jumbotron margin" align="center">
-        <div class="container">
+        <div class="container ">
             <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
                 <div class="input-group ">

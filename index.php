@@ -5,6 +5,8 @@ session_start();
 include 'passwords/db.php';
 include 'header.php';
 ?>
+
+
 <div class="container ">
     <div style="color: black; text-decoration: underline;" class="parallax">
         <div class="feed" align="center">
