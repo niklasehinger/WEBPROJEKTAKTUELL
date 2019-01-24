@@ -50,6 +50,8 @@ while ($row = $statement->fetch()) {
                     Vorname: <input type="text" name="vorname" placeholder="Vorname"><br>
                     Nachname: <input type="text" name="nachname" placeholder="Nachname"><br>
                     Studiengang: <input type="text" name="studiengang" placeholder="Studiengang">
+                    <input type="submit" name="submit" value="Update">
+
                 </form>
                 <br>
                 <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
