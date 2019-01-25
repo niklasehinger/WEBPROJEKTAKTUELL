@@ -27,6 +27,7 @@ session_start();
 
         .jumbotron {
             background-color: white;
+            box-shadow:1px 1px 30px 1px  darkblue;
         }
 
     </style>
@@ -47,8 +48,8 @@ if ($_GET["seite"]=="username"){
 ?>
 
 <div class="container">
-    <div class="jumbotron marginmedia marginmediasm" align="center">
-        <div class="container ">
+    <div class="jumbotron marginmedia marginmediasm" style="border-radius: 100px" align="center">
+        <div class="container">
             <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
                 <div class="input-group ">

@@ -6,14 +6,14 @@ body {
 
 @media screen and (min-width: 600px) {
     .marginmedia {
-        margin: 70px;
+        margin: 10%;
         padding-left: 20%;
     }
 }
 
 @media screen and (max-width: 600px) {
     .marginmediasm {
-        margin-top: 70px;
+        margin-top: 5%;
     }
 }
 
