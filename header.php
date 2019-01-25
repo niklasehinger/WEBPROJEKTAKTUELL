@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
         }
 </style>
 </head>
-    <div style=\"margin: 10%\" align='center'>
+    <div style='margin-top: 100px' align='center'>
            <a class=\"center-block btn btn-outline-dark center\" href=\"start.php\" align=\"center\" role=\"button\" >
                     <img src=\"Logos/Pigeonlogo_einloggen.png\" href=\"start.php\" type=\"button\" class=\"img-responsive logo shadow\" style=\"display:inline padding:\" alt=\"Logo\" width=\"250\" height=\"250\"> 
                 </a>
