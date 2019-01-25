@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
     echo "
 
 <html lang=\"de\" xmlns=\"http://www.w3.org/1999/html\" xmlns=\"http://www.w3.org/1999/html\">
-<title>Navbar</title>
+<title>Pigeon</title>
 <head>
     
     <meta charset=\"utf-8\">

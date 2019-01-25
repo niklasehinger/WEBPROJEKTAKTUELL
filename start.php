@@ -26,7 +26,7 @@ session_start();
         }
 
         .jumbotron {
-            background-color: whitesmoke;
+            background-color: white;
         }
 
     </style>
@@ -47,7 +47,7 @@ if ($_GET["seite"]=="username"){
 ?>
 
 <div class="container">
-    <div class="jumbotron margin" align="center">
+    <div class="jumbotron marginmedia marginmediasm" align="center">
         <div class="container ">
             <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
@@ -64,11 +64,10 @@ if ($_GET["seite"]=="username"){
             <a type="button" id="loginbutton" class="loginbutton">Login</a>
         </div>
 
-        <p class="margin" align="center" id="neuhier">Neu hier?</p>
-        <button class="loginbutton " type="button" id="registerfirst">Registrieren</button>
+        <button class="registerbutton" style="margin-top: 10px" type="button" id="registerfirst">Registrieren</button>
 
 
-        <form class="margin registrieren py-lg-5" id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
+        <form class=" registrieren py-lg-5" id="register" method="post" action="phpfiles/register.php" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="input2">Username</label>
@@ -107,9 +106,9 @@ if ($_GET["seite"]=="username"){
             </div>
 
             <div class="input-group">
-                <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
+                <button type="submit" class="registerbutton" name="register_user">Registrieren</button>
             </div>
-            Bereits registriert? <button class="loginbutton" type="button" id="signup" >Login</button>
+            <button class="loginbutton" type="button" id="signup" >Bereits registriert?</button>
         </form>
 
     </div>
