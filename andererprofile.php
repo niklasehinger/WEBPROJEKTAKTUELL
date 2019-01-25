@@ -18,21 +18,20 @@ while ($row = $statement->fetch()) {
 
 ?>
 
-<div id="main" align="center" style="width:100%; height:100%">
-    <h1><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Daten</h1>
-    <div class="profil" align="center">
-        <div id="main" align="center" style="width:100%; height:100%">
+<div id="main">
+    <h2><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Daten</h2>
+    <div class="profil" >
+        <div id="main">
             <?php
             $bildlink = $row['pb'];
 
             echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
-            echo "<div class=\"profilbild\" align=\"center\" >";
-            echo "<img src='profilbild/$bildlink'><br>";
-            echo "</div>";
             echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
             echo "E-Mail: " . $row['email'] . "<br /><br />";
-            echo "Fakultät: " . $row['fakultaet'] . "<br /><br />";
-            echo $row['vorname'] . " " . $row['nachname'] . "s Beiträge:<br /><br />"; }
+            echo "<div class=\"profilbild\">";
+            echo "<img src='profilbild/$bildlink' height='120' width='120'><br>";
+            echo "</div><br><br>";
+            echo "<h4>".$row['vorname'] . "s Beiträge:</h4><br><br>"; }
             ?>
 
             <p>

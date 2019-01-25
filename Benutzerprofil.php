@@ -7,15 +7,9 @@ include 'header.php';
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-} else {
-    echo "Bitte zuerst  <a href=\"start.php\">einloggen</a>";
-    die();
-}
 ?>
 
-<div>Mein Profil</div>
+<h2>Mein Profil</h2><br>
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
@@ -24,17 +18,17 @@ $query = $pdo->prepare($sql);
 
 while ($row = $statement->fetch()) {
     $bildlink = $row['pb'];
-    echo "<div class=\"profil\" align=\"center\" >";
-    echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
+    echo "<div class=\"profil\">";
+    echo $row['vorname'] . " " . $row['nachname'] . "<br>";
     echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-    echo "<div class=\"profilbild\" align=\"center\" > </div>";
-    echo "<img src='profilbild/$bildlink'><br>";
+    echo "<div class=\"profilbild\"> </div>";
+    echo "<img src='profilbild/$bildlink' width=\"120\" height=\"120\" ><br><br>";
     echo "</div>";
 }
 ?>
 
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update Profil</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Update Profil</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -64,7 +58,11 @@ while ($row = $statement->fetch()) {
     </div>
 </div>
 
-<div> Meine Beiträge:</div>
+<br><br>
+
+<h4> Meine Beiträge:</h4>
+
+<br>
 <?php
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
