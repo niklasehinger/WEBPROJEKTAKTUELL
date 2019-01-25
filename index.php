@@ -44,15 +44,16 @@ include 'header.php';
 </div>
 
 
-<div class="container"
+<div class="container">
 
 
 <?php
 
 
 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-$sql = "SELECT * FROM posts WHERE author = ANY (SELECT * FROM users WHERE username=author) ORDER BY created_on DESC";
+$sql = "SELECT * FROM posts JOIN users ON author = username";
 $query = $pdo->prepare($sql);
+
 $query->execute();
 
 while ($row = $query->fetch()) {
@@ -63,7 +64,7 @@ while ($row = $query->fetch()) {
 
     echo "<div class='featurette-divider'>";
     echo "<div class='col-md-7 order-md-2'>";
-    echo "<p>" . $row['content'] . "</p>";
+    echo "<p class='lead'>" . $row['content'] . "</p>";
     echo "</div>";
     echo "<div class='ol-md-5 order-md-1'>";
     echo "<p>" . $row['author'] . "</p>";
