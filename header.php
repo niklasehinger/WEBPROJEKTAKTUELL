@@ -71,7 +71,7 @@ if (!isset($_SESSION['username'])) {
     </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: whitesmoke;">
     <a class="navbar-brand" href="index.php">
         <img src="Logos/Logo-Blau.png" alt="logo" style="width:40px;">
     </a>
@@ -155,10 +155,10 @@ if (!isset($_SESSION['username'])) {
             </li>
             <form class="form-inline" action="do_suchen.php" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Suchen" name="searchbox" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Los!</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="color: #0068ff;">Los!</button>
             </form>
             <form class="form-inline" method="post" action="phpfiles/logout.php">
-                <button type="submit" class="btn btn-default">Logout</button>
+                <button type="submit" class="btn btn-default" style="color: #0068ff;">Logout</button>
             </form>
         </ul>
     </div>
