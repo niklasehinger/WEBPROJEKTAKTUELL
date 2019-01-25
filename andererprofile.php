@@ -30,15 +30,15 @@ while ($row = $statement->fetch()) {
             echo "</div><br><br>";
             echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
             echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-            echo "E-Mail: " . $row['email'] . "<br /><br />";
+            echo $row['email'] . "<br /><br />";
 
             $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
             $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
             $row = $statement->fetch();
             if ($usernameandere == $row['usernameandere']) {
-                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Entfolgen</button><br>";
+                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
             } else {
-                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\">Folgen</button><br>";
+                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
             }
 
             }

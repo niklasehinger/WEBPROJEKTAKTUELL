@@ -66,9 +66,9 @@ if (!isset($_SESSION['username'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <style>
         </style>
     </head>
@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="dropdown01" style="color: #0068ff"
+                <a class="nav-link" href="#" id="dropdown01" style="color: #0068ff"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">Benachrichtigungen
                     <?php //hier werden die ungelesenen nachrichten ausgelesen
@@ -117,13 +117,12 @@ if (!isset($_SESSION['username'])) {
 
                             //Beitrag wird als Listenelemt für das Dropdown in der Navbar zurückgegeben
 
-                            echo '<a href="#">';
+
                             echo '<ul>';
                             echo '<li>';
-                            echo '<a href="do_gelesen.php?usernameandere=' . $row["author"] . '&id=' . $row["id"] . '">Neuer Beitrag von ' . $row["author"] . '</a>';
+                            echo '<a class="icon-pencil" href="do_gelesen.php?usernameandere=' . $row["author"] . '&id=' . $row["id"] . '">Neuer Beitrag von ' . $row["author"] . '</a>';
                             echo '</li>';
                             echo '</ul>';
-                            echo '</a>';
                             echo '<div class="dropdown-divider"></div>';
 
                         }
@@ -138,7 +137,23 @@ if (!isset($_SESSION['username'])) {
         <ul class="navbar-nav my-2 my-lg-0">
             <li class="nav-item">
                 <a class="navbar-brand" href="Benutzerprofil.php">
-                    <img src="Logos/Logo-Text-SW.png" alt="Profilbild" style="width:50px;">
+                    <?php
+                    $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
+                    $statement->execute(array(":username" => "$username"));
+                    $query = $pdo->prepare($sql);
+
+                    while ($row = $statement->fetch()) {
+                        $bildlink = $row['pb'];
+                        $file_pointer = 'profilbild/' . $bildlink . '';
+
+
+                        if (file_exists($file_pointer)) {
+                            echo "<img class='rounded-circle' src='profilbild/$bildlink' width=\"39\" height=\"39\" alt=\"\">";
+                        } else {
+                            echo "<img class='rounded-circle'src='profilbild/root.jpg' width=\"39\" height=\"39\" alt=\"\">";
+                        }
+                    }
+                    ?>
                 </a>
             </li>
             <form class="form-inline" action="do_suchen.php" method="get">
@@ -153,117 +168,4 @@ if (!isset($_SESSION['username'])) {
 </nav>
 
 
-
-<!--===> Navbar ende-->
-
-
-
-    <nav class="navbar navbar-expand-lg sticky-top navbar-white container-fluid" style="background-color: whitesmoke;">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Navigation ein-/ausblenden</span>
-            <span class="icon-bar" style="background-color: #0068ff;"></span>
-            <span class="icon-bar" style="background-color: #0068ff;"></span>
-            <span class="icon-bar" style="background-color: #0068ff;"></span>
-        </button>
-        <a href="index.php">
-            <img alt="Logo" src="Logos/Logo-Blau.png" style="display:inline" width="40" height="40">
-        </a>
-    </div>
-
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-    <li class="nav-item dropdown">
-        <a class="nav-link" href="http://example.com" id="dropdown01" style="color: #0068ff"
-           data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">Benachrichtigungen
-            <?php //hier werden die ungelesenen nachrichten ausgelesen
-            $anzahl = 0;
-            $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
-
-            $statement = $pdo->prepare("SELECT * FROM posts WHERE gelesen='0' AND author = ANY (SELECT usernameandere from following WHERE username=:username)"); //nimm alls spalten aus der tabelle null wo gelesen auf null gessetzt ist, also die posts die noch ungelesen sind
-            $statement->execute(array(":username" => "$username"));
-            $anzahl = $statement->rowCount(); //zähle die zeilen in der tabelle wo er NULL findet und zeige die anzahl der spalten als anzahl der benachrichtigungen an
-
-            ?>
-            <span class="badge badge-primary"><?php echo $anzahl ?></span>
-            <!--er soll die variable an dieser stelle ausgeben-->
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-
-            <?php // wenn es Nachrichten gibt, dann zeige Klasse 'dropdown-item', ansonsten führe else aus 'Keine neuen Nachrichten'
-
-            if ($anzahl > 0) {
-
-                $username = $_SESSION['username'];
-
-                $sql = "SELECT * from posts WHERE gelesen='0' AND author = ANY (SELECT usernameandere from following WHERE username=:username)";
-                $query = $pdo->prepare($sql);
-                $query->execute(array(":username" => "$username"));
-                $row = array();
-                while ($row = $query->fetch()) {
-
-                    //Beitrag wird als Listenelemt für das Dropdown in der Navbar zurückgegeben
-
-                    echo '<a href="#">';
-                    echo '<ul>';
-                    echo '<li>';
-                    echo '<a href="do_gelesen.php?usernameandere=' . $row["author"] . '&id=' . $row["id"] . '">Neuer Beitrag von ' . $row["author"] . '</a>';
-                    echo '</li>';
-                    echo '</ul>';
-                    echo '</a>';
-                    echo '<div class="dropdown-divider"></div>';
-
-                }
-            } else {
-                echo 'Keine neuen Nachrichten';
-            }
-
-            ?>
-        </div>
-    </li>
-    <di
-    <li>
-        <form class="nav navbar-form navbar-right" method="get" action="do_suchen.php" role="search">
-            <div class="form-group">
-                <input type="search" class="form-control" placeholder="Suchen" aria-label="Search"
-                       name="searchbox">
-            </div>
-            <button type="submit" class="btn btn-default">Los</button>
-        </form>
-    </li>
-
-    <li>
-        <div class="headerprofilbild">
-            <a href="Benutzerprofil.php>
-<?php
-
-                    $statement = $pdo->prepare("SELECT pb FROM users WHERE username = :username");
-                    $statement->execute(array(":username" => "$username"));
-                    $query = $pdo->prepare($sql);
-                    $query->execute();
-
-                    $profilbild = $row['pb'];
-
-
-                    if (file_exists("<img src='profilbild/$profilbild'>")) {
-                        echo "<img class=\"img-circle\" src=\"profilbild/$profilbild\" style=\"padding: 5px\" width=\"50\" height=\"50\" alt=\"\">";
-                    } else {
-                        echo "<img class=\"img-circle\" src=\"profilbild/root.jpg\" style=\"padding: 5px\" width=\"50\" height=\"50\" alt=\"\">";
-                    }
-                    ?>
-                </a>
-            </div>
-        </li>
-
-        <li>
-            <form class="navbar-form " method="post" style="margin-left: -15px" action="phpfiles/logout.php">
-                <button type="submit" class="btn btn-default">Logout</button>
-            </form>
-        </li>
-    </ul>
-</div>
-</nav>
 

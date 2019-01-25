@@ -20,7 +20,8 @@ while ($row = $statement->fetch()) {
     $bildlink = $row['pb'];
     echo "<div class=\"profil\">";
     echo $row['vorname'] . " " . $row['nachname'] . "<br>";
-    echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
+    echo "Studiengang: " . $row['studiengang'] . "<br>";
+    echo $row['email'] . "<br /><br />";
     echo "<div class=\"profilbild\"> </div>";
     echo "<img src='profilbild/$bildlink' width=\"120\" height=\"120\" ><br><br>";
     echo "</div>";
@@ -98,3 +99,5 @@ while ($row = $statement->fetch()) {
     echo $row['content'] . " <br /><br />";
 }
 ?>
+
+
