@@ -84,13 +84,6 @@ if (!isset($_SESSION['username'])) {
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="navbar-brand" href="#">
-                    <img src="Logos/Logo-Text-SW.png" alt="Profilbild" style="width:40px;">
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav my-2 my-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="dropdown01" style="color: #0068ff"
                    data-toggle="dropdown"
@@ -141,6 +134,13 @@ if (!isset($_SESSION['username'])) {
                     ?>
                 </div>
             </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="navbar-brand" href="Benutzerprofil.php">
+                    <img src="Logos/Logo-Text-SW.png" alt="Profilbild" style="width:50px;">
+                </a>
+            </li>
             <form class="form-inline" action="do_suchen.php" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Suchen" name="searchbox" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Los!</button>
@@ -152,6 +152,9 @@ if (!isset($_SESSION['username'])) {
     </div>
 </nav>
 
+
+
+<!--===> Navbar ende-->
 
 
 
