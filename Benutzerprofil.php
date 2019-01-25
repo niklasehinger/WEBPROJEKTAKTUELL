@@ -40,17 +40,43 @@ while ($row = $statement->fetch()) {
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
-                    Vorname: <input type="text" name="vorname" placeholder="Vorname"><br>
-                    Nachname: <input type="text" name="nachname" placeholder="Nachname"><br>
-                    Studiengang: <input type="text" name="studiengang" placeholder="Studiengang">
-                    <input type="submit" name="submit" value="Update">
+                <form class="py-lg-5" id="update_benutzerprofil" method="post" action="phpfiles/do_update_Benutzerprofil.php">
+                    <div class="form-group">
+                        <label for="input2">Vorname</label>
+                        <input type="text" class="form-control" name="vorname" required>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="input2">Nachname</label>
+                        <input type="text" class="form-control" name="nachname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input4">Studiengang</label>
+                        <select type="text" class="form-control" name="studiengang" required>
+                            <option>Online-Medien-Management</option>
+                            <option>Informationsdesign</option>
+                            <option>Wirtschaftsinformatik</option>
+                            <option>Audiovisuellemedien</option>
+                            <option>Medieninformatik</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <button type="submit"  name="submit" value="Update">Update</button>
+                    </div>
                 </form>
                 <br>
-                <form id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-                    Profilbild aktualisieren: <input type="file" name="profilbild">
-                    <input type="submit" name="submit" value="Upload">
+                <form class="py-lg-5" id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="input2">Profilbild aktualisieren:</label>
+                        <input type="file" class="form-control" name="profilbild" required>
+                    </div>
+
+                    <div class="input-group">
+                        <button type="submit"  name="submit" value="Upload">Update</button>
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -103,9 +103,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-    <nav class="navbar navbar-expand-lg sticky-top navbar-white " style="background-color: whitesmoke;>
-    <div class=" container-fluid
-    ">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-white container-fluid" style="background-color: whitesmoke">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
