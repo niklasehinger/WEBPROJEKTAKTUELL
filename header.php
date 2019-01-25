@@ -7,28 +7,26 @@ $username = $_SESSION['username'];
 if (!isset($_SESSION['username'])) {
     echo "
 
-<html lang=\"de\" xmlns=\"http://www.w3.org/1999/html\" xmlns=\"http://www.w3.org/1999/html\">
+<html lang=\"de\">
 <title>Pigeon</title>
 <head>
-    
-    <meta charset=\"utf-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css\" integrity=\"sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS\" crossorigin=\"anonymous\">
-    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js\" integrity=\"sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js\" integrity=\"sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut\" crossorigin=\"anonymous\"></script>
     <style>
     .shadow {
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 100px ;
-    box-shadow:1px 1px 30px 1px  lightgrey;
+    box-shadow:1px 1px 30px 1px  darkblue;
+    padding: 20px;
 }
+    body {
+    padding-top: 5rem;
+    background: url('Logos/BG.jpg');
+    background-size: cover;
+        }
 </style>
 </head>
-    <div class=\"container\" style=\"margin-top: 200px\">
-        <div class='jumbatron'>    
+    <div style=\"margin: 10%\" align='center'>
            <a class=\"center-block btn btn-outline-dark center\" href=\"start.php\" align=\"center\" role=\"button\" >
-                    <img src=\"Logos/Pigeonlogo_einloggen.png\" href=\"start.php\" type=\"button\" class=\"img-responsive logo shadow\" style=\"display:inline\" alt=\"Logo\" width=\"350\" height=\"350\"> 
+                    <img src=\"Logos/Pigeonlogo_einloggen.png\" href=\"start.php\" type=\"button\" class=\"img-responsive logo shadow\" style=\"display:inline padding:\" alt=\"Logo\" width=\"250\" height=\"250\"> 
                 </a>
                 </div>
             </div>   
