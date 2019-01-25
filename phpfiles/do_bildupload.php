@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../passwords/db.php';
+include '../header.php';
 
 
 
@@ -17,7 +18,6 @@ if (isset($_POST['submit'])); {
     $fileSize = $_FILES['file']['size'];
     $fileError = $_FILES['file']['error'];
     $fileType = $_FILES['file']['type'];
-
 
 
     $fileExt = explode('.', $fileName);
