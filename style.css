@@ -42,3 +42,11 @@ body {
     padding-left: 220px;
     padding-right: 220px;
 }
+.form-rounded {
+    border-radius: 1rem;
+}
+
+.bildposten {
+    background-color: #0068ff;
+    margin: 5px;
+}
