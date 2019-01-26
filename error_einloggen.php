@@ -4,7 +4,7 @@ $username = $_SESSION['username'];
 if (!isset($_SESSION['username'])) {
     echo "
 
-<html lang=\"de\" xmlns=\"http://www.w3.org/1999/html\" xmlns=\"http://www.w3.org/1999/html\">
+<html lang=\"de\" xmlns=\"http://www.w3.org/1999/html\">
 <title>Pigeon</title>
 <head>
     
