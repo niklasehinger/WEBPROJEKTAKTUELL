@@ -147,7 +147,7 @@ if (!isset($_SESSION['username'])) {
                         if (file_exists($file_pointer)) {
                             echo "<img class='rounded-circle' src='profilbild/$bildlink' width=\"39\" height=\"39\" alt=\"\">";
                         } else {
-                            echo "<img class='rounded-circle'src='profilbild/root.jpg' width=\"39\" height=\"39\" alt=\"\">";
+                            echo "<img class='rounded-circle' src='profilbild/root.jpg' width=\"39\" height=\"39\" alt=\"\">";
                         }
                     }
                     ?>
