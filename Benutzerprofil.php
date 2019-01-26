@@ -21,19 +21,19 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
                     while ($row = $statement->fetch()) {
                         $bildlink = $row['pb'];
-                        echo "<div class=\"profil\">";
-                        echo $row['vorname'] . " " . $row['nachname'] . "<br>";
-                        echo "Studiengang: " . $row['studiengang'] . "<br>";
-                        echo $row['email'] . "<br /><br />";
                         echo "<div class=\"profilbild\"> </div>";
                         echo "<img src='profilbild/$bildlink' class='rounded-circle' width=\"120\" height=\"120\" ><br><br>";
                         echo "</div>";
+                        echo "<div class=\"profil\">";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
+                        echo "Studiengang: " . $row['studiengang'] . "<br><br>";
+                        echo $row['email'] . "<br/><br/>";
                     }
                     ?>
                 </div>
              <div>
                  <!-- Trigger the modal with a button -->
-                 <button type="button" class="btn" style="background-color: lightgrey" data-toggle="modal" data-target="#myModal" >Profil bearbeiten</button>
+                 <button type="button" class="btn btn-secondary" style="background-color: #0068ff" data-toggle="modal" data-target="#myModal" >Profil bearbeiten</button>
 
                  <!-- Modal -->
                  <div id="myModal" class="modal fade" role="dialog">
@@ -79,7 +79,7 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                                      </div>
 
                                      <div class="input-group">
-                                         <button type="submit" class="btn" style="background-color: lightgrey" name="submit" value="Upload">Update</button>
+                                         <button type="submit" class="btn btn-secondary" style='background-color: #0068ff' name="submit" value="Upload">Update</button>
                                      </div>
 
                                  </form>
