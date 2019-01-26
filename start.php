@@ -50,7 +50,7 @@ if ($_GET["seite"]=="username"){
 <div class="container">
     <div class="jumbotron marginmedia marginmediasm" style="border-radius: 100px" align="center">
         <div class="container">
-            <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="200" height="200"> <br/>
+            <img src="Logos/Logo-Blau.png" class="img-responsive logo" style="display:inline" alt="Logo" width="150" height="150"> <br/>
             <form class="form-inline" id="login" method="post" action="phpfiles/login.php" >
                 <div class="input-group ">
                     <input type="text" name="username" class="form-control" size="10" placeholder="Username" required>

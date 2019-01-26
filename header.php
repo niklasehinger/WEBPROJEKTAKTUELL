@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
 </head>
     <div style=\"margin-top: 10%\" align='center'>
            <a class=\"center-block btn btn-outline-dark center\" href=\"start.php\" align=\"center\" role=\"button\" >
-                    <img src=\"Logos/Pigeonlogo_einloggen.png\" href=\"start.php\" type=\"button\" class=\"img-responsive logo shadow\" style=\"display:inline padding:\" alt=\"Logo\" width=\"250\" height=\"250\"> 
+                    <img src=\"Logos/Pigeonlogo_einloggen.png\" href=\"start.php\" type=\"button\" class=\"img-responsive logo shadow\" style=\"display:inline padding:\" alt=\"Logo\" width=\"200\" height=\"200\"> 
                 </a>
                 </div>
             </div>   
