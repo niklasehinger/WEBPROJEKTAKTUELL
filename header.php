@@ -156,6 +156,7 @@ if (!isset($_SESSION['username'])) {
 
                     while ($row = $statement->fetch()) {
                         $bildlink = $row['pb'];
+
                         $file_pointer = 'profilbild/' . $bildlink . '';
 
 

@@ -66,24 +66,42 @@ include 'header.php';
         $bildlink = $row['bild_id'];
         $pb = $row['pb'];
 
-        echo " 
+        if ($row['content'] == NULL) {
 
-                <div class=\"row featurette\" style='background-color: #0068ff'>
-                    <div class=\"col-md-7 order-md-2\" style='background-color: white'>
-                        <p class=\"lead\">" . $row['content'] ."</p>
-                        <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
-                    </div>
-                <div class=\"col-md-5 order-md-1\">
-                        <p class=\"lead\">" . $row['author'] ."</p>
-                    <a href=\"andererprofile.php?usernameandere=".$row['author']."\">    
-                    <img class=\"content img-fluid mx-auto\" data-src=\"holder.js/500x500/auto\" alt=\"500x500\"
+            echo " <div class=\"row featurette\" style='background-color: #0068ff'>
+                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
+                            <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
+                        </div>
+                    <div class=\"col-md-5 order-md-1\">
+                        <p class=\"lead\">" . $row['author'] . "</p>
+                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
+                        <img class=\"content img-fluid mx-auto\" data-src=\"holder.js/500x500/auto\" alt=\"500x500\"
                          src='profilbild/$pb'
                          data-holder-rendered=\"true\" style=\"width: 200px; height: 200px;\">
-                     </a>    
-                </div>
-                </div>
+                        </a>    
+                    </div>
+                    </div>
                 <br><br>
-            "; }
+            ";
+        } else {
+            echo " <div class=\"row featurette\" style='background-color: #0068ff'>
+                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
+                            <p class=\"lead\">" . $row['content'] . "</p>
+                        </div>
+                    <div class=\"col-md-5 order-md-1\">
+                        <p class=\"lead\">" . $row['author'] . "</p>
+                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
+                        <img class=\"content img-fluid mx-auto\" data-src=\"holder.js/500x500/auto\" alt=\"500x500\"
+                         src='profilbild/$pb'
+                         data-holder-rendered=\"true\" style=\"width: 200px; height: 200px;\">
+                         </a>    
+                    </div>
+                    </div>
+                <br><br>
+            ";
+        }
+    }
+
     ?>
 
 </div>
