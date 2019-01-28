@@ -97,10 +97,42 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
             <?php
 
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
-            $statement = $pdo->prepare("SELECT * FROM posts WHERE author = :username");
+            $statement = $pdo->prepare("SELECT * FROM posts WHERE author = :username ORDER BY created_on DESC ");
             $statement->execute(array(":username" => "$username"));
+
             while ($row = $statement->fetch()) {
-                echo $row['content'] . " <br/><br/>";
+
+                $bildlink = $row['bild_id'];
+                $pb = $row['pb'];
+
+                if ($row['content'] == NULL) {
+
+                    echo " <hr class=\"featurette-divider\">
+ 
+                        <div class=\"row featurette\" style='background-color: #0068ff'>
+                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
+                            <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
+                        </div>
+                    <div class=\"col-md-5 order-md-1\">
+                        <p class=\"lead\">" . $row['author'] . "</p>
+                    </div>
+                    </div>
+                <br><br>
+            ";
+                } else {
+                    echo " <hr class=\"featurette-divider\">
+ 
+ <div class=\"row featurette\" style='background-color: #0068ff'>
+                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
+                            <p class=\"lead\">" . $row['content'] . "</p>
+                        </div>
+                    <div class=\"col-md-5 order-md-1\">
+                        <p class=\"lead\">" . $row['author'] . "</p> 
+                    </div>
+                    </div>
+                <br><br>
+            ";
+                }
             }
             ?>
 
