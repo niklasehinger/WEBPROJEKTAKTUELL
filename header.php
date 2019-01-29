@@ -150,21 +150,11 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="navbar-brand" href="Benutzerprofil.php">
                     <?php
-                    $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
-                    $statement->execute(array(":username" => "$username"));
-                    $query = $pdo->prepare($sql);
-
-                    while ($row = $statement->fetch()) {
-                        $bildlink = $row['pb'];
-
-                        $file_pointer = 'profilbild/' . $bildlink . '';
-
-
-                        if (file_exists($file_pointer)) {
-                            echo "<img class='rounded-circle' src='profilbild/$bildlink' width=\"39\" height=\"39\" alt=\"\">";
-                        } else {
-                            echo "<img class='rounded-circle' src='profilbild/root.jpg' width=\"39\" height=\"39\" alt=\"\">";
-                        }
+                    $file_pointer = 'profilbild/' . $username ;
+                    if (file_exists($file_pointer)) {
+                        echo "<img src=\"$file_pointer\" class='rounded-circle' width=\"39\" height=\"39\">";
+                    } else {
+                        echo "<img src=\"profilbild/root.jpg\" class='rounded-circle' width=\"39\" height=\"39\" alt=\"\">";
                     }
                     ?>
                 </a>

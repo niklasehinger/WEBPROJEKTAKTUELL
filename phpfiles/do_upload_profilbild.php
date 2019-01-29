@@ -26,11 +26,10 @@ if (isset($_POST['submit'])); {
     if (in_array($fileActualExt, $allowed)){
         if ($fileError === 0){
             if ($fileSize < 5000000) {
-                $fileNameNew = uniqid('', true).".". $fileActualExt;
-                $fileDestination = '/home/ne025/public_html/profilbild/'.$fileNameNew;
+                $fileDestination = '/home/ne025/public_html/profilbild/'.$username;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
-                $bild_id = $fileNameNew;
+                $bild_id = $username;
                 $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
                 $statement = $pdo->prepare("UPDATE users SET pb = :pb_neu WHERE username = :username");
                 $statement->execute(array('username' => $username, 'pb_neu' => $bild_id));
