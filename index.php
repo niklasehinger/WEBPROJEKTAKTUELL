@@ -21,8 +21,7 @@ include 'header.php';
                             <form action="phpfiles/do_post.php" method="post">
                             <textarea class="form-control form-rounded" rows="2" placeholder="Was gibts neues?" name="post"></textarea><br>
                                 <button type="submit" name="submit" class="btn btn-primary bildposten">Posten</button>
-                                <button type="button" class="btn btn-primary bildposten" data-toggle="modal"
-                                        data-target=".bd-example-modal-sm">Bild posten</button>
+                                <button type="button" class="btn btn-primary bildposten" data-toggle="modal" data-target=".bd-example-modal-sm">Bild posten</button>
                             </form>
 
                             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
