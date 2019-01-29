@@ -6,48 +6,46 @@ include 'passwords/db.php';
 include 'header.php';
 ?>
 
-<!--<header class="masthead bg-primary text-white text-center">
-    <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-        <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
-        <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
-    </div>
-</header>-->
-<div class="container jumbotron jumbotron-fluid text-white">
-    <header style="color: black; text-decoration: underline;" class="parallax text-white text-center size">
-        <div class="feed" align="center" style="margin-top: 200px">
-            <div class="create_post col-md-5" align="center">
-                <form action="phpfiles/do_post.php" method="post">
-                    <textarea class="form-control form-rounded" rows="2" placeholder="Was gibts neues?"
-                              name="post"></textarea><br>
-                    <input type="submit" value="Posten" name="submit" class="btn btn-primary"
-                           style="background-color:#0068ff">
-                    <button type="button" class="btn btn-primary bildposten" data-toggle="modal"
-                            data-target=".bd-example-modal-sm">Bild posten
-                    </button>
-                </form>
+<div class="container jumbotron jumbotron-fluid">
+    <header style="background-color: white;" class="text-center size">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" style="background-size: cover">
+                <div class="carousel-item active" style="max-width: 100%; height: auto ">
+                    <img class="d-block w-100" src="Logos/hdm.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="Logos/hdm2.jpg" alt="Second slide">
+                </div>
+                <div class="feed" align="center" style="margin-top: 40%">
+                        <div class="create_post col-md-5" align="center">
+                            <form action="phpfiles/do_post.php" method="post">
+                            <textarea class="form-control form-rounded" rows="2" placeholder="Was gibts neues?" name="post"></textarea><br>
+                                <button type="submit" name="submit" class="btn btn-primary bildposten">Posten</button>
+                                <button type="button" class="btn btn-primary bildposten" data-toggle="modal"
+                                        data-target=".bd-example-modal-sm">Bild posten</button>
+                            </form>
 
-                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
-                         aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="create_post margin">
-                                    <form action="phpfiles/do_bildupload.php" method="post"
-                                          enctype="multipart/form-data">
-                                        <input type="file"  name="file">
-                                        <input type="submit" value="Bild posten" name="submit" class="btn btn-primary">
-                                    </form>
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                                 aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="create_post margin">
+                                            <form action="phpfiles/do_bildupload.php" method="post"
+                                                  enctype="multipart/form-data">
+                                                <input type="file" name="file">
+                                                <input type="submit" value="Bild posten" name="submit"
+                                                       class="btn btn-primary">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
             </div>
-        </div>
     </header>
 </div>
-
 
 <div class="container">
 
@@ -67,7 +65,7 @@ include 'header.php';
 
         if ($row['content'] == NULL) {
 
-            echo " <div class=\"row featurette\" style='background-color: #0068ff'>
+            echo " <div class=\"row featurette\" style='background-color: white'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>
                             <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
                         </div>

@@ -62,7 +62,7 @@ if ($_GET["seite"]=="username"){
                     <button type="submit" class="loginbutton" name="login_user">Login</button>
                 </div>
             </form>
-            <a type="button" id="loginbutton" class="loginbutton">Login</a>
+            <button type="button" id="loginbutton" class="loginbutton">Login</button>
         </div>
 
         <button class="registerbutton" style="margin-top: 10px" type="button" id="registerfirst">Registrieren</button>
@@ -107,9 +107,9 @@ if ($_GET["seite"]=="username"){
             </div>
 
             <div class="input-group">
-                <button type="submit" class="registerbutton" name="register_user">Registrieren</button>
+                <button type="submit" class="loginbutton" name="register_user">Registrieren</button>
             </div>
-            <button class="loginbutton" type="button" id="signup" >Bereits registriert?</button>
+            <button class="registerbutton" type="button" id="signup" >Bereits registriert?</button>
         </form>
 
     </div>

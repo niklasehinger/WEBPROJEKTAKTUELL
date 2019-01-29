@@ -21,76 +21,74 @@ while ($row = $statement->fetch()) {
     <div class="row">
         <div class="col-sm-4" style="background-color: whitesmoke; padding: 30px;">
             <h2><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Profil</h2><br>
-                <div class="profil">
-                    <div id="main">
-                        <?php
+            <div class="profil">
+                    <?php
 
-                        $bildlink = $row['pb'];
+                    $bildlink = $row['pb'];
 
-                        if ($row['pb']==NULL){
-                            echo "<div class=\"profilbild\">";
-                            echo "<img class='rounded-circle' src='profilbild/root.jpg' height='120' width='120'><br><br>";
-                            echo "</div>";
-                            echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
-                            echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-                            echo $row['email'] . "<br /><br />";
+                    if ($row['pb']==NULL){
+                        echo "<div class=\"profilbild\">";
+                        echo "<img class='rounded-circle' src='profilbild/root.jpg' height='120' width='120'><br><br>";
+                        echo "</div>";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
+                        echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
+                        echo $row['email'] . "<br /><br />";
 
 
-                            $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
-                            $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
-                            $row = $statement->fetch();
-                            if ($usernameandere == $row['usernameandere']) {
-                                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
-                            } else {
-                                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
-                            }
-
+                        $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+                        $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
+                        $row = $statement->fetch();
+                        if ($usernameandere == $row['usernameandere']) {
+                            echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
                         } else {
+                            echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
+                        }
 
-                            echo "<div class=\"profilbild\">";
-                            echo "<img class='rounded-circle' src='profilbild/$bildlink' height='120' width='120'><br><br>";
-                            echo "</div>";
-                            echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
-                            echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-                            echo $row['email'] . "<br /><br />";
+                    } else {
+
+                        echo "<div class=\"profilbild\">";
+                        echo "<img class='rounded-circle' src='profilbild/$bildlink' height='120' width='120'><br><br>";
+                        echo "</div>";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
+                        echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
+                        echo $row['email'] . "<br /><br />";
 
 
-                            $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
-                            $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
-                            $row = $statement->fetch();
-                            if ($usernameandere == $row['usernameandere']) {
-                                echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
-                            } else {
-                                echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
-                            }
+                        $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+                        $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
+                        $row = $statement->fetch();
+                        if ($usernameandere == $row['usernameandere']) {
+                            echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
+                        } else {
+                            echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
+                        }
 
-                        }}
-                        ?>
-                    </div>
-                </div>
+                    }}
+                    ?>
+            </div>
         </div>
-            <div class="col-sm-8" style="padding: 40px;">
-                <?php
-                $statement = $pdo->prepare("SELECT * FROM users WHERE username =:usernameandere");
-                $statement->execute(array("usernameandere" => "$usernameandere"));
-                while ($row = $statement->fetch()) {
-                    echo "<h4>Beiträge von " . $row['vorname'] . ":</h4><br/>";
-                }
-                ?>
+        <div class="col-sm-8" style="padding: 40px;">
+            <?php
+            $statement = $pdo->prepare("SELECT * FROM users WHERE username =:usernameandere");
+            $statement->execute(array("usernameandere" => "$usernameandere"));
+            while ($row = $statement->fetch()) {
+                echo "<h4>Beiträge von " . $row['vorname'] . ":</h4><br/>";
+            }
+            ?>
 
-                <?php
-                $statement = $pdo->prepare("SELECT * FROM posts WHERE author =:usernameandere ORDER BY created_on DESC ");
-                $statement->execute(array("usernameandere" => "$usernameandere"));
+            <?php
+            $statement = $pdo->prepare("SELECT * FROM posts WHERE author =:usernameandere ORDER BY created_on DESC ");
+            $statement->execute(array("usernameandere" => "$usernameandere"));
 
-                while ($row = $statement->fetch()) {
+            while ($row = $statement->fetch()) {
 
-                    $bildlink = $row['bild_id'];
-                    $pb = $row['pb'];
+                $bildlink = $row['bild_id'];
+                $pb = $row['pb'];
 
-                    if ($row['content'] == NULL) {
+                if ($row['content'] == NULL) {
 
 
-                        echo " <hr class=\"featurette-divider\">
+                    echo " <hr class=\"featurette-divider\">
  
                         <div class=\"row featurette\" style='background-color: #0068ff'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>
@@ -102,8 +100,8 @@ while ($row = $statement->fetch()) {
                     </div>
                 <br><br>
             ";
-                    } else {
-                        echo " <hr class=\"featurette-divider\">
+                } else {
+                    echo " <hr class=\"featurette-divider\">
  
  <div class=\"row featurette\" style='background-color: #0068ff'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>
@@ -115,11 +113,11 @@ while ($row = $statement->fetch()) {
                     </div>
                 <br><br>
             ";
-                    }
                 }
-                ?>
-            </div>
+            }
+            ?>
         </div>
+    </div>
 </div>
 
 

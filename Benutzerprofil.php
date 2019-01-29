@@ -13,7 +13,7 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
     <div class="row">
          <div class="col-sm-4" style="background-color: whitesmoke; padding: 30px;">
              <h2>Mein Profil</h2><br>
-                <div class="fakeimg">
+                <div class="profil">
                     <?php
                     $statement = $pdo->prepare("SELECT * FROM users WHERE username =:username");
                     $statement->execute(array(":username" => "$username"));
@@ -45,10 +45,8 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                     ?>
                 </div>
              <div>
-                 <!-- Trigger the modal with a button -->
                  <button type="button" class="btn btn-secondary" style="background-color: #0068ff" data-toggle="modal" data-target="#myModal" >Profil bearbeiten</button>
 
-                 <!-- Modal -->
                  <div id="myModal" class="modal fade" role="dialog">
                      <div class="modal-dialog">
 
@@ -133,7 +131,7 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                 <br><br>
             ";
                 } else {
-                    echo " <hr class=\"featurette-divider\">
+                    echo " <hr class=\"feturette-divider\">
  
  <div class=\"row featurette\" style='background-color: #0068ff'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>

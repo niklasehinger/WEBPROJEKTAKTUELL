@@ -4,17 +4,21 @@ body {
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 576px) {
     .marginmedia {
         margin: 10%;
         padding-left: 20%;
     }
+    .jumbotron{
+        margin-top: 2%!important;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
     .marginmediasm {
         margin-top: 5%;
     }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -34,7 +38,13 @@ body {
     padding: 30px;
 }
 
-.loginbutton {
+.parallax {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.registerbutton {
     background-color: transparent;
     padding: 8px;
     border: none;
@@ -42,7 +52,7 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
-.loginbutton:hover {
+.registerbutton:hover {
     border-radius: 5px;
     padding: 5px;
     border: solid;
@@ -51,7 +61,7 @@ body {
     text-decoration: none;
     color: #0068ff;
 }
-.registerbutton {
+.loginbutton {
     background-color: transparent;
     padding: 7px;
     border: none;
@@ -59,7 +69,7 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
-.registerbutton:hover {
+.loginbutton:hover {
     border-radius: 5px;
     background-color: #0068ff;
     text-decoration: none;
@@ -79,6 +89,22 @@ body {
 }
 
 .bildposten {
-    background-color: #0068ff;
+    background-color: white;
     margin: 5px;
+    margin-bottom: 25px;
+    color: gray;
+}
+
+.btn-primary {
+    border-color: transparent;
+}
+
+.jumbotron{
+    margin-top: 0%;
+    background-size: cover;
+}
+.jumbotron-fluid {
+    padding: 0;
+    padding-bottom: -10px;
+    border-color: white;
 }
