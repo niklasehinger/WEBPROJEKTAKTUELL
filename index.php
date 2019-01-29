@@ -54,7 +54,6 @@ include 'header.php';
 
     <?php
 
-
     $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
     $sql = "SELECT * FROM posts JOIN users ON author = username ORDER BY created_on DESC";
     $query = $pdo->prepare($sql);

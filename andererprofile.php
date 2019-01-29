@@ -56,7 +56,6 @@ while ($row = $statement->fetch()) {
                 }
                 ?>
 
-
                 <?php
                 $statement = $pdo->prepare("SELECT * FROM posts WHERE author =:usernameandere ORDER BY created_on DESC ");
                 $statement->execute(array("usernameandere" => "$usernameandere"));
