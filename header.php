@@ -47,6 +47,7 @@ if (!isset($_SESSION['username'])) {
 <html lang="en">
 <head>
     <title>Pigeon</title>
+    <link rel="icon" href="Logos/Logo-Blau.png" type="image" sizes="16x16">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -84,8 +85,6 @@ if (!isset($_SESSION['username'])) {
     </style>
 </head>
 <body>
-
-
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: whitesmoke;">
     <a class="navbar-brand" href="index.php">
