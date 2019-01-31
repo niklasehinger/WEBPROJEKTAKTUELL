@@ -42,11 +42,11 @@ if (isset($_POST['submit'])); {
                 header("Location: ../index.php?uploadsuccess");
 
 
-            } else {echo "Die Datei ist zu groß!";}
+            } else { header("Location: ../index.php?seite=zugroß");}
 
-        } else {echo "Die Datei konnte nicht hochgeladen werden!";}
+        } else {header("Location: ../index.php?seite=uploadfehlgeschlagen");}
 
-    } else {echo "Keine oder fehlerhafte Datei!";}
+    } else {header("Location: ../index.php?seite=fehlerhaftedatei");}
 
 }
 
