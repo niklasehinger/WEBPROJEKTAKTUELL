@@ -86,11 +86,6 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 
-<?php
-if ($_GET["seite"]=="nichtvergeben"){
-    echo "<script type='text/javascript'>swal('Benutzername nicht vergeben!');</script>";
-}
-?>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: whitesmoke;">
     <a class="navbar-brand" href="index.php">

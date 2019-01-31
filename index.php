@@ -21,7 +21,7 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
 
 if ($_GET["seite"]=="nichtvergeben"){
     echo "<script type='text/javascript'>swal('Benutzername nicht vergeben!');</script>";
-}
+}                                                                                      
 
 ?>
 
@@ -69,7 +69,7 @@ if ($_GET["seite"]=="nichtvergeben"){
     </header>
 </div>
 
-<div class="container">
+<div class="container ">
 
 
     <?php
@@ -87,40 +87,35 @@ if ($_GET["seite"]=="nichtvergeben"){
 
         if ($row['content'] == NULL) {
 
-            echo "<div class=\"row featurette\" >
-                        <div class=\"col-md-9 order-md-2\" style='background-color: whitesmoke'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
+            echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
+                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
+                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
                         </div>
-                    <div class=\"col-md-3 order-md-1 text-center\" style='background-color: darkgray'>
-                        <h2 class=\"lead\">" . $row['author'] . "</h2>
+                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
                         <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
-                            <img class=\"rounded-circle\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\"
-                            src='profilbild/$pb'
-                            data-holder-rendered=\"true\" style=\"width: 100px; height: 100px;\">
+                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
                         </a>    
+                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
                     </div>
                     </div>
                 <br><br>
             ";
         } else {
-            echo "<div class=\"row featurette\">
-                        <div class=\"col-md-9 order-md-2\" style='background-color: whitesmoke'>
-                            <p class=\"lead\">" . $row['content'] . "</p>
-                        </div>
-                    <div class=\"col-md-3 order-md-1 text-center\" style='background-color: darkgray'>
-                        <h2 class=\"lead\">" . $row['author'] . "</h2>
-                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
-                            <img class=\"rounded-circle\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\"
-                            src='profilbild/$pb'
-                            data-holder-rendered=\"true\" style=\"width: 100px; height: 100px;\">
-                         </a>    
-                    </div>
-                    </div>
-                <br><br>
+           echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
+                       <div class=\"col-md-9 order-md-2\">                                                                                                         
+                            <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
+                       </div>                                                                                                                                                                           
+                   <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
+                       <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">                                                                                                            
+                           <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
+                       </a>                                                                                                                                                                             
+                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
+                   </div>                                                                                                                                                                               
+                   </div>                                                                                                                                                                               
+               <br><br>                                                                                                                                                                                 
             ";
         }
     }
-
     ?>
 
 </div>
