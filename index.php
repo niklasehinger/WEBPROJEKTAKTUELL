@@ -6,6 +6,26 @@ include 'passwords/db.php';
 include 'header.php';
 ?>
 
+<?php
+if ($_GET["seite"]=="zugroß"){
+    echo "<script type='text/javascript'>swal('Die Datei ist zu groß!');</script>";
+}
+
+if ($_GET["seite"]=="fehlerhaftedatei"){
+    echo "<script type='text/javascript'>swal('Keine oder fehlerhafte Datei erkannt!');</script>";
+}
+
+if ($_GET["seite"]=="uploadfehlgeschlagen"){
+    echo "<script type='text/javascript'>swal('Ups! Da ist was schief gelaufen...');</script>";
+}
+
+if ($_GET["seite"]=="nichtvergeben"){
+    echo "<script type='text/javascript'>swal('Benutzername nicht vergeben!');</script>";
+}
+
+?>
+
+
 <div class="container jumbotron jumbotron-fluid">
     <header style="background-color: white;" class="text-center size">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
