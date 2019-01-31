@@ -123,7 +123,13 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                         <div class=\"row featurette\" style='background-color: #0068ff'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>
                             <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
+                            <div>
+                            <form method=post action=phpfiles/do_delete.php>
+                                <button type=submit>DELETE</button>
+                            </form>
+                            </div>
                         </div>
+                       
                     <div class=\"col-md-5 order-md-1\">
                         <p class=\"lead\">" . $row['author'] . "</p>
                     </div>
@@ -133,9 +139,14 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                 } else {
                     echo " <hr class=\"feturette-divider\">
  
- <div class=\"row featurette\" style='background-color: #0068ff'>
+                    <div class=\"row featurette\" style='background-color: #0068ff'>
                         <div class=\"col-md-7 order-md-2\" style='background-color: white'>
                             <p class=\"lead\">" . $row['content'] . "</p>
+                            <div>
+                            <form method=post action=phpfiles/do_delete.php>
+                                <button type=submit>DELETE</button>
+                            </form>
+                            </div>
                         </div>
                     <div class=\"col-md-5 order-md-1\">
                         <p class=\"lead\">" . $row['author'] . "</p> 
