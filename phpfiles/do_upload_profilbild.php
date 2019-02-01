@@ -39,11 +39,11 @@ if (isset($_POST['submit'])); {
                 header("Location: ../Benutzerprofil.php?uploadsuccess");
 
 
-            } else {echo "Die Datei ist zu groß!";}
+            } else { header("Location: ../Benutzerprofil.php?seite=zugroß");}
 
-        } else {echo "Die Datei konnte nicht hochgeladen werden!";}
+        } else {header("Location: ../Benutzerprofil.php?seite=uploadfehlgeschlagen");}
 
-    } else {echo "Dateiformat nicht akzeptiert!";}
+    } else {header("Location: ../Benutzerprofil.php?seite=fehlerhaftedatei");}
 
 }
 
