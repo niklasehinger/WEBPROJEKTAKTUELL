@@ -12,7 +12,6 @@ if ($_GET["seite"]=="zugroß"){
   'Dateigröße',
   'Die Datei darf Maximal 5Mb groß sein',
   'error');</script>";}
-/*Swal.fire(type: 'error', title: 'Datei zu groß!', text: 'Die Datei darf maximal 3MB groß sein!',  footer: '<a href>Zurück zur Startseite?</a>');</script>";}*/
 
 if ($_GET["seite"]=="uploadfehlgeschlagen"){
     echo "<script type='text/javascript'>Swal.fire(

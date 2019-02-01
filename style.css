@@ -9,9 +9,6 @@ body {
         margin: 10%;
         padding-left: 20%;
     }
-    .jumbotron{
-        margin-top: 2%!important;
-    }
 }
 
 @media screen and (max-width: 576px) {
@@ -93,15 +90,12 @@ body {
     border-color: transparent;
 }
 
-.jumbotron{
-    margin-top: 0%;
-    background-size: cover;
-}
 .jumbotron-fluid {
     padding: 0;
     padding-bottom: 0px;
     border-color: white;
     height: 50%;
+    margin-bottom: 30px;
 }
 .postings-margin {
     margin-left: 10px;
