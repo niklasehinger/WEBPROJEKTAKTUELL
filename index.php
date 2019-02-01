@@ -8,35 +8,38 @@ include 'header.php';
 
 <?php
 if ($_GET["seite"]=="zugroß"){
-    echo "<script type='text/javascript'>swal('Die Datei ist zu groß!');</script>";
-}
-
-if ($_GET["seite"]=="fehlerhaftedatei"){
-    echo "<script type='text/javascript'>swal('Keine oder fehlerhafte Datei erkannt!');</script>";
-}
+    echo "<script type='text/javascript'>Swal.fire(
+  'Dateigröße',
+  'Die Datei darf Maximal 5Mb groß sein',
+  'error');</script>";}
+/*Swal.fire(type: 'error', title: 'Datei zu groß!', text: 'Die Datei darf maximal 3MB groß sein!',  footer: '<a href>Zurück zur Startseite?</a>');</script>";}*/
 
 if ($_GET["seite"]=="uploadfehlgeschlagen"){
-    echo "<script type='text/javascript'>swal('Ups! Da ist was schief gelaufen...');</script>";
-}
+    echo "<script type='text/javascript'>Swal.fire(
+  'Uups',
+  'Da ist was kleines schiefgalaufen, probiers einfach nochmal, aber anders',
+  'error');</script>";}
 
 if ($_GET["seite"]=="nichtvergeben"){
-    echo "<script type='text/javascript'>swal('Benutzername nicht vergeben!');</script>";
-}                                                                                      
+    echo "<script type='text/javascript'>Swal.fire(
+  'Eingabefehler',
+  'Der Benutzername ist nicht vergeben.',
+  'question');</script>";}
 
 ?>
 
 
-<div class="container jumbotron jumbotron-fluid">
+<div class="container jumbotron-fluid col-12">
     <header style="background-color: white;" class="text-center size">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
             <div class="carousel-inner" style="background-size: cover">
                 <div class="carousel-item active" style="max-width: 100%; height: auto ">
-                    <img class="d-block w-100" src="Logos/hdm.jpg" alt="First slide">
+                    <img class="d-block w-100" src="pictures/hdm.jpg" alt="First slide">
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="Logos/hdm2.jpg" alt="Second slide">
+                <div class="carousel-item ">
+                    <img class="d-block w-100" src="pictures/hdm2.jpg" alt="Second slide">
                 </div>
-                <div class="feed" align="center" style="margin-top: 40%">
+                <div class="feed" align="center" style="margin-top: 30%">
                     <div class="create_post col-md-5" align="center">
                         <form action="phpfiles/do_post.php" method="post">
                             <textarea class="form-control form-rounded" rows="2" placeholder="Was gibts neues?"
@@ -124,4 +127,3 @@ if ($_GET["seite"]=="nichtvergeben"){
 </body>
 
 </html>
-

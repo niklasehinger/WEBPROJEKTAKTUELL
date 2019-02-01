@@ -27,7 +27,7 @@ if (password_verify($passwort, $row->passwort)) {
 }
 
 if (!$statement){
-    echo "Datenbakfehler";
+    echo "Datenbankfehler";
 }
 
 

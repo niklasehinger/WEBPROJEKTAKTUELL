@@ -18,11 +18,12 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
 
         body {
-            background-image: url(Logos/BG.jpg);
+            background-image: url(pictures/BG.jpg);
         }
 
         .jumbotron {
@@ -37,13 +38,18 @@ session_start();
 <body>
 
 <?php
-if ($_GET["seite"]=="falsch"){
-    echo "<script type='text/javascript'>swal('Benutzername oder Passwort ist falsch');</script>";
-}
-
 if ($_GET["seite"]=="username"){
-    echo "<script type='text/javascript'>swal('Benutzername ist bereits vergeben!');</script>";
-}
+    echo "<script type='text/javascript'>Swal.fire(
+  'Eingabefehler',
+  'Der Benutzername ist bereits vergeben.',
+  'question');</script>";}
+
+if ($_GET["seite"]=="falsch"){
+    echo "<script type='text/javascript'>Swal.fire(
+  'Eingabefehler',
+  'Benutzername oder Passwort ist falsch',
+  'question');</script>";}
+
 
 ?>
 

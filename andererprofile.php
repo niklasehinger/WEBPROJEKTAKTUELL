@@ -27,12 +27,14 @@ while ($row = $statement->fetch()) {
                     $bildlink = $row['pb'];
 
                     if ($row['pb']==NULL){
-                        echo "<div class=\"profilbild\">";
-                        echo "<img class='rounded-circle' src='profilbild/root.jpg' height='120' width='120'><br><br>";
+                        echo "<div class=\"profilbild\"> </div>";
+                        echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
                         echo "</div>";
-                        echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
-                        echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-                        echo $row['email'] . "<br /><br />";
+                        echo "<div class=\"profil\">";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
+                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                        echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
+
 
 
                         $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
@@ -44,15 +46,15 @@ while ($row = $statement->fetch()) {
                             echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
                         }
 
-                    } else {
-
-                        echo "<div class=\"profilbild\">";
-                        echo "<img class='rounded-circle' src='profilbild/$bildlink' height='120' width='120'><br><br>";
+                    } else{ echo "<div class=\"profilbild\"> </div>";
+                        echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
                         echo "</div>";
-                        echo $row['vorname'] . " " . $row['nachname'] . "<br /><br />";
-                        echo "Studiengang: " . $row['studiengang'] . "<br /><br />";
-                        echo $row['email'] . "<br /><br />";
-
+                        echo "<div class=\"profil\">";
+                        echo "<h4>";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br>";
+                        echo "</h4>";
+                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                        echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
 
                         $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
                         $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
@@ -87,31 +89,32 @@ while ($row = $statement->fetch()) {
 
                 if ($row['content'] == NULL) {
 
-
-                    echo " <hr class=\"featurette-divider\">
- 
-                        <div class=\"row featurette\" style='background-color: #0068ff'>
-                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
-                            <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
+                    echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
+                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
+                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
                         </div>
-                    <div class=\"col-md-5 order-md-1\">
-                        <p class=\"lead\">" . $row['author'] . "</p>
+                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
+                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
+                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
+                        </a>    
+                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
                     </div>
                     </div>
                 <br><br>
             ";
                 } else {
-                    echo " <hr class=\"featurette-divider\">
- 
- <div class=\"row featurette\" style='background-color: #0068ff'>
-                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
-                            <p class=\"lead\">" . $row['content'] . "</p>
-                        </div>
-                    <div class=\"col-md-5 order-md-1\">
-                        <p class=\"lead\">" . $row['author'] . "</p> 
-                    </div>
-                    </div>
-                <br><br>
+                    echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
+                       <div class=\"col-md-9 order-md-2\">                                                                                                         
+                            <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
+                       </div>                                                                                                                                                                           
+                   <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
+                       <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">                                                                                                            
+                           <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
+                       </a>                                                                                                                                                                             
+                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
+                   </div>                                                                                                                                                                               
+                   </div>                                                                                                                                                                               
+               <br><br>                                                                                                                                                                                 
             ";
                 }
             }

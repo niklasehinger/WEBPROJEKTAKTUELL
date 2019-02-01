@@ -24,20 +24,22 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
                         if ($row['pb']==NULL){
                             echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/root.jpg' class='rounded-circle' width=\"120\" height=\"120\" ><br><br>";
+                            echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
                             echo "</div>";
                             echo "<div class=\"profil\">";
                             echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
-                            echo "Studiengang: " . $row['studiengang'] . "<br><br>";
-                            echo $row['email'] . "<br/><br/>";
+                            echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                            echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
 
                         } else{ echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/$bildlink' class='rounded-circle' width=\"120\" height=\"120\" ><br><br>";
+                            echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
                             echo "</div>";
                             echo "<div class=\"profil\">";
-                            echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
-                            echo "Studiengang: " . $row['studiengang'] . "<br><br>";
-                            echo $row['email'] . "<br/><br/>";
+                            echo "<h4>";
+                            echo $row['vorname'] . " " . $row['nachname'] . "<br>";
+                            echo "</h4>";
+                            echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                            echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
 
                         }}
 
@@ -80,7 +82,7 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
                                      </div>
 
                                      <div class="input-group">
-                                         <button type="submit" class="btn" style="background-color: lightgrey" name="submit" value="Update">Update</button>
+                                         <button type="submit" class="btn btn-secondary" style='background-color: #0068ff' name="submit" value="Upload">Update</button>
                                      </div>
                                  </form>
                                  <form class="py-lg-5" id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
@@ -118,41 +120,32 @@ $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
                 if ($row['content'] == NULL) {
 
-                    echo " <hr class=\"featurette-divider\">
- 
-                        <div class=\"row featurette\" style='background-color: #0068ff'>
-                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
-                            <a href='bildupload/$bildlink' class=\"lead\"><img src='bildupload/$bildlink' width='200px' height='200px'></a>
-                            <div>
-                            <form method=post action=phpfiles/do_delete.php>
-                                <button type=submit>DELETE</button>
-                            </form>
-                            </div>
+                    echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
+                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
+                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
                         </div>
-                       
-                    <div class=\"col-md-5 order-md-1\">
-                        <p class=\"lead\">" . $row['author'] . "</p>
+                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
+                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
+                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
+                        </a>    
+                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
                     </div>
                     </div>
                 <br><br>
             ";
                 } else {
-                    echo " <hr class=\"feturette-divider\">
- 
-                    <div class=\"row featurette\" style='background-color: #0068ff'>
-                        <div class=\"col-md-7 order-md-2\" style='background-color: white'>
-                            <p class=\"lead\">" . $row['content'] . "</p>
-                            <div>
-                            <form method=post action=phpfiles/do_delete.php>
-                                <button type=submit>DELETE</button>
-                            </form>
-                            </div>
-                        </div>
-                    <div class=\"col-md-5 order-md-1\">
-                        <p class=\"lead\">" . $row['author'] . "</p> 
-                    </div>
-                    </div>
-                <br><br>
+                    echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
+                       <div class=\"col-md-9 order-md-2\">                                                                                                         
+                            <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
+                       </div>                                                                                                                                                                           
+                   <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
+                       <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">                                                                                                            
+                           <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
+                       </a>                                                                                                                                                                             
+                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
+                   </div>                                                                                                                                                                               
+                   </div>                                                                                                                                                                               
+               <br><br>                                                                                                                                                                                 
             ";
                 }
             }
