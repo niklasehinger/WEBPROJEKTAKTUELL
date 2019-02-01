@@ -20,10 +20,17 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
   'error');</script>";}
 
 if ($_GET["seite"]=="nichtvergeben"){
-    echo "<script type='text/javascript'>Swal.fire(
-  'Eingabefehler',
-  'Der Benutzername ist nicht vergeben.',
-  'question');</script>";}
+    echo "<script type='text/javascript'>Swal.fire(      
+  'Eingabefehler',                                       
+  'Der Benutzername ist nicht vergeben.',                
+  'question');</script>";}                               
+
+  if ($_GET["seite"]=="fehlerhaftedatei"){
+      echo "<script type='text/javascript'>Swal.fire(      
+    'Eingabefehler',                                       
+    'Das Dateiformat wird leider nicht unterstützt.',                
+    'error');</script>";}
+
 
 ?>
 
