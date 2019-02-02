@@ -3,7 +3,7 @@
 include '../passwords/db.php';
 session_start();
 
-$post = $_POST["post"];
+$post = htmlentities($_POST['post'], ENT_QUOTES);
 $username = $_SESSION["username"];
 
 

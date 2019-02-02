@@ -3,13 +3,12 @@
 
 session_start();
 
-$username = $_POST["username"];
-$vorname = $_POST["vorname"];
-$nachname = $_POST["nachname"];
-$email = $_POST["email"];
-$passwort = $_POST["passwort"];
-$studiengang = $_POST["studiengang"];
-
+$username = htmlentities($_POST['username'], ENT_QUOTES);
+$vorname = htmlentities($_POST['vorname'], ENT_QUOTES);
+$nachname = htmlentities($_POST['nachname'], ENT_QUOTES);
+$email = htmlentities($_POST['email'], ENT_QUOTES);
+$passwort = htmlentities($_POST['passwort'], ENT_QUOTES);
+$studiengang = htmlentities($_POST['studiengang'], ENT_QUOTES);
 
 
 $_SESSION ["username"]="$username";

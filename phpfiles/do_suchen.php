@@ -2,7 +2,8 @@
 
 session_start ();
 include 'passwords/db.php';
-$suche = $_GET['searchbox'];
+
+$suche = htmlentities($_GET['searchbox'], ENT_QUOTES);
 $username = $_SESSION['username'];
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);

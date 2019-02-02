@@ -1,8 +1,9 @@
 <?php
 session_start();
 include 'passwords/db.php';
-$usernameandere = $_SESSION ["usernameandere"] ; //hole usernameandere aus der URL
-$username = $_SESSION ["username"]; //hole den nutzernamen von der person, die eingeloggt ist aus der session
+
+$usernameandere = $_SESSION ["usernameandere"] ;
+$username = $_SESSION ["username"];
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 

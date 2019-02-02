@@ -138,7 +138,7 @@ if (!isset($_SESSION['username'])) {
 
                         }
                     } else {
-                        echo 'Keine neuen Nachrichten';
+                        echo '<ul class="nav-item">Keine neuen Nachrichten</ul>';
                     }
 
                     ?>
@@ -158,7 +158,7 @@ if (!isset($_SESSION['username'])) {
                     ?>
                 </a>
             </li>
-            <form class="form-inline" action="phpfiles/do_suchen.php" method="get">
+            <form class="form-inline" action="do_suchen.php" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Suchen" name="searchbox"
                        aria-label="Search">
                 <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="color: #0068ff;">Los!</button>
@@ -169,6 +169,3 @@ if (!isset($_SESSION['username'])) {
         </ul>
     </div>
 </nav>
-
-
-

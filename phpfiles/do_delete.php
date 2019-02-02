@@ -4,7 +4,8 @@ session_start ();
 include '../passwords/db.php';
 
 $username = $_SESSION['username'];
-$id = $_GET["id"];
+$id = htmlentities($_GET['id'], ENT_QUOTES);
+
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 $sql = "DELETE FROM posts WHERE id=:id";

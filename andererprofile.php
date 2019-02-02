@@ -5,7 +5,7 @@ session_start();
 include 'passwords/db.php';
 include 'header.php';
 
-$usernameandere = $_GET ["usernameandere"];
+$usernameandere = htmlentities($_GET['usernameandere'], ENT_QUOTES);
 $username = $_SESSION ["username"];
 $_SESSION ["usernameandere"] = $usernameandere;
 

@@ -60,10 +60,11 @@ if ($_GET["seite"]=="nichtvergeben"){
                              aria-labelledby="mySmallModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content">
-                                    <div class="create_post margin">
+                                    <div class="create_post" style="padding: 30px"
+">
                                         <form action="phpfiles/do_bildupload.php" method="post"
                                               enctype="multipart/form-data">
-                                            <input type="file" name="file">
+                                            <input type="file" name="file" style="padding: 10px">
                                             <input type="submit" value="Bild posten" name="submit"
                                                    class="btn btn-primary">
                                         </form>
@@ -98,7 +99,7 @@ if ($_GET["seite"]=="nichtvergeben"){
 
             echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
                         <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
+                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='50%'></a>
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
                         <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    

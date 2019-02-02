@@ -1,9 +1,11 @@
 <?php
 session_start();
 include 'passwords/db.php';
-$username = $_SESSION ["username"]; //hole den nutzernamen von der person, die eingeloggt ist aus der session
-$usernameandere=$_GET['usernameandere'];
-$id=$_GET['id'];
+
+$username = $_SESSION ["username"];
+
+$usernameandere = htmlentities($_GET['usernameandere'], ENT_QUOTES);
+$id = htmlentities($_GET['id'], ENT_QUOTES);
 
 
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);

@@ -2,7 +2,8 @@
 session_start();
 include 'passwords/db.php';
 include 'header.php';
-$usernameandere = $_SESSION ["usernameandere"] ; //hole usernameandere aus der URL
+
+$usernameandere = $_SESSION ["usernameandere"] ;
 $username = $_SESSION ["username"];
 
 

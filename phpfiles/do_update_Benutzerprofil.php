@@ -3,9 +3,10 @@
 include '../passwords/db.php';
 session_start();
 
-$vorname = $_POST["vorname"];
-$nachname = $_POST["nachname"];
-$studiengang = $_POST["studiengang"];
+$vorname = htmlentities($_POST['vorname'], ENT_QUOTES);
+$nachname = htmlentities($_POST['nachname'], ENT_QUOTES);
+$studiengang = htmlentities($_POST['studiengang'], ENT_QUOTES);
+
 $username = $_SESSION["username"];
 
 

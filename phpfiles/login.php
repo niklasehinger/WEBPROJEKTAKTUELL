@@ -4,8 +4,9 @@ session_start();
 
 include '../passwords/db.php';
 
-$username = $_POST["username"];
-$passwort = $_POST["passwort"];
+$username = htmlentities($_POST['username'], ENT_QUOTES);
+$passwort = htmlentities($_POST['passwort'], ENT_QUOTES);
+
 $_SESSION["username"] = $username;
 $_SESSION["passwort"] = $passwort;
 

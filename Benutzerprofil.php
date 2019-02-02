@@ -170,12 +170,10 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
                        <div class=\"col-md-9 order-md-2\">                                                                                                         
                             <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
-                            <div>
-                                
-                                    <button>
-                                     <a href='phpfiles/do_delete.php?id=$post_id' type=submit>DELETE</a>
-                                     </button>
-                               
+                            <div>                               
+                                    <button class='btn btn-default'>
+                                     <a href='phpfiles/do_delete.php?id=$post_id' type=submit>Delete</a>
+                                     </button>                               
                             </div>
                        </div>     
                                                                                                                                                                                              
