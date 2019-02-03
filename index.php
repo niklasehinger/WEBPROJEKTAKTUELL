@@ -10,7 +10,7 @@ include 'header.php';
 if ($_GET["seite"]=="zugroß"){
     echo "<script type='text/javascript'>Swal.fire(
   'Dateigröße',
-  'Die Datei darf Maximal 5Mb groß sein',
+  'Die Datei darf Maximal 10Mb groß sein',
   'error');</script>";}
 
 if ($_GET["seite"]=="uploadfehlgeschlagen"){
@@ -102,7 +102,7 @@ if ($_GET["seite"]=="nichtvergeben"){
                             <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='50%'></a>
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
-                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">    
+                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">   
                             <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
                         </a>    
                         <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
