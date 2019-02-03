@@ -10,7 +10,7 @@ include 'header.php';
 if ($_GET["seite"]=="zugroß"){
     echo "<script type='text/javascript'>Swal.fire(
   'Dateigröße',
-  'Die Datei darf Maximal 5Mb groß sein',
+  'Die Datei darf Maximal 10Mb groß sein',
   'error');</script>";}
 
 if ($_GET["seite"]=="uploadfehlgeschlagen"){
@@ -98,7 +98,7 @@ if ($_GET["seite"]=="nichtvergeben"){
         if ($row['content'] == NULL) {
 
             echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
-                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
+                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke; width: 50%'>
                             <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='50%'></a>
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>

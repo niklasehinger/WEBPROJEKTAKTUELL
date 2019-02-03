@@ -161,7 +161,7 @@ if (!isset($_SESSION['username'])) {
             <form class="form-inline" action="do_suchen.php" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Suchen" name="searchbox"
                        aria-label="Search">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="color: #0068ff;">Los!</button>
+                <button class="btn btn-outline-default bildposten my-2 my-sm-0" type="submit" style="color: #0068ff;">Los!</button>
             </form>
             <form class="form-inline" method="post" action="phpfiles/logout.php">
                 <button type="submit" class="btn btn-default" style="color: #0068ff;">Logout</button>

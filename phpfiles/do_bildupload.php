@@ -23,11 +23,11 @@ if (isset($_POST['submit'])); {
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array('jpg','jpeg', 'png', 'pdf');
+    $allowed = array('jpg','jpeg', 'png', 'pdf', 'gif');
 
     if (in_array($fileActualExt, $allowed)){
         if ($fileError === 0){
-            if ($fileSize < 5000000) {
+            if ($fileSize < 10000000) {
                 $fileNameNew = uniqid('', true).".". $fileActualExt;
                 $fileDestination = '/home/ne025/public_html/bildupload/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);

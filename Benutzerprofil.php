@@ -152,8 +152,8 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                             <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
                             <div>
                                 
-                                    <button>
-                                     <a href='phpfiles/do_delete.php?id=$post_id' type=submit>DELETE</a>
+                                    <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten \" >
+                                     <a href='phpfiles/do_delete.php?id=$post_id'>Delete</a>
                                      </button>
                                
                             </div>
@@ -171,8 +171,8 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                        <div class=\"col-md-9 order-md-2\">                                                                                                         
                             <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
                             <div>                               
-                                    <button class='btn btn-default'>
-                                     <a href='phpfiles/do_delete.php?id=$post_id' type=submit>Delete</a>
+                                    <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten\" >
+                                     <a href='phpfiles/do_delete.php?id=$post_id' >Delete</a>
                                      </button>                               
                             </div>
                        </div>     
