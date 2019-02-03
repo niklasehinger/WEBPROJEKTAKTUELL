@@ -8,9 +8,12 @@ if (!isset($_SESSION['username'])) {
     echo "
 
 <html lang=\"de\">
-<title>Pigeon</title>
 <head>
-    <style>
+<title>Pigeon</title>
+    <link rel=\"icon\" href=\"Logos/Logo-Blau.png\" type=\"image\" sizes=\"16x16\">
+</head>
+<style>
+
     .shadow {
     background-color: white;
     border-radius: 300px ;
@@ -33,7 +36,7 @@ if (!isset($_SESSION['username'])) {
            <a class=\"center-block btn btn-outline-dark center\" href=\"start.php\" align=\"center\" role=\"button\" >
                     <img src=\"Logos/Logo-Text-Blau.png\" href=\"start.php\" type=\"button\" class=\"img-responsive shadow\" style=\"display:inline\" alt=\"Logo\" width=\"200\" height=\"200\"> 
                     <h2 style='padding: 20px; color: white'>Bitte erst einloggen!</h2>
-           </a>
+          </a>
         </div>   
     </div>
     
@@ -50,18 +53,6 @@ if (!isset($_SESSION['username'])) {
     <link rel="icon" href="Logos/Logo-Blau.png" type="image" sizes="16x16">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-                  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                    crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-                    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-                    crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-                    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-                    crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,700i" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -79,8 +70,7 @@ if (!isset($_SESSION['username'])) {
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-    </style>
+
 </head>
 <body>
 
@@ -149,7 +139,7 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="navbar-brand" href="Benutzerprofil.php">
                     <?php
-                    $file_pointer = 'profilbild/' . $username ;
+                    $file_pointer = 'profilbild/' . $username;
                     if (file_exists($file_pointer)) {
                         echo "<img src=\"$file_pointer\" class='rounded-circle img-fit' width=\"39\" height=\"39\"  alt=\"Profilbild\">";
                     } else {
@@ -161,7 +151,9 @@ if (!isset($_SESSION['username'])) {
             <form class="form-inline" action="do_suchen.php" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Suchen" name="searchbox"
                        aria-label="Search">
-                <button class="btn btn-outline-default bildposten my-2 my-sm-0" type="submit" style="color: #0068ff;">Los!</button>
+                <button class="btn btn-outline-default bildposten my-2 my-sm-0" type="submit" style="color: #0068ff;">
+                    Los!
+                </button>
             </form>
             <form class="form-inline" method="post" action="phpfiles/logout.php">
                 <button type="submit" class="btn btn-default" style="color: #0068ff;">Logout</button>

@@ -8,24 +8,26 @@ include 'header.php';
 $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
 
 
-
-if ($_GET["seite"]=="zugroß"){
+if ($_GET["seite"] == "zugroß") {
     echo "<script type='text/javascript'>Swal.fire(                                        
   'Dateigröße',                                                                            
   'Die Datei darf Maximal 5Mb groß sein',                                                  
-  'error');</script>";}
+  'error');</script>";
+}
 
-if ($_GET["seite"]=="uploadfehlgeschlagen"){
+if ($_GET["seite"] == "uploadfehlgeschlagen") {
     echo "<script type='text/javascript'>Swal.fire(                                        
   'Uups',                                                                                  
   'Da ist was kleines schiefgalaufen, probiers einfach nochmal, aber anders',              
-  'error');</script>";}
+  'error');</script>";
+}
 
-  if ($_GET["seite"]=="fehlerhaftedatei"){
-      echo "<script type='text/javascript'>Swal.fire(                                      
+if ($_GET["seite"] == "fehlerhaftedatei") {
+    echo "<script type='text/javascript'>Swal.fire(                                      
     'Eingabefehler',                                                                       
     'Das Dateiformat wird leider nicht unterstützt.',                                      
-    'error');</script>";}
+    'error');</script>";
+}
 
 ?>
 
@@ -42,24 +44,25 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                 while ($row = $statement->fetch()) {
                     $bildlink = $row['pb'];
 
-                        if ($row['pb']==NULL){
-                            echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
-                            echo "</div>";
-                            echo "<div class=\"profil\">";
-                            echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
-                            echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
-                            echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
+                    if ($row['pb'] == NULL) {
+                        echo "<div class=\"profilbild\"> </div>";
+                        echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
+                        echo "</div>";
+                        echo "<div class=\"profil\">";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
+                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                        echo "<h6> Email: </h6>" . $row['email'] . "<br/><br/>";
 
-                        } else{ echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
-                            echo "</div>";
-                            echo "<div class=\"profil\">";
-                            echo "<h4>";
-                            echo $row['vorname'] . " " . $row['nachname'] . "<br>";
-                            echo "</h4>";
-                            echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
-                            echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
+                    } else {
+                        echo "<div class=\"profilbild\"> </div>";
+                        echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
+                        echo "</div>";
+                        echo "<div class=\"profil\">";
+                        echo "<h4>";
+                        echo $row['vorname'] . " " . $row['nachname'] . "<br>";
+                        echo "</h4>";
+                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                        echo "<h6> Email: </h6>" . $row['email'] . "<br/><br/>";
 
                     }
                 }
@@ -105,15 +108,18 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                                         </select>
                                     </div>
 
-                                     <div class="input-group">
-                                         <button type="submit" class="btn btn-secondary" style='background-color: #0068ff' name="submit" value="Upload">Update</button>
-                                     </div>
-                                 </form>
-                                 <form class="py-lg-5" id="upload_probilbild" method="post" action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
-                                     <div class="form-group">
-                                         <label for="input2">Profilbild aktualisieren:</label>
-                                         <input type="file" class="form-control" name="profilbild" required>
-                                     </div>
+                                    <div class="input-group">
+                                        <button type="submit" class="btn btn-secondary"
+                                                style='background-color: #0068ff' name="submit" value="Upload">Update
+                                        </button>
+                                    </div>
+                                </form>
+                                <form class="py-lg-5" id="upload_probilbild" method="post"
+                                      action="phpfiles/do_upload_profilbild.php" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="input2">Profilbild aktualisieren:</label>
+                                        <input type="file" class="form-control" name="profilbild" required>
+                                    </div>
 
                                     <div class="input-group">
                                         <button type="submit" class="btn btn-secondary"
@@ -121,17 +127,17 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                                         </button>
                                     </div>
 
-                                 </form>
-                             </div>
-                         </div>
+                                </form>
+                            </div>
+                        </div>
 
-                     </div>
-                 </div>
+                    </div>
+                </div>
 
-             </div>
-         </div>
+            </div>
+        </div>
         <div class="col-sm-8">
-                <h4 class="row featurette postings-margin">Meine Beiträge:</h4><br>
+            <h4 class="row featurette postings-margin">Meine Beiträge:</h4><br>
 
             <?php
 
@@ -149,7 +155,7 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
 
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
                         <div class=\"col-md-12 order-md-2\" style='background-color:transparent'>
-                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px' alt='Bildupload' style=\"margin-top: 20px\"></a>
+                            <a href='bildupload/$bildlink' class=\"lead\"><img class=\"img-fit\" src='bildupload/$bildlink' width='80%' height='300px' alt='Bildupload' style=\"margin-top: 20px\"></a>
                             <div>
                                 
                                     <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten\" style=\"margin-top: 20px\" >
@@ -186,7 +192,6 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
         </div>
 
     </div>
-
 
 
 </div>

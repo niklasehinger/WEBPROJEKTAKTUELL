@@ -22,51 +22,52 @@ while ($row = $statement->fetch()) {
         <div class="col-sm-4" style="background-color: whitesmoke; padding: 30px;">
             <h2><?php echo $row['vorname'] . " " . $row['nachname'] ?>s Profil</h2><br>
             <div class="profil">
-                    <?php
+                <?php
 
-                    $bildlink = $row['pb'];
+                $bildlink = $row['pb'];
 
-                    if ($row['pb']==NULL){
-                        echo "<div class=\"profilbild\"> </div>";
-                        echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
-                        echo "</div>";
-                        echo "<div class=\"profil\">";
-                        echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
-                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
-                        echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
+                if ($row['pb'] == NULL) {
+                    echo "<div class=\"profilbild\"> </div>";
+                    echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
+                    echo "</div>";
+                    echo "<div class=\"profil\">";
+                    echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
+                    echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                    echo "<h6> Email: </h6>" . $row['email'] . "<br/><br/>";
 
 
+                    $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+                    $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
+                    $row = $statement->fetch();
+                    if ($usernameandere == $row['usernameandere']) {
+                        echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
+                    } else {
+                        echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
+                    }
 
-                        $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
-                        $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
-                        $row = $statement->fetch();
-                        if ($usernameandere == $row['usernameandere']) {
-                            echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
-                        } else {
-                            echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
-                        }
+                } else {
+                    echo "<div class=\"profilbild\"> </div>";
+                    echo "<a href='profilbild/$bildlink'><img src='profilbild/$bildlink' class='rounded-circle img-fit' width=120 height=120 > </a><br><br>";
+                    echo "</div>";
+                    echo "<div class=\"profil\">";
+                    echo "<h4>";
+                    echo $row['vorname'] . " " . $row['nachname'] . "<br>";
+                    echo "</h4>";
+                    echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
+                    echo "<h6> Email: </h6>" . $row['email'] . "<br/><br/>";
 
-                    } else{ echo "<div class=\"profilbild\"> </div>";
-                        echo "<a href='profilbild/$bildlink'><img src='profilbild/$bildlink' class='rounded-circle img-fit' width=120 height=120 > </a><br><br>";
-                        echo "</div>";
-                        echo "<div class=\"profil\">";
-                        echo "<h4>";
-                        echo $row['vorname'] . " " . $row['nachname'] . "<br>";
-                        echo "</h4>";
-                        echo "<h6> Studiengang: </h6>" . $row['studiengang'] . "<br><br>";
-                        echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
+                    $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
+                    $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
+                    $row = $statement->fetch();
+                    if ($usernameandere == $row['usernameandere']) {
+                        echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
+                    } else {
+                        echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
+                    }
 
-                        $statement = $pdo->prepare("SELECT usernameandere FROM following WHERE (usernameandere =:usernameandere AND username=:username)");
-                        $statement->execute(array(":username" => "$username", ":usernameandere" => "$usernameandere"));
-                        $row = $statement->fetch();
-                        if ($usernameandere == $row['usernameandere']) {
-                            echo "<button id=\"entfolgen\" onclick=\"location.href='do_entfolgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Entfolgen</button><br>";
-                        } else {
-                            echo "<button id=\"folgen\" onclick=\"location.href='do_folgen.php'\" type=\"submit\" class=\"btn btn-secondary\" style='background-color: #0068ff'>Folgen</button><br>";
-                        }
-
-                    }}
-                    ?>
+                }
+                }
+                ?>
             </div>
         </div>
         <div class="col-sm-8">
@@ -91,7 +92,7 @@ while ($row = $statement->fetch()) {
 
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
                         <div class=\"col-md-12 order-md-2\" style='background-color:transparent'>
-                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px'></a>
+                            <a href='bildupload/$bildlink' class=\"lead\"><img class=\"img-fit\" src='bildupload/$bildlink' width='80%' height='300px'></a>
                         </div>
                 
                     </div>

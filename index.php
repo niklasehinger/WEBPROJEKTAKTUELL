@@ -99,7 +99,7 @@ if ($_GET["seite"]=="nichtvergeben"){
 
             echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
                         <div class=\"col-md-9 order-md-2\" style='background-color:transparent'>
-                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px' alt='Bildupload'></a>
+                            <a href='bildupload/$bildlink' class=\"lead\"><img class=\"img-fit\" src='bildupload/$bildlink' width='80%' height='300px'></a>
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
                         <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">   

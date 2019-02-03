@@ -3,7 +3,6 @@ body {
     background-color: white;
 }
 
-
 @media screen and (min-width: 576px) {
     .marginmedia {
         margin: 10%;
@@ -19,15 +18,16 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-    .registrieren{
-        padding-left: 0!important;
-        padding-right: 0!important;
+    .registrieren {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
+
 @media only screen and (min-width: 1000px) {
-    .registrieren{
-        padding-left: 150!important;
-        padding-right: 150!important;
+    .registrieren {
+        padding-left: 150 !important;
+        padding-right: 150 !important;
     }
 }
 
@@ -43,6 +43,7 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
+
 .registerbutton:hover {
     border-radius: 5px;
     padding: 5px;
@@ -52,6 +53,7 @@ body {
     text-decoration: none;
     color: #0068ff;
 }
+
 .loginbutton {
     background-color: transparent;
     padding: 7px;
@@ -60,6 +62,7 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
+
 .loginbutton:hover {
     border-radius: 5px;
     background-color: #0068ff;
@@ -75,6 +78,7 @@ body {
     padding-left: 220px;
     padding-right: 220px;
 }
+
 .form-rounded {
     border-radius: 1rem;
 }
@@ -97,19 +101,22 @@ body {
     height: 50%;
     margin-bottom: 30px;
 }
+
 .postings-margin {
     margin-left: 10px;
     margin-right: -10px;
 }
+
 .postings-padding {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .img-fit {
     object-fit: cover;
 }
 
 .swal2-confirm {
-    background-color: red!important;
+    background-color: #0068ff !important;
 }
