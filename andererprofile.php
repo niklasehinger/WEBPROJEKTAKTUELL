@@ -47,7 +47,7 @@ while ($row = $statement->fetch()) {
                         }
 
                     } else{ echo "<div class=\"profilbild\"> </div>";
-                        echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
+                        echo "<a href='profilbild/$bildlink'><img src='profilbild/$bildlink' class='rounded-circle img-fit' width=120 height=120 > </a><br><br>";
                         echo "</div>";
                         echo "<div class=\"profil\">";
                         echo "<h4>";
@@ -69,12 +69,12 @@ while ($row = $statement->fetch()) {
                     ?>
             </div>
         </div>
-        <div class="col-sm-8" style="padding: 40px;">
+        <div class="col-sm-8">
             <?php
             $statement = $pdo->prepare("SELECT * FROM users WHERE username =:usernameandere");
             $statement->execute(array("usernameandere" => "$usernameandere"));
             while ($row = $statement->fetch()) {
-                echo "<h4>Beiträge von " . $row['vorname'] . ":</h4><br/>";
+                echo "<h4 class=\"row featurette postings-margin\" >Beiträge von " . $row['vorname'] . ":</h4><br/>";
             }
             ?>
 
@@ -90,25 +90,19 @@ while ($row = $statement->fetch()) {
                 if ($row['content'] == NULL) {
 
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
-                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
+                        <div class=\"col-md-12 order-md-2\" style='background-color:transparent'>
+                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px'></a>
                         </div>
-                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
-                          
-                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
-                    </div>
+                
                     </div>
                 <br><br>
             ";
                 } else {
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
-                       <div class=\"col-md-9 order-md-2\">                                                                                                         
+                       <div class=\"col-md-12 order-md-2\">                                                                                                         
                             <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
                        </div>                                                                                                                                                                           
-                   <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
-                                                                                                                                                                                                  
-                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
-                   </div>                                                                                                                                                                               
+                                                                                                                                                                                 
                    </div>                                                                                                                                                                               
                <br><br>                                                                                                                                                                                 
             ";

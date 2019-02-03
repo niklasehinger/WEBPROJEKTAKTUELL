@@ -130,9 +130,9 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
 
              </div>
          </div>
-        <div class="col-sm-8" style="padding: 40px;">
-            <h4> Meine Beiträge:</h4>
-            <br>
+        <div class="col-sm-8">
+                <h4 class="row featurette postings-margin">Meine Beiträge:</h4><br>
+
             <?php
 
             $pdo = new PDO($dsn, $dbuser, $dbpass, $option);
@@ -148,27 +148,24 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                 if ($row['content'] == NULL) {
 
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
-                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' alt='Bildupload'></a>
+                        <div class=\"col-md-12 order-md-2\" style='background-color:transparent'>
+                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px' alt='Bildupload' style=\"margin-top: 20px\"></a>
                             <div>
                                 
-                                    <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten \" >
+                                    <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten\" style=\"margin-top: 20px\" >
                                      <a href='phpfiles/do_delete.php?id=$post_id'>Delete</a>
                                      </button>
                                
                             </div>
                         </div>
+                                                 
                         
-                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
-                          
-                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
-                    </div>
                     </div>
                 <br><br>
             ";
                 } else {
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\"  style='background-color:whitesmoke'>                                                                                                               
-                       <div class=\"col-md-9 order-md-2\">                                                                                                         
+                       <div class=\"col-md-12 order-md-2\">                                                                                                         
                             <p class=\"lead\" style='padding: 25px'>" . $row['content'] . "</p>
                             <div>                               
                                     <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten\" >
@@ -176,11 +173,8 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                                      </button>                               
                             </div>
                        </div>     
-                                                                                                                                                                                             
-                   <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
-                                                                                                                                                                                                  
-                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
-                   </div>                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                            
                    </div>                                                                                                                                                                               
                <br><br>                                                                                                                                                                                 
             ";

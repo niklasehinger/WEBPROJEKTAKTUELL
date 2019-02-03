@@ -98,14 +98,14 @@ if ($_GET["seite"]=="nichtvergeben"){
         if ($row['content'] == NULL) {
 
             echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
-                        <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke; width: 50%'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='50%'></a>
+                        <div class=\"col-md-9 order-md-2\" style='background-color:transparent'>
+                            <a href='bildupload/$bildlink' class=\"lead img-fit\"><img src='bildupload/$bildlink' height='300px' alt='Bildupload'></a>
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
                         <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">   
                             <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"Bildupload\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
                         </a>    
-                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
+                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['vorname'] . "</h5>
                     </div>
                     </div>
                 <br><br>
@@ -119,7 +119,7 @@ if ($_GET["seite"]=="nichtvergeben"){
                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">                                                                                                            
                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"Bildupload\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
                        </a>                                                                                                                                                                             
-                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
+                       <h5 class=\"bold \" style='padding-left: 10px'>" . $row['vorname'] . "</h5>                                                                                                       
                    </div>                                                                                                                                                                               
                    </div>                                                                                                                                                                               
                <br><br>                                                                                                                                                                                 

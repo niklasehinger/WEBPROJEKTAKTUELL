@@ -99,7 +99,7 @@ body {
 }
 .postings-margin {
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: -10px;
 }
 .postings-padding {
     display: flex;
