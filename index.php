@@ -103,7 +103,7 @@ if ($_GET["seite"]=="nichtvergeben"){
                         </div>
                     <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px;'>
                         <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">   
-                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
+                            <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"Bildupload\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">
                         </a>    
                         <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>
                     </div>
@@ -117,7 +117,7 @@ if ($_GET["seite"]=="nichtvergeben"){
                        </div>                                                                                                                                                                           
                    <div class=\"col-md-3 order-md-1 text-center postings-padding\" style='background-color: transparent; padding: 7px'>                                                                       
                        <a href=\"andererprofile.php?usernameandere=" . $row['author'] . "\">                                                                                                            
-                           <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"100x100\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
+                           <img class=\"rounded-circle img-fit\" data-src=\"holder.js/500x500/auto\" alt=\"Bildupload\" src='profilbild/$pb' data-holder-rendered=\"true\" style=\"width: 70px; height: 70px;\">   
                        </a>                                                                                                                                                                             
                        <h5 class=\"bold \" style='padding-left: 10px'>" . $row['author'] . "</h5>                                                                                                       
                    </div>                                                                                                                                                                               

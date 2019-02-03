@@ -23,7 +23,7 @@ session_start();
     <style>
 
         body {
-            background-image: url(pictures/BG.jpg);
+            background-image: url(pictures/BG.jpg) ;
         }
 
         .jumbotron {

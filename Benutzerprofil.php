@@ -44,7 +44,7 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
 
                         if ($row['pb']==NULL){
                             echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
+                            echo "<img src='profilbild/root.jpg' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
                             echo "</div>";
                             echo "<div class=\"profil\">";
                             echo $row['vorname'] . " " . $row['nachname'] . "<br><br>";
@@ -52,7 +52,7 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
                             echo "<h6> Email: </h6>" .$row['email'] . "<br/><br/>";
 
                         } else{ echo "<div class=\"profilbild\"> </div>";
-                            echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width=\"120\" height=\"120\" ><br><br>";
+                            echo "<img src='profilbild/$bildlink' class='rounded-circle img-fit' width='120' height='120' alt='Profilbild'><br><br>";
                             echo "</div>";
                             echo "<div class=\"profil\">";
                             echo "<h4>";
@@ -149,7 +149,7 @@ if ($_GET["seite"]=="uploadfehlgeschlagen"){
 
                     echo "<div class=\"row featurette form-rounded text-center postings-margin\" style='background-color:whitesmoke'>
                         <div class=\"col-md-9 order-md-2\" style='background-color:whitesmoke'>
-                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' height=''></a>
+                            <a href='bildupload/$bildlink' class=\"lead float-left img-fit\"><img src='bildupload/$bildlink' width='40%' alt='Bildupload'></a>
                             <div>
                                 
                                     <button type=\"submit\" name=\"submit\" class=\"btn btn-default bildposten \" >

@@ -151,9 +151,9 @@ if (!isset($_SESSION['username'])) {
                     <?php
                     $file_pointer = 'profilbild/' . $username ;
                     if (file_exists($file_pointer)) {
-                        echo "<img src=\"$file_pointer\" class='rounded-circle img-fit' width=\"39\" height=\"39\">";
+                        echo "<img src=\"$file_pointer\" class='rounded-circle img-fit' width=\"39\" height=\"39\"  alt=\"Profilbild\">";
                     } else {
-                        echo "<img src=\"profilbild/root.jpg\" class='rounded-circle img-fit' width=\"39\" height=\"39\" alt=\"\">";
+                        echo "<img src=\"profilbild/root.jpg\" class='rounded-circle img-fit' width=\"39\" height=\"39\" alt=\"Profilbild\">";
                     }
                     ?>
                 </a>
